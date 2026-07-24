@@ -28,9 +28,19 @@ const content = {
     disclaimer: "受监管服务由具备相应资质的持牌伙伴执行，并以正式协议及适用范围为准。UnityPay 不提供投资建议，不保证资产表现。",
     devOverline: "开发者优先", devTitle: "开发者优先 · 一个 API，多种轨道", devText: "以清晰、稳定且可审计的接口，连接收单、路由与结算。",
     devs: [["版本化 REST API", "清晰、版本化的 REST API，配套沙箱环境与集成支持。"], ["可靠 Webhook", "支持幂等投递的 Webhook，确保事件可靠送达。"], ["加密数据传输", "加密传输合规必要信息，遵循数据保护要求。"]] as Pair[],
-    ctaOverline: "开启对话", ctaTitle: "与我们的团队聊聊您的跨境收付场景", ctaText: "我们会评估给出最适合的收单与结算组合建议接入方案。",
-    docs: "阅读 API 文档", sandbox: "进入沙箱环境", team: "联系合规团队", footer: "解耦式收单与合规结算基础设施",
-    legal: "本网站仅提供一般信息，不构成银行、投资、证券或法律建议。牌照登记、合作伙伴覆盖与产品能力不等同于政府背书或服务可用性保证。",
+    positioningOverline: "基于 UNITYPAY", positioningTitle: "做出海企业信得过的跨境支付伙伴",
+    positioningText: "UnityPay 是支付技术与软件服务平台，提供产品搭建、流程编排、路由指令、状态展示及对接支持；支付、汇款、兑换及数字资产相关受监管服务，由具备相应资质的合作伙伴独立提供。我们由一支长期深耕跨境支付、贸易合规与金融科技的团队组成，致力于用透明、可验证的方式连接商户、收单网络与持牌金融机构。",
+    ctaOverline: "拓展全球业务", ctaTitle: "让跨境收付先经过一次合规评估",
+    ctaText: "与我们的团队沟通您的收单市场、交易场景与结算需求，我们会评估可用通道、合规合作伙伴覆盖及上线路径。",
+    contact: "联系团队",
+    contactEmail: "邮箱", contactEmailValue: "hello@unitypay.com",
+    contactLocation: "地点", contactLocationValue: "香港 · 新加坡 · 加拿大",
+    contactHours: "工作时间", contactHoursValue: "周一至周五 09:00–18:00（香港时间）",
+    footerBrand: "UnityPay", footerDesc: "全球支付、结算与合规技术平台。",
+    footerColTech: "技术", footerColCompany: "公司",
+    footerLinkPay: "支付与收款", footerLinkStable: "稳定币结算", footerLinkApi: "API 与系统集成",
+    footerLinkContact: "联系我们",
+    footerCopyright: "© 2026 UNITYPAY. ALL RIGHTS RESERVED.",
   },
   en: {
     nav: ["Network", "Capabilities", "How it works", "Compliance", "Developers"], contact: "Talk to us",
@@ -48,7 +58,17 @@ const content = {
     complianceOverline: "COMPLIANCE BY DESIGN", complianceTitle: "Boundaries built into the product", complianceText: "A clear, auditable definition of what we do, what we do not do and who is responsible at every stage.",
     boundaries: [["MSB registration ≠ full financial licence", "FINTRAC registration is an AML prerequisite—not government endorsement or a banking / securities licence."], ["Clear red lines", "No investment advice, yield promises, custody of client assets or deposit-taking."], ["End-to-end framework", "FATF Travel Rule, sanctions screening, KYC / KYB, transaction monitoring and applicable 24-hour reporting."]] as Pair[], disclaimer: "Regulated services are performed by appropriately licensed partners and remain subject to formal agreements and permitted scope. UnityPay provides no investment advice or asset performance guarantee.",
     devOverline: "DEVELOPER FIRST", devTitle: "One API, multiple rails", devText: "Clear, reliable and auditable interfaces for collection, routing and settlement.", devs: [["Versioned REST API", "Clear, versioned REST APIs with sandbox access and integration support."], ["Reliable webhooks", "Idempotent webhook delivery ensures critical events arrive reliably."], ["Encrypted data transfer", "Required compliance information is encrypted in line with data protection requirements."]] as Pair[],
-    ctaOverline: "START A CONVERSATION", ctaTitle: "Let’s discuss your cross-border payment flows", ctaText: "We will assess your needs and recommend the right collection and settlement integration.", docs: "Read API docs", sandbox: "Enter sandbox", team: "Contact compliance", footer: "Decoupled acquiring and compliant settlement infrastructure", legal: "General information only. Nothing constitutes banking, investment, securities or legal advice. Registrations, partner coverage and capabilities do not imply endorsement or guaranteed availability.",
+    ctaOverline: "GO GLOBAL", ctaTitle: "Let your cross-border flows go through compliance first",
+    ctaText: "Talk to our team about your acquiring markets, transaction scenarios and settlement needs. We will assess available rails, compliant partner coverage and the right onboarding path.",
+    contact: "Contact our team",
+    contactEmail: "Email", contactEmailValue: "hello@unitypay.com",
+    contactLocation: "Locations", contactLocationValue: "Hong Kong · Singapore · Canada",
+    contactHours: "Hours", contactHoursValue: "Mon–Fri 09:00–18:00 (HKT)",
+    footerBrand: "UnityPay", footerDesc: "Global payments, settlement and compliance infrastructure.",
+    footerColTech: "Technology", footerColCompany: "Company",
+    footerLinkPay: "Payments & acquiring", footerLinkStable: "Stablecoin settlement", footerLinkApi: "API & integrations",
+    footerLinkContact: "Contact us",
+    footerCopyright: "© 2026 UNITYPAY. ALL RIGHTS RESERVED.",
   },
 } as const;
 
@@ -104,7 +124,22 @@ export default function Home() {
     <section className="section flow" id="flow"><div className="flow-heading"><Overline>{t.flowOverline}</Overline><h2>{t.flowTitle}<br/><em>{t.flowAccent}</em></h2></div><div className="flow-track">{t.steps.map(([title,text],i)=><article key={title}><div className="step-line"><i/></div><small>{["ACQUIRING","VA BUFFER","ROUTING","SETTLEMENT"][i]}</small><h3>{title}</h3><p>{text}</p>{i<3&&<span className="next">→</span>}</article>)}</div></section>
     <section className="section compliance" id="compliance"><div className="compliance-heading"><Overline>{t.complianceOverline}</Overline><h2>{t.complianceTitle}</h2><p>{t.complianceText}</p></div><div className="boundary-grid">{t.boundaries.map(([title,text],i)=><article key={title}><div className="check">✓</div><h3>{title}</h3><p>{text}</p></article>)}</div><p className="disclaimer">{t.disclaimer}</p></section>
     <section className="section developers" id="developers"><div className="dev-copy"><Overline>{t.devOverline}</Overline><h2>{t.devTitle}</h2><p>{t.devText}</p><div className="dev-list">{t.devs.map(([title,text],i)=><article key={title}><span>{["{ }","↻","⌁"][i]}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div><div className="code-window"><div><i/><i/><i/><span>API REQUEST</span></div><pre><b>POST</b> /v1/settlement_routes{`\n\n`}{`{\n  "source": "USD",\n  "destination": "USDC",\n  "amount": 25000\n}`}{`\n\n`}<em>→ 200 OK  settlement route created</em></pre></div></section>
-    <section className="cta" id="contact"><Overline>{t.ctaOverline}</Overline><h2>{t.ctaTitle}</h2><p>{t.ctaText}</p><div><a className="button light" href="#developers">{t.docs}<Arrow/></a><a className="button outline" href="mailto:hello@unitypay.com?subject=Sandbox%20Access">{t.sandbox}<Arrow/></a><a className="button ghost" href="mailto:compliance@unitypay.com">{t.team}<Arrow/></a></div></section>
-    <footer><div className="footer-main"><a className="brand" href="#top"><Image src="/logo.jpg" alt="UnityPay" width={130} height={48}/></a><p>{t.footer}</p><a href="mailto:hello@unitypay.com">hello@unitypay.com <Arrow/></a></div><div className="footer-legal"><p>{t.legal}</p><span>© 2026 UNITYPAY. ALL RIGHTS RESERVED.</span></div></footer>
+<section className="section cta-section" id="contact">
+  <Overline>{t.ctaOverline}</Overline><h2>{t.ctaTitle}</h2><p>{t.ctaText}</p>
+  <a className="button light" href="mailto:hello@unitypay.com">{t.contact}<Arrow/></a>
+  <div className="cta-info-row">
+    <a className="cta-info" href="mailto:hello@unitypay.com"><i aria-hidden="true">✉</i><div><small>{t.contactEmail}</small><b>{t.contactEmailValue}</b></div></a>
+    <div className="cta-info"><i aria-hidden="true">⌖</i><div><small>{t.contactLocation}</small><b>{t.contactLocationValue}</b></div></div>
+    <div className="cta-info"><i aria-hidden="true">⏱</i><div><small>{t.contactHours}</small><b>{t.contactHoursValue}</b></div></div>
+  </div>
+</section>
+<footer>
+  <div className="footer-cols">
+    <div className="footer-brand"><a className="brand" href="#top"><Image src="/logo.jpg" alt="UnityPay" width={130} height={48}/><span>{t.footerBrand}</span></a><p>{t.footerDesc}</p></div>
+    <div className="footer-col"><h4>{t.footerColTech}</h4><nav><a href="#network">{t.footerLinkPay}</a><a href="#flow">{t.footerLinkStable}</a><a href="#developers">{t.footerLinkApi}</a></nav></div>
+    <div className="footer-col"><h4>{t.footerColCompany}</h4><nav><a href="#contact">{t.footerLinkContact}</a></nav></div>
+  </div>
+  <div className="footer-bottom"><span>{t.footerCopyright}</span></div>
+</footer>
   </main>;
 }
