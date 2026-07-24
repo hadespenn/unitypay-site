@@ -8,7 +8,7 @@ type Pair = readonly [string, string];
 
 const content = {
   zh: {
-    nav: ["全球网络", "核心能力", "运作方式", "合规边界", "开发者"], contact: "联系团队",
+    nav: ["全球网络", "核心能力", "运作方式", "合规边界", "开发者"],
     eyebrow: "全球支付基础设施", hero: "为出海企业打造合规", heroAccent: "跨境支付基础设施",
     heroText: "为跨境企业提供全球法币收单、合规路由与稳定币结算的一体化方案。法币流与加密流物理隔离，保护收单通道与牌照边界。",
     consult: "咨询接入方案", learn: "了解运作方式",
@@ -43,7 +43,7 @@ const content = {
     footerCopyright: "© 2026 UNITYPAY. ALL RIGHTS RESERVED.",
   },
   en: {
-    nav: ["Network", "Capabilities", "How it works", "Compliance", "Developers"], contact: "Talk to us",
+    nav: ["Network", "Capabilities", "How it works", "Compliance", "Developers"],
     eyebrow: "GLOBAL PAYMENT INFRASTRUCTURE", hero: "Compliant cross-border payment", heroAccent: "infrastructure for global businesses",
     heroText: "An integrated solution for fiat acquiring, compliant routing and stablecoin settlement. Physical separation between fiat and crypto flows protects acquiring channels and licensing boundaries.",
     consult: "Discuss integration", learn: "How it works",
