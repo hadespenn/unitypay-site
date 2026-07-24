@@ -1,9 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-type Locale = "zh" | "en";
+type Locale = "zh" | "en" | "zh-TW" | "ru" | "de" | "es" | "pt" | "ja" | "ko";
+
+const localeInfo: { code: Locale; name: string; short: string }[] = [
+  { code: "en", name: "English", short: "EN" },
+  { code: "zh", name: "简体中文", short: "中文" },
+  { code: "zh-TW", name: "繁體中文", short: "繁中" },
+  { code: "ru", name: "Русский", short: "RU" },
+  { code: "de", name: "Deutsch", short: "DE" },
+  { code: "es", name: "Español", short: "ES" },
+  { code: "pt", name: "Português", short: "PT" },
+  { code: "ja", name: "日本語", short: "JP" },
+  { code: "ko", name: "한국어", short: "KR" },
+];
 type Pair = readonly [string, string];
 
 const content = {
@@ -36,7 +48,7 @@ const content = {
     ctaOverline: "拓展全球业务", ctaTitle: "让跨境收付先经过一次合规评估",
     ctaGuide: "无论您是跨境电商、游戏出海、贸易服务商还是 Web3 项目方，我们都能提供匹配的收单与结算方案。",
     ctaText: "与我们的团队沟通您的收单市场、交易场景与结算需求，我们会评估可用通道、合规合作伙伴覆盖及上线路径。",
-    contact: "获取定制接入方案",
+    contact: "联系团队",
     contactEmail: "邮箱", contactEmailValue: "hello@unitypay.com",
     contactLocation: "地点", contactLocationValue: "香港 · 新加坡 · 上海",
     contactHours: "工作时间", contactHoursValue: "周一至周五 09:00–18:00（香港时间）",
@@ -68,7 +80,7 @@ const content = {
     ctaOverline: "GO GLOBAL", ctaTitle: "Let your cross-border flows go through compliance first",
     ctaGuide: "Whether you're an e-commerce merchant, game publisher, trade service provider or Web3 project, we can provide a matching acquiring and settlement solution.",
     ctaText: "Talk to our team about your acquiring markets, transaction scenarios and settlement needs. We will assess available rails, compliant partner coverage and the right onboarding path.",
-    contact: "Get a custom integration plan",
+    contact: "Contact our team",
     contactEmail: "Email", contactEmailValue: "hello@unitypay.com",
     contactLocation: "Locations", contactLocationValue: "Hong Kong · Singapore · Shanghai",
     contactHours: "Hours", contactHoursValue: "Mon–Fri 09:00–18:00 (HKT)",
@@ -78,7 +90,47 @@ const content = {
     footerLinkContact: "Contact us",
     footerCopyright: "© 2026 UNITYPAY. ALL RIGHTS RESERVED.",
   },
-} as const;
+  "zh-TW": {
+    nav: ["全球網路", "核心能力", "運作方式", "合規邊界", "開發者"],
+    eyebrow: "全球支付基礎設施", hero: "為出海企業打造合規", heroAccent: "跨境支付基礎設施",
+    heroText: "為跨境企業提供全球法幣收單、合規路由與穩定幣結算的一體化方案。法幣流與加密流物理隔離，確保收單通道與牌照邊界清晰合規。",
+    consult: "諮詢接入方案", learn: "了解運作方式",
+    stats: [["120+", "可覆蓋市場"], ["40+", "結算幣種支持"], ["99.99%", "基礎設施可用性"], ["24/7", "交易與風險監控"]] as Pair[],
+    statusLabel: "結算狀態", statusValue: "已完成", poolLabel: "終端資金池", poolValue: "$ 84,290.00",
+    mapOverline: "全球覆蓋", mapTitle: "合規網路 · 覆蓋主要金融樞紐",
+    mapText: "從北美、歐洲到亞洲，以清晰的牌照邊界和經審核的合作夥伴網路連接跨境收付。",
+    mapNote: "服務及可用性因司法轄區、客戶資格和合作夥伴覆蓋而異，由當地持牌機構獨立執行。",
+    regions: [["加拿大", "MSB 登記，FINTRAC 合規框架"], ["美國", "跨境支付通道與 FATF 互認"], ["英國", "制裁篩查與全球合規標準"], ["香港", "MSO 牌照，法幣服務邊界清晰"], ["新加坡", "亞洲樞紐，MPC 技術架構"], ["開曼 / BVI", "獨立科技公司架構，風險隔離"]] as Pair[],
+    trustOverline: "為什麼選擇 UnityPay", trustTitle: "三重信任錨點", trustText: "合規貫穿從牌照申請、架構設計到資產處理的每一個環節，是產品設計的一部分，而非事後補充。",
+    trusts: [["牌照合規，邊界清晰", "依托加拿大 MSB 與香港 MSO 牌照，嚴格限定法幣服務範圍，不觸碰虛擬資產託管與投資建議。"], ["解耦架構，風險隔離", "法幣收單、資金停靠、兌換路由三段式設計，切斷前端收單與後端加密資產的直接法律聯繫。"], ["法幣與加密隔離，不持客戶資產", "平台僅提供支付路由與軟件技術服務，客戶資產由持牌 OTC 機構獨立處理。"]] as Pair[],
+    flowOverline: "運作方式", flowTitle: "解耦式收單與結算", flowAccent: "四段清晰流程",
+    steps: [["法幣收單", "基於真實貿易場景，通過合規通道完成信用卡與法幣收款，使用正常商業 MCC 代碼。"], ["資金停靠（VA 緩衝）", "法幣資金清算至專屬虛擬帳戶（VA），實現法幣流與加密流物理隔離與時間緩衝。"], ["合規路由", "客戶選擇法幣結算或穩定幣兌換，MSO 僅處理法幣流轉，兌換由持牌 OTC 機構執行。"], ["結算與錢包生態", "穩定幣下發至客戶自託管錢包，支持鏈上理財與合規出金。"]] as Pair[],
+    stepLabels: ["收單", "資金停靠", "合規路由", "結算"],
+    stepValues: ["資金安全入帳，合規通道保障", "虛擬帳戶作為中轉站，實現資金與加密資產的時空隔離", "持牌機構執行兌換，合規責任清晰", "穩定幣直達自託管錢包，資產由用戶自主控制"],
+    fiatFlowLabel: "法幣流", cryptoFlowLabel: "加密流", isolationLabel: "物理隔離",
+    complianceOverline: "合規源於設計", complianceTitle: "合規邊界，寫進產品設計",
+    complianceText: "明確我們能做什麼、不能做什麼，讓每個參與方的職責與風險邊界清晰可審計。",
+    boundaries: [["MSB 登記 ≠ 綜合金融牌照", "FINTRAC 登記是反洗錢合規前提，不代表官方認可、政府背書，也不代表可從事存款類金融業務或銀行/證券經營許可。"], ["不觸碰紅線", "不提供投資建議、不承諾收益、不託管客戶資產、不吸收存款、不發行證券型代幣、不參與交易撮合。"], ["監管框架全覆蓋", "涵蓋 FATF Travel Rule、制裁篩查、KYC / KYB、交易監控與 24 小時報告義務。"], ["MPC 非託管架構", "基於 MPC 非託管架構，平台始終無法單方面動用客戶資產。"]] as Pair[],
+    disclaimer: "本平台僅提供支付路由與軟件技術服務，不提供投資建議，不保證資產表現。所有虛擬資產兌換及相關金融服務均由具備相應資質的持牌機構獨立提供，並以正式協議及適用範圍為準。服務及可用性因司法轄區、客戶資格和合作夥伴覆蓋而異。",
+    devOverline: "開發者優先", devTitle: "開發者優先 · 一個 API，多種軌道", devText: "以清晰、穩定且可審計的接口，連接收單、路由與結算。",
+    devs: [["版本化 REST API", "清晰、版本化的 REST API，配套沙箱環境與集成支持。"], ["可靠 Webhook", "支持冪等投遞的 Webhook，確保事件可靠送達。"], ["加密數據傳輸", "加密傳輸合規必要信息，遵循數據保護要求。"]] as Pair[],
+    positioningOverline: "基於 UNITYPAY", positioningTitle: "做出海企業信得過的跨境支付夥伴",
+    positioningText: "UnityPay 是支付技術與軟件服務平台，提供產品搭建、流程編排、路由指令、狀態展示及對接支持；支付、匯款、兌換及數字資產相關受監管服務，由具備相應資質的合作夥伴獨立提供。我們由一支長期深耕跨境支付、貿易合規與金融科技的團隊組成，致力於用透明、可驗證的方式連接商戶、收單網路與持牌金融機構。",
+    ctaOverline: "拓展全球業務", ctaTitle: "讓跨境收付先經過一次合規評估",
+    ctaGuide: "無論您是跨境電商、遊戲出海、貿易服務商還是 Web3 項目方，我們都能提供匹配的收單與結算方案。",
+    ctaText: "與我們的團隊溝通您的收單市場、交易場景與結算需求，我們會評估可用通道、合規合作夥伴覆蓋及上線路徑。",
+    contact: "聯絡團隊",
+    contactEmail: "郵箱", contactEmailValue: "hello@unitypay.com",
+    contactLocation: "地點", contactLocationValue: "香港 · 新加坡 · 上海",
+    contactHours: "工作時間", contactHoursValue: "週一至週五 09:00–18:00（香港時間）",
+    footerBrand: "UnityPay", footerDesc: "全球支付、結算與合規技術平台。",
+    footerColTech: "技術", footerColCompany: "公司",
+    footerLinkPay: "支付與收款", footerLinkStable: "穩定幣結算", footerLinkApi: "API 與系統集成",
+    footerLinkContact: "聯絡我們",
+    footerCopyright: "© 2026 UNITYPAY. ALL RIGHTS RESERVED.",
+  },
+};
+const getContent = (locale: Locale) => (content as Record<string, typeof content.en>)[locale] ?? content.en;
 
 const anchors = ["#network", "#capabilities", "#flow", "#compliance", "#developers"];
 const Arrow = () => <span className="arrow" aria-hidden="true">↗</span>;
@@ -121,11 +173,39 @@ function HeroOrbit({ statusLabel, statusValue, poolLabel, poolValue }: { statusL
   );
 }
 
+function LanguageDropdown({ current, onChange, open, setOpen }: { current: Locale; onChange: (c: Locale) => void; open: boolean; setOpen: (v: boolean) => void }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const onClick = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
+    const onEsc = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("mousedown", onClick);
+    document.addEventListener("keydown", onEsc);
+    return () => { document.removeEventListener("mousedown", onClick); document.removeEventListener("keydown", onEsc); };
+  }, [open, setOpen]);
+  const currentName = localeInfo.find(l => l.code === current)?.name ?? "English";
+  return <div className={`lang-dropdown${open ? " open" : ""}`} ref={ref}>
+    <button className="lang-trigger" onClick={() => setOpen(!open)} aria-expanded={open} aria-haspopup="listbox">
+      <span className="lang-globe" aria-hidden="true">◐</span>
+      <span className="lang-current">{currentName}</span>
+      <span className="lang-caret" aria-hidden="true">▾</span>
+    </button>
+    {open && <ul className="lang-menu" role="listbox">
+      {localeInfo.map(l => <li key={l.code} role="option" aria-selected={l.code === current}>
+        <button className={`lang-option${l.code === current ? " active" : ""}`} onClick={() => onChange(l.code)}>
+          <span className="lang-name">{l.name}</span>
+          {l.code === current && <span className="lang-check" aria-hidden="true">✓</span>}
+        </button>
+      </li>)}
+    </ul>}
+  </div>;
+}
+
 export default function Home() {
-  const [locale, setLocale] = useState<Locale>("zh"); const [menu, setMenu] = useState(false); const t = content[locale];
-  useEffect(() => { document.documentElement.lang = locale === "zh" ? "zh-CN" : "en"; }, [locale]);
+  const [locale, setLocale] = useState<Locale>("en"); const [menu, setMenu] = useState(false); const [langOpen, setLangOpen] = useState(false); const t = getContent(locale);
+  useEffect(() => { const map: Record<Locale, string> = { "zh": "zh-CN", "en": "en", "zh-TW": "zh-TW", "ru": "ru", "de": "de", "es": "es", "pt": "pt", "ja": "ja", "ko": "ko" }; document.documentElement.lang = map[locale] ?? "en"; }, [locale]);
   return <main>
-    <header><a className="brand" href="#top"><Image src="/logo.jpg" alt="UnityPay" width={130} height={48} priority/></a><nav className={menu ? "open" : ""}>{t.nav.map((x,i)=><a href={anchors[i]} key={x} onClick={()=>setMenu(false)}>{x}</a>)}</nav><div className="header-actions"><button className="locale" onClick={()=>setLocale(locale === "zh" ? "en" : "zh")}>{locale === "zh" ? "EN" : "中文"}</button><a className="header-contact" href="#contact">{t.contact}<Arrow/></a><button className="menu-button" aria-expanded={menu} aria-label="Toggle menu" onClick={()=>setMenu(!menu)}><i/><i/></button></div></header>
+    <header><a className="brand" href="#top"><Image src="/logo.jpg" alt="UnityPay" width={130} height={48} priority/></a><nav className={menu ? "open" : ""}>{t.nav.map((x,i)=><a href={anchors[i]} key={x} onClick={()=>setMenu(false)}>{x}</a>)}</nav><div className="header-actions"><LanguageDropdown current={locale} onChange={(c)=>{setLocale(c); setLangOpen(false);}} open={langOpen} setOpen={setLangOpen}/><a className="header-contact" href="#contact">{t.contact}<Arrow/></a><button className="menu-button" aria-expanded={menu} aria-label="Toggle menu" onClick={()=>setMenu(!menu)}><i/><i/></button></div></header>
     <section className="hero" id="top"><div className="hero-copy"><Overline>{t.eyebrow}</Overline><h1>{t.hero}<br/><em>{t.heroAccent}</em></h1><p>{t.heroText}</p><div className="hero-actions"><a className="button light" href="#contact">{t.consult}<Arrow/></a><a className="text-link" href="#flow">{t.learn}<span>↓</span></a></div></div><HeroOrbit statusLabel={t.statusLabel} statusValue={t.statusValue} poolLabel={t.poolLabel} poolValue={t.poolValue}/><div className="hero-stats">{t.stats.map(([num,label])=><div key={label}><b>{num}</b><small>{label}</small></div>)}</div></section>
     <section className="section network" id="network"><div className="section-heading"><div><Overline>{t.mapOverline}</Overline><h2>{t.mapTitle}</h2></div><p>{t.mapText}</p></div><WorldMap regions={t.regions}/><div className="region-grid">{t.regions.map(([name,text],i)=><article key={name}><div><h3>{name}</h3><p>{text}</p></div></article>)}</div><p className="map-note">{t.mapNote}</p></section>
     <section className="section trust" id="capabilities"><div className="section-heading"><div><Overline>{t.trustOverline}</Overline><h2>{t.trustTitle}</h2></div><p>{t.trustText}</p></div><div className="trust-grid">{t.trusts.map(([title,text],i)=><article key={title}><div className="trust-icon">{["◇","⇄","⌁"][i]}</div><h3>{title}</h3><p>{text}</p></article>)}</div></section>
