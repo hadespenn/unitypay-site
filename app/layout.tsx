@@ -15,9 +15,9 @@ const notoSansSC = Noto_Sans_SC({
 });
 
 export const metadata: Metadata = {
-  title: "UnityPay | 持牌解耦式跨境收单与合规出金",
+  title: "UnityPay | Licensed Cross-Border Acquiring & Compliant Payout",
   description:
-    "UnityPay 持有加拿大 MSB 与香港 MSO 牌照，为跨境商户提供法币收单与稳定币结算服务。",
+    "UnityPay is licensed under Canadian MSB and Hong Kong MSO frameworks, providing fiat acquiring and stablecoin settlement for cross-border merchants.",
   icons: { icon: "/logo.jpg" },
 };
 
