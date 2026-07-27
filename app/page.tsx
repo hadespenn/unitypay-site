@@ -111,10 +111,6 @@ interface LocaleContent {
   footerLinkCapabilities: string;
   footerLinkStable: string;
   footerLinkApi: string;
-  footerColCompliance: string;
-  footerLinkCompliance: string;
-  footerLinkSecurity: string;
-  footerLinkRisk: string;
   footerColCompany: string;
   footerLinkContact: string;
   footerColLegal: string;
@@ -368,9 +364,13 @@ export default function Home() {
         <div className="arch-flow">
           {t.archSteps.map((step, i) => (
             <div className="arch-step" key={step.num}>
-              <span className="arch-step-num">{step.num}</span>
-              <small>{step.label}</small>
-              <h4>{step.title}</h4>
+              <div className="card-head">
+                <span className="arch-step-num">{step.num}</span>
+                <div>
+                  <small>{step.label}</small>
+                  <h4>{step.title}</h4>
+                </div>
+              </div>
               <p>{step.desc}</p>
               {i < 3 && <span className="arch-arrow">→</span>}
             </div>
@@ -399,8 +399,10 @@ export default function Home() {
         <div className="cap-grid">
           {t.caps.map((cap) => (
             <article className="cap-card" key={cap.title}>
-              <span className="cap-icon">{cap.icon}</span>
-              <h4>{cap.title}</h4>
+              <div className="card-head">
+                <span className="cap-icon">{cap.icon}</span>
+                <h4>{cap.title}</h4>
+              </div>
               <p>{cap.desc}</p>
             </article>
           ))}
@@ -417,8 +419,10 @@ export default function Home() {
         <div className="comp-grid">
           {t.compCards.map((card) => (
             <article className="comp-card" key={card.title}>
-              <span className="comp-icon">{card.icon}</span>
-              <h4>{card.title}</h4>
+              <div className="card-head">
+                <span className="comp-icon">{card.icon}</span>
+                <h4>{card.title}</h4>
+              </div>
               <p>{card.desc}</p>
             </article>
           ))}
@@ -436,9 +440,13 @@ export default function Home() {
         <div className="mpc-grid">
           {t.mpcShards.map((shard) => (
             <article className="mpc-card" key={shard.title}>
-              <span className="mpc-emoji">{shard.icon}</span>
-              <small className="mpc-label">{shard.label}</small>
-              <h4>{shard.title}</h4>
+              <div className="card-head">
+                <span className="mpc-emoji">{shard.icon}</span>
+                <div>
+                  <small className="mpc-label">{shard.label}</small>
+                  <h4>{shard.title}</h4>
+                </div>
+              </div>
               <p>{shard.desc}</p>
             </article>
           ))}
@@ -460,13 +468,20 @@ export default function Home() {
           {t.risks.map((r) => (
             <article className="risk-card" key={r.title}>
               <div className="risk-top">
-                <span className="risk-tag risk">{r.tag}</span>
+                <div className="risk-label">
+                  <span className="risk-icon risk">⚠</span>
+                  <small>{r.tag}</small>
+                </div>
                 <h4>{r.title}</h4>
                 <p className="risk-desc">{r.desc}</p>
               </div>
+              <div className="risk-divider"><i /></div>
               <div className="risk-bottom">
-                <span className="risk-tag strategy">{r.strategy}</span>
-                <p>{r.strategyText}</p>
+                <div className="risk-label">
+                  <span className="risk-icon strategy">✓</span>
+                  <small>{r.strategy}</small>
+                </div>
+                <p className="risk-strategy-text">{r.strategyText}</p>
               </div>
             </article>
           ))}
@@ -568,14 +583,6 @@ export default function Home() {
               <a href="#architecture">{t.footerLinkPay}</a>
               <a href="#capabilities">{t.footerLinkCapabilities}</a>
               <a href="#developers">{t.footerLinkApi}</a>
-            </nav>
-          </div>
-          <div className="footer-col">
-            <h4>{t.footerColCompliance}</h4>
-            <nav>
-              <a href="#compliance">{t.footerLinkCompliance}</a>
-              <a href="#security">{t.footerLinkSecurity}</a>
-              <a href="#risk">{t.footerLinkRisk}</a>
             </nav>
           </div>
           <div className="footer-col">
