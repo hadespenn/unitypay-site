@@ -94,6 +94,9 @@
 
   "compOverline": "合规框架",
   "compTitle": "合规融入产品设计",
+  "compTitleAccent": "而非事后补充",
+  "compSubtitle": "合规不是附加功能 — 它从牌照、架构到资产处理方式贯穿整个产品设计的每一个决策点。",
+  "compStatementLabel": "重要声明",
   "compStatement": "MSB 登记是反洗钱合规前提 — 不是综合金融牌照，不代表官方认可或政府背书，也不是从事吸存类金融业务或银行/证券经营的许可。",
   "compCards": [
     {
@@ -164,14 +167,14 @@
     },
     {
       "tag": "风险",
-      "title": "KYC 重复摩擦",
+      "title": "KYC互认与用户体验",
       "desc": "商户在多个服务层面临重复的 KYC/KYB 流程，增加流失率和运营成本。",
       "strategy": "应对",
       "strategyText": "一次核验、多场景复用的身份架构。合规数据结构化设计，经用户同意在合作机构间复用，减少重复的同时保持审计完整性。"
     },
     {
       "tag": "风险",
-      "title": "SFC 监管红线",
+      "title": "平台导流的SFC监管红线",
       "desc": "香港证监会牌照要求为虚拟资产活动设定了明确且不可逾越的红线。",
       "strategy": "应对",
       "strategyText": "严格功能分离：MSO 仅处理法币。虚拟资产兑换由 SFC 持牌（或等效资质）合作伙伴在其自身监管范围内独立执行。"
@@ -223,11 +226,15 @@
   "footerBrand": "UnityPay",
   "footerDesc": "全球支付、结算与合规基础设施 — 通过透明、可验证的架构连接商户、收单网络与持牌金融机构。",
   "footerColProduct": "产品",
+  "footerLinkSolutions": "解决方案",
+  "footerLinkCompliance": "合规与信任",
+  "footerLinkDevelopers": "开发者文档",
   "footerLinkPay": "法币收单",
   "footerLinkCapabilities": "核心能力",
   "footerLinkStable": "稳定币结算",
   "footerLinkApi": "API 与集成",
   "footerColCompany": "公司",
+  "footerLinkAbout": "关于我们",
   "footerLinkContact": "联系我们",
   "footerLinkTerms": "服务条款",
   "footerLinkPrivacy": "隐私政策",

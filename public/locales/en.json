@@ -94,6 +94,9 @@
 
   "compOverline": "COMPLIANCE FRAMEWORK",
   "compTitle": "Compliance Built Into the Product Design",
+  "compTitleAccent": "Not Bolted On After the Fact",
+  "compSubtitle": "Compliance is not an add-on — it shapes every decision from licensing scope to architecture to how client assets are handled.",
+  "compStatementLabel": "Important Notice",
   "compStatement": "MSB registration is an AML compliance prerequisite — not a comprehensive financial licence, not an official endorsement, and not an authorisation to engage in deposit-taking, banking or securities business.",
   "compCards": [
     {
@@ -223,11 +226,15 @@
   "footerBrand": "UnityPay",
   "footerDesc": "Global payments, settlement and compliance infrastructure — connecting merchants, acquiring networks and licensed financial institutions through transparent, verifiable architecture.",
   "footerColProduct": "Product",
+  "footerLinkSolutions": "Solutions",
+  "footerLinkCompliance": "Compliance & Trust",
+  "footerLinkDevelopers": "Developer Docs",
   "footerLinkPay": "Fiat Acquiring",
   "footerLinkCapabilities": "Capabilities",
   "footerLinkStable": "Stablecoin Settlement",
   "footerLinkApi": "API & Integrations",
   "footerColCompany": "Company",
+  "footerLinkAbout": "About Us",
   "footerLinkContact": "Contact Us",
   "footerLinkTerms": "Terms of Service",
   "footerLinkPrivacy": "Privacy Policy",

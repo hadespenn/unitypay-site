@@ -1,173 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import defaultLocale from "../public/locales/en.json";
-import { useEffect, useRef, useState } from "react";
-
-// ---- types ----
-type Locale = "zh" | "en" | "zh-TW" | "ru" | "de" | "es" | "pt" | "ja" | "ko";
-type Pair = readonly [string, string];
-
-interface StepItem {
-  num: string;
-  label: string;
-  title: string;
-  desc: string;
-}
-
-interface CapItem {
-  icon: string;
-  title: string;
-  desc: string;
-}
-
-interface CompCard {
-  icon: string;
-  title: string;
-  desc: string;
-}
-
-interface MpcShard {
-  icon: string;
-  label: string;
-  title: string;
-  desc: string;
-}
-
-interface RiskItem {
-  tag: string;
-  title: string;
-  desc: string;
-  strategy: string;
-  strategyText: string;
-}
-
-interface LocaleContent {
-  langName: string;
-  langShort: string;
-  nav: string[];
-  heroEyebrow: string;
-  heroTitle: string;
-  heroTitleAccent: string;
-  heroText: string;
-  heroDemo: string;
-  heroApiDocs: string;
-  heroStats: Pair[];
-  heroFlowLabel: string;
-  heroFlowStages: string[];
-  trustBarTitle: string;
-  trustCards: Pair[];
-  archOverline: string;
-  archTitle: string;
-  archSubtitle: string;
-  archSteps: StepItem[];
-  fiatFlowLabel: string;
-  cryptoFlowLabel: string;
-  isolationLabel: string;
-  capOverline: string;
-  capTitle: string;
-  capSubtitle: string;
-  caps: CapItem[];
-  compOverline: string;
-  compTitle: string;
-  compStatement: string;
-  compCards: CompCard[];
-  compDisclaimer: string;
-  mpcOverline: string;
-  mpcTitle: string;
-  mpcText: string;
-  mpcShards: MpcShard[];
-  mpcCommitment: string;
-  riskOverline: string;
-  riskTitle: string;
-  riskSubtitle: string;
-  risks: RiskItem[];
-  devOverline: string;
-  devTitle: string;
-  devText: string;
-  devs: Pair[];
-  globalOverline: string;
-  globalTitle: string;
-  globalText: string;
-  globalNote: string;
-  regions: Pair[];
-  ctaOverline: string;
-  ctaTitle: string;
-  ctaText: string;
-  ctaGuide: string;
-  ctaScenarios: { icon: string; title: string }[];
-  ctaUnified: string;
-  contact: string;
-  contactEmail: string;
-  contactEmailValue: string;
-  contactLocation: string;
-  contactLocationValue: string;
-  contactHours: string;
-  contactHoursValue: string;
-  footerBrand: string;
-  footerDesc: string;
-  footerColProduct: string;
-  footerLinkPay: string;
-  footerLinkCapabilities: string;
-  footerLinkStable: string;
-  footerLinkApi: string;
-  footerColCompany: string;
-  footerLinkContact: string;
-  footerColLegal: string;
-  footerLinkTerms: string;
-  footerLinkPrivacy: string;
-  footerCopyright: string;
-  footerDisclaimer: string;
-}
-
-const localeInfo: { code: Locale; name: string; short: string }[] = [
-  { code: "en", name: "English", short: "EN" },
-  { code: "zh", name: "简体中文", short: "中文" },
-  { code: "zh-TW", name: "繁體中文", short: "繁中" },
-  // { code: "ru", name: "Русский", short: "RU" },
-  // { code: "de", name: "Deutsch", short: "DE" },
-  // { code: "es", name: "Español", short: "ES" },
-  // { code: "pt", name: "Português", short: "PT" },
-  // { code: "ja", name: "日本語", short: "JP" },
-  // { code: "ko", name: "한국어", short: "KR" },
-];
-
-// ---- async locale loader ----
-const initialLocale = defaultLocale as unknown as LocaleContent;
-const localeCache = new Map<string, LocaleContent>([["en", initialLocale]]);
-
-async function loadLocale(code: string): Promise<LocaleContent> {
-  if (localeCache.has(code)) return localeCache.get(code)!;
-  try {
-    const res = await fetch(`/locales/${code}.json`);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = (await res.json()) as LocaleContent;
-    localeCache.set(code, data);
-    return data;
-  } catch {
-    return initialLocale;
-  }
-}
-
-function useLocale(locale: Locale) {
-  const [t, setT] = useState<LocaleContent>(initialLocale);
-
-  useEffect(() => {
-    let cancelled = false;
-    loadLocale(locale)
-      .then((data) => { if (!cancelled) setT(data); })
-      .catch(() => {
-        if (!cancelled) loadLocale("en").then((data) => { if (!cancelled) setT(data); });
-      });
-    return () => { cancelled = true; };
-  }, [locale]);
-
-  return { t } as const;
-}
+import { useEffect, useState } from "react";
+import type { Locale, Pair } from "./lib/locale";
+import { useLocale } from "./lib/locale";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 // ---- helpers ----
-const anchorMap = ["#architecture", "#capabilities", "#compliance", "#security", "#developers", "#network"];
-
 function Arrow() {
   return <span className="arrow" aria-hidden="true">↗</span>;
 }
@@ -176,46 +16,6 @@ function Overline({ children }: { children: React.ReactNode }) {
   return <p className="overline"><i />{children}</p>;
 }
 
-// ---- language dropdown ----
-function LanguageDropdown({
-  current, onChange, open, setOpen,
-}: {
-  current: Locale; onChange: (c: Locale) => void; open: boolean; setOpen: (v: boolean) => void;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (!open) return;
-    const onClick = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
-    const onEsc = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
-    document.addEventListener("mousedown", onClick);
-    document.addEventListener("keydown", onEsc);
-    return () => { document.removeEventListener("mousedown", onClick); document.removeEventListener("keydown", onEsc); };
-  }, [open, setOpen]);
-
-  const currentName = localeInfo.find((l) => l.code === current)?.name ?? "English";
-
-  return (
-    <div className={`lang-dropdown${open ? " open" : ""}`} ref={ref}>
-      <button className="lang-trigger" onClick={() => setOpen(!open)} aria-expanded={open} aria-haspopup="listbox">
-        <span className="lang-globe" aria-hidden="true">◐</span>
-        <span className="lang-current">{currentName}</span>
-        <span className="lang-caret" aria-hidden="true">▾</span>
-      </button>
-      {open && (
-        <ul className="lang-menu" role="listbox">
-          {localeInfo.map((l) => (
-            <li key={l.code} role="option" aria-selected={l.code === current}>
-              <button className={`lang-option${l.code === current ? " active" : ""}`} onClick={() => onChange(l.code)}>
-                <span className="lang-name">{l.name}</span>
-                {l.code === current && <span className="lang-check" aria-hidden="true">✓</span>}
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}
 
 // ---- world map ----
 function WorldMap({ regions }: { regions: readonly Pair[] }) {
@@ -289,8 +89,6 @@ function HeroFlowLabel({ children }: { children: React.ReactNode }) {
 // ---- main page ----
 export default function Home() {
   const [locale, setLocale] = useState<Locale>("en");
-  const [menu, setMenu] = useState(false);
-  const [langOpen, setLangOpen] = useState(false);
   const { t } = useLocale(locale);
 
   useEffect(() => {
@@ -303,23 +101,7 @@ export default function Home() {
   return (
     <main>
       {/* ===== 1. NAVIGATION ===== */}
-      <header>
-        <a className="brand" href="#top">
-          <Image src="/logo.jpg" alt="UnityPay" width={130} height={48} priority />
-        </a>
-        <nav className={menu ? "open" : ""}>
-          {t.nav.map((x, i) => (
-            <a href={anchorMap[i]} key={x} onClick={() => setMenu(false)}>{x}</a>
-          ))}
-        </nav>
-        <div className="header-actions">
-          <LanguageDropdown current={locale} onChange={(c) => { setLocale(c); setLangOpen(false); }} open={langOpen} setOpen={setLangOpen} />
-          <a className="header-contact" href="#contact">{t.contact}<Arrow /></a>
-          <button className="menu-button" aria-expanded={menu} aria-label="Toggle menu" onClick={() => setMenu(!menu)}>
-            <i /><i />
-          </button>
-        </div>
-      </header>
+      <Header locale={locale} setLocale={setLocale} nav={t.nav} contact={t.contact} />
 
       {/* ===== 2. HERO ===== */}
       <section className="hero-section" id="top">
@@ -413,12 +195,20 @@ export default function Home() {
       <section className="section compliance" id="compliance">
         <div className="section-header">
           <Overline>{t.compOverline}</Overline>
-          <h2>{t.compTitle}</h2>
+          <h2>{t.compTitle}<br/><em>{t.compTitleAccent}</em></h2>
+          <p className="section-sub">{t.compSubtitle}</p>
         </div>
-        <p className="comp-statement">{t.compStatement}</p>
+        <div className="comp-statement">
+          <span className="comp-statement-icon" aria-hidden="true">⚠</span>
+          <div>
+            <h5 className="comp-statement-label">{t.compStatementLabel}</h5>
+            <p>{t.compStatement}</p>
+          </div>
+        </div>
         <div className="comp-grid">
           {t.compCards.map((card) => (
             <article className="comp-card" key={card.title}>
+              <span className="comp-card-accent" aria-hidden="true" />
               <div className="card-head">
                 <span className="comp-icon">{card.icon}</span>
                 <h4>{card.title}</h4>
@@ -427,7 +217,10 @@ export default function Home() {
             </article>
           ))}
         </div>
-        <p className="comp-disclaimer">{t.compDisclaimer}</p>
+        <div className="comp-disclaimer">
+          <span className="comp-disclaimer-icon" aria-hidden="true">⌁</span>
+          <p>{t.compDisclaimer}</p>
+        </div>
       </section>
 
       {/* ===== 7. MPC SECURITY ===== */}
@@ -502,6 +295,9 @@ export default function Home() {
               </article>
             ))}
           </div>
+          <div className="dev-actions">
+            <a className="button primary" href="/developers">查看开发者文档<span>↗</span></a>
+          </div>
         </div>
         <div className="code-window">
           <div className="code-bar"><i /><i /><i /><span>API REQUEST</span></div>
@@ -568,41 +364,7 @@ export default function Home() {
       </section>
 
       {/* ===== 12. FOOTER ===== */}
-      <footer>
-        <div className="footer-cols">
-          <div className="footer-brand">
-            <a className="brand" href="#top">
-              <Image src="/logo.jpg" alt="UnityPay" width={36} height={36} />
-              <span>{t.footerBrand}</span>
-            </a>
-            <p>{t.footerDesc}</p>
-          </div>
-          <div className="footer-col">
-            <h4>{t.footerColProduct}</h4>
-            <nav>
-              <a href="#architecture">{t.footerLinkPay}</a>
-              <a href="#capabilities">{t.footerLinkCapabilities}</a>
-              <a href="#developers">{t.footerLinkApi}</a>
-            </nav>
-          </div>
-          <div className="footer-col">
-            <h4>{t.footerColCompany}</h4>
-            <nav>
-              <a href="#contact">{t.footerLinkContact}</a>
-              {/* <a href="#">{t.footerLinkTerms}</a>
-              <a href="#">{t.footerLinkPrivacy}</a> */}
-            </nav>
-          </div>
-        </div>
-        <div className="footer-regulatory">
-          <p>{t.footerDisclaimer}</p>
-        </div>
-        <div className="footer-bottom">
-          <span>{t.footerCopyright}</span>
-       
-         
-        </div>
-      </footer>
+      <Footer locale={locale} />
     </main>
   );
 }
