@@ -205,7 +205,13 @@
   "ctaOverline": "LET'S TALK",
   "ctaTitle": "Run Your Cross-Border Flows Through Compliance First",
   "ctaText": "Tell us about your acquiring markets, transaction scenarios and settlement needs. We'll assess available rails, compliant partner coverage and the right onboarding path — no obligation, no vague promises.",
-  "ctaGuide": "Whether you are an e-commerce merchant, game publisher, trade service provider or Web3 project, we can design a matching acquiring and settlement architecture.",
+  "ctaScenarios": [
+    { "icon": "🛒", "title": "E-Commerce\nMulti-Currency Acquiring" },
+    { "icon": "🎮", "title": "Game Publishing\nGlobal Payouts" },
+    { "icon": "📦", "title": "Trade Services\nCompliant Settlement" },
+    { "icon": "🔗", "title": "Web3 Projects\nOn-Chain Access" }
+  ],
+  "ctaUnified": "We design a matching acquiring and settlement architecture — whatever your vertical.",
   "contact": "Contact Our Team",
   "contactEmail": "Email",
   "contactEmailValue": "hello@unitypay.com",

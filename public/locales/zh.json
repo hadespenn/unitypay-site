@@ -205,7 +205,13 @@
   "ctaOverline": "开启对话",
   "ctaTitle": "让跨境收付先经过一次合规评估",
   "ctaText": "告诉我们您的收单市场、交易场景和结算需求。我们会评估可用通道、合规合作伙伴覆盖及合适的上线路径 — 无强制义务，无模糊承诺。",
-  "ctaGuide": "无论您是跨境电商、游戏出海、贸易服务商还是 Web3 项目方，我们都能设计匹配的收单与结算架构。",
+  "ctaScenarios": [
+    { "icon": "🛒", "title": "跨境电商\n多币种收单" },
+    { "icon": "🎮", "title": "游戏出海\n全球玩家收款" },
+    { "icon": "📦", "title": "贸易服务商\n合规跨境结算" },
+    { "icon": "🔗", "title": "Web3 项目\n链上支付接入" }
+  ],
+  "ctaUnified": "无论哪个赛道，我们都能设计匹配的收单与结算架构。",
   "contact": "联系团队",
   "contactEmail": "邮箱",
   "contactEmailValue": "hello@unitypay.com",

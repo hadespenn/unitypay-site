@@ -95,6 +95,8 @@ interface LocaleContent {
   ctaTitle: string;
   ctaText: string;
   ctaGuide: string;
+  ctaScenarios: { icon: string; title: string }[];
+  ctaUnified: string;
   contact: string;
   contactEmail: string;
   contactEmailValue: string;
@@ -334,10 +336,8 @@ export default function Home() {
             <a className="button outline" href="#developers">{t.heroApiDocs}<span>↓</span></a>
           </div>
         </div>
-        <div className="hero-flow-wrap">
-          <HeroFlow stages={t.heroFlowStages} />
-          <HeroFlowLabel>{t.heroFlowLabel}</HeroFlowLabel>
-        </div>
+        <HeroFlow stages={t.heroFlowStages} />
+        <HeroFlowLabel>{t.heroFlowLabel}</HeroFlowLabel>
         <div className="hero-stats-bar">
           {t.heroStats.map(([num, label]) => (
             <div key={label}><b>{num}</b><small>{label}</small></div>
@@ -520,13 +520,21 @@ export default function Home() {
 
       {/* ===== 11. CTA ===== */}
       <section className="section cta-section" id="contact">
-        <p className="cta-guide">{t.ctaGuide}</p>
+        <div className="cta-scenarios">
+          {t.ctaScenarios.map((s) => (
+            <div className="cta-scenario-card" key={s.title}>
+              <span className="cta-scenario-icon">{s.icon}</span>
+              <b>{s.title}</b>
+            </div>
+          ))}
+        </div>
+        <p className="cta-unified">{t.ctaUnified}</p>
         <Overline>{t.ctaOverline}</Overline>
         <h2>{t.ctaTitle}</h2>
         <p className="cta-text">{t.ctaText}</p>
         <div className="cta-buttons">
-          <a className="button primary" href="mailto:hello@unitypay.com">{t.contactEmail}<Arrow /></a>
-          <a className="button outline-light" href="#contact">{t.contact} →</a>
+          <a className="button primary" href="mailto:hello@unitypay.com">{t.contact}<Arrow /></a>
+          
         </div>
         <div className="cta-info-row">
           <a className="cta-info" href="mailto:hello@unitypay.com">
