@@ -589,8 +589,8 @@ export default function Home() {
             <h4>{t.footerColCompany}</h4>
             <nav>
               <a href="#contact">{t.footerLinkContact}</a>
-              <a href="#">{t.footerLinkTerms}</a>
-              <a href="#">{t.footerLinkPrivacy}</a>
+              {/* <a href="#">{t.footerLinkTerms}</a>
+              <a href="#">{t.footerLinkPrivacy}</a> */}
             </nav>
           </div>
         </div>
