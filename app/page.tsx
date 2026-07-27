@@ -222,8 +222,8 @@ function LanguageDropdown({
 // ---- world map ----
 function WorldMap({ regions }: { regions: readonly Pair[] }) {
   const nodes = [
-    { x: 18, y: 27, i: 0 }, { x: 22, y: 42, i: 1 }, { x: 46, y: 30, i: 2 },
-    { x: 79, y: 51, i: 3 }, { x: 76, y: 67, i: 4 }, { x: 29, y: 58, i: 5 },
+    { x: 18, y: 27, i: 0 }, { x: 24, y: 42, i: 1 }, { x: 48, y: 30, i: 2 },
+    { x: 73, y: 51, i: 3 }, { x: 70, y: 67, i: 4 }, { x: 30, y: 58, i: 5 },
   ];
   return (
     <div className="world-map" role="img" aria-label={regions.map((x) => x[0]).join("、")}>
@@ -252,16 +252,16 @@ function WorldMap({ regions }: { regions: readonly Pair[] }) {
 }
 
 // ---- hero flow visualization ----
-function HeroFlow({ label, stages }: { label: string; stages: string[] }) {
+function HeroFlow({ stages }: { stages: string[] }) {
   const positions = [
-    { top: "12%", left: "8%", accent: true },
-    { top: "15%", left: "68%", accent: false },
-    { top: "55%", left: "14%", accent: false },
-    { top: "52%", left: "64%", accent: true },
+    { pos: "top-left",    accent: true },
+    { pos: "top-right",   accent: false },
+    { pos: "bottom-left", accent: false },
+    { pos: "bottom-right",accent: true },
   ];
   return (
     <div className="hero-flow" aria-hidden="true">
-      <svg className="hero-flow-bg" viewBox="0 0 600 460">
+      <svg className="hero-flow-bg" viewBox="0 0 600 460" preserveAspectRatio="xMidYMid meet">
         <defs>
           <linearGradient id="fg1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#3b82f6" /><stop offset="100%" stopColor="#60a5fa" /></linearGradient>
           <linearGradient id="fg2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#5eead4" /><stop offset="100%" stopColor="#4ad8d8" /></linearGradient>
@@ -275,14 +275,17 @@ function HeroFlow({ label, stages }: { label: string; stages: string[] }) {
         <path d="M220 340 Q300 310 350 335" fill="none" stroke="url(#fg1)" strokeWidth="1.5" strokeDasharray="6 6" />
       </svg>
       {positions.map((position, i) => (
-        <span key={i} className="hero-flow-dot" style={{ top: position.top, left: position.left }}>
+        <span key={i} className={`hero-flow-dot ${position.pos}${position.accent ? " accent" : ""}`}>
           <i className={position.accent ? "accent" : ""} />
           <b className={position.accent ? "accent" : ""}>{stages[i]}</b>
         </span>
       ))}
-      <p className="hero-flow-label">{label}</p>
     </div>
   );
+}
+
+function HeroFlowLabel({ children }: { children: React.ReactNode }) {
+  return <p className="hero-flow-label">{children}</p>;
 }
 
 // ---- main page ----
@@ -331,7 +334,10 @@ export default function Home() {
             <a className="button outline" href="#developers">{t.heroApiDocs}<span>↓</span></a>
           </div>
         </div>
-        <HeroFlow label={t.heroFlowLabel} stages={t.heroFlowStages} />
+        <div className="hero-flow-wrap">
+          <HeroFlow stages={t.heroFlowStages} />
+          <HeroFlowLabel>{t.heroFlowLabel}</HeroFlowLabel>
+        </div>
         <div className="hero-stats-bar">
           {t.heroStats.map(([num, label]) => (
             <div key={label}><b>{num}</b><small>{label}</small></div>
