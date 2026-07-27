@@ -599,10 +599,8 @@ export default function Home() {
         </div>
         <div className="footer-bottom">
           <span>{t.footerCopyright}</span>
-          <span className="footer-bottom-dot">·</span>
-          <a href="#">{t.footerLinkTerms}</a>
-          <span className="footer-bottom-dot">·</span>
-          <a href="#">{t.footerLinkPrivacy}</a>
+       
+         
         </div>
       </footer>
     </main>
