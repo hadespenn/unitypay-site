@@ -1,61 +1,234 @@
 {
-  "nav": ["Network", "Capabilities", "How it works", "Compliance", "Developers"],
-  "eyebrow": "GLOBAL PAYMENT INFRASTRUCTURE",
-  "hero": "Compliant cross-border payment",
-  "heroAccent": "infrastructure for global businesses",
-  "heroText": "An integrated solution for fiat acquiring, compliant routing and stablecoin settlement. Physical separation between fiat and crypto flows ensures acquiring channels and licensing boundaries remain clearly compliant.",
-  "consult": "Discuss integration",
-  "learn": "How it works",
-  "stats": [["120+", "Markets covered"], ["40+", "Settlement currencies"], ["99.99%", "Infrastructure uptime"], ["24/7", "Trading & risk monitoring"]],
-  "statusLabel": "Settlement",
-  "statusValue": "Completed",
-  "poolLabel": "Liquidity pool",
-  "poolValue": "$ 84,290.00",
-  "mapOverline": "GLOBAL COVERAGE",
-  "mapTitle": "A compliant network across key financial hubs",
-  "mapText": "Connecting cross-border flows from North America and Europe to Asia through defined licensing boundaries and vetted partners.",
-  "mapNote": "Services and availability vary by jurisdiction, client eligibility and partner coverage, and are independently performed by locally licensed institutions.",
-  "regions": [["Canada", "MSB registration · FINTRAC framework"], ["United States", "Cross-border rails · FATF alignment"], ["United Kingdom", "Sanctions screening · Global standards"], ["Hong Kong", "MSO licence · Clear fiat scope"], ["Singapore", "Asia hub · MPC architecture"], ["Cayman / BVI", "Independent technology entity · Risk isolation"]],
-  "trustOverline": "WHY UNITYPAY",
-  "trustTitle": "Three anchors of trust",
-  "trustText": "Compliance runs through every step—from licence applications and architecture design to asset handling. It is part of the product design, not an afterthought.",
-  "trusts": [["Licensed scope, clear boundaries", "Built on Canadian MSB and Hong Kong MSO frameworks, strictly scoped to fiat services with no virtual asset custody or investment advice."], ["Decoupled architecture", "Collection, fund parking and conversion routing are separated to isolate frontend acquiring from downstream digital assets."], ["Fiat-crypto isolation, non-custodial", "We provide routing and software only. Client assets are independently handled by licensed OTC institutions."]],
-  "flowOverline": "HOW IT WORKS",
-  "flowTitle": "Decoupled collection & settlement",
-  "flowAccent": "Four clear stages",
-  "steps": [["Fiat collection", "Collect card and fiat payments through compliant channels based on genuine trade and standard commercial MCCs."], ["VA fund buffer", "Fiat clears to a dedicated virtual account, physically separating fiat and crypto flows while creating a timing buffer."], ["Compliant routing", "Clients choose fiat settlement or stablecoin conversion. The MSO handles fiat only; licensed OTC partners execute conversion."], ["Settlement & wallet ecosystem", "Stablecoins are delivered to client self-custody wallets for onward on-chain use and compliant payout."]],
-  "stepLabels": ["ACQUIRING", "VA BUFFER", "ROUTING", "SETTLEMENT"],
-  "stepValues": ["Funds securely settled through compliant channels", "Virtual accounts bridge fiat and crypto with temporal and spatial separation", "Licensed institutions execute conversion with clear compliance accountability", "Stablecoins delivered directly to self-custody wallets under user control"],
-  "fiatFlowLabel": "Fiat flow",
-  "cryptoFlowLabel": "Crypto flow",
-  "isolationLabel": "Physical isolation",
-  "complianceOverline": "COMPLIANCE BY DESIGN",
-  "complianceTitle": "Boundaries built into the product",
-  "complianceText": "A clear, auditable definition of what we do, what we do not do and who is responsible at every stage.",
-  "boundaries": [["MSB registration ≠ full financial licence", "FINTRAC registration is an AML prerequisite—not official endorsement, government endorsement, nor authorization to engage in deposit-taking business or banking / securities operations."], ["Clear red lines", "No investment advice, yield promises, custody of client assets, deposit-taking, issuance of security tokens, or trade matching."], ["End-to-end framework", "FATF Travel Rule, sanctions screening, KYC / KYB, transaction monitoring and applicable 24-hour reporting."], ["MPC non-custodial architecture", "Built on MPC non-custodial architecture, the platform can never unilaterally move client assets."]],
-  "disclaimer": "This platform provides payment routing and software technology services only. It does not provide investment advice or guarantee asset performance. All virtual asset exchange and related financial services are independently provided by appropriately licensed institutions and remain subject to formal agreements and permitted scope. Services and availability vary by jurisdiction, client eligibility and partner coverage.",
-  "devOverline": "DEVELOPER FIRST",
-  "devTitle": "One API, multiple rails",
-  "devText": "Clear, reliable and auditable interfaces for collection, routing and settlement.",
-  "devs": [["Versioned REST API", "Clear, versioned REST APIs with sandbox access and integration support."], ["Reliable webhooks", "Idempotent webhook delivery ensures critical events arrive reliably."], ["Encrypted data transfer", "Required compliance information is encrypted in line with data protection requirements."]],
-  "ctaOverline": "GO GLOBAL",
-  "ctaTitle": "Let your cross-border flows go through compliance first",
-  "ctaGuide": "Whether you're an e-commerce merchant, game publisher, trade service provider or Web3 project, we can provide a matching acquiring and settlement solution.",
-  "ctaText": "Talk to our team about your acquiring markets, transaction scenarios and settlement needs. We will assess available rails, compliant partner coverage and the right onboarding path.",
-  "contact": "Contact our team",
+  "langName": "English",
+  "langShort": "EN",
+
+  "nav": ["Architecture", "Capabilities", "Compliance", "Security", "Developers", "Global Network"],
+
+  "heroEyebrow": "GLOBAL PAYMENT INFRASTRUCTURE",
+  "heroTitle": "Cross-Border Value Flow —",
+  "heroTitleAccent": "Compliant, Transparent, Trustworthy",
+  "heroText": "UnityPay connects acquiring, compliance screening and licensed institution execution through a decoupled architecture, enabling cross-border merchants to move value with clear jurisdictional boundaries and verifiable settlement paths.",
+  "heroDemo": "Book a Demo",
+  "heroApiDocs": "View API Docs",
+  "heroStats": [["120+", "Markets Covered"], ["40+", "Settlement Currencies"], ["99.99%", "Infrastructure Uptime"], ["24/7", "Risk Monitoring"]],
+
+  "heroFlowLabel": "Fiat Acquiring → VA Buffer → Compliant OTC Routing → USDC Settlement",
+  "heroFlowStages": ["Fiat Acquiring", "VA Buffer", "Compliant OTC Routing", "USDC Settlement"],
+
+  "trustBarTitle": "Licensed in Key Financial Jurisdictions",
+  "trustCards": [
+    ["Canada", "FINTRAC MSB Registration — AML prerequisite under PCMLTFA"],
+    ["Hong Kong", "MSO Licence — regulated fiat services with clear statutory scope"],
+    ["Singapore", "Asia operations hub with MPC security architecture"],
+    ["Cayman / BVI", "Independent technology entity for legal risk isolation"]
+  ],
+
+  "archOverline": "DECOUPLED ARCHITECTURE",
+  "archTitle": "Four-Stage Compliant Fund Flow",
+  "archSubtitle": "Each stage is executed by a separately accountable institution, with physical isolation between fiat and crypto flows — the core design principle of compliance.",
+  "archSteps": [
+    {
+      "num": "01",
+      "label": "Business Verification",
+      "title": "KYC / KYB & Trade Background",
+      "desc": "Onboarding with scenario-based eligibility assessment, order matching and reconciliation. Genuine trade documentation verified at entry point to establish lawful transaction basis."
+    },
+    {
+      "num": "02",
+      "label": "Fiat Acquiring",
+      "title": "Card & Alternative Payments",
+      "desc": "Payments collected through licensed acquiring channels using standard MCC codes. Funds settle to dedicated virtual accounts (VA), creating a temporal and spatial buffer."
+    },
+    {
+      "num": "03",
+      "label": "Compliant Routing",
+      "title": "MSO ↔ Licensed OTC Partners",
+      "desc": "The MSO handles fiat settlement only. Licensed OTC institutions independently execute stablecoin conversion under their own compliance obligations — no commingling."
+    },
+    {
+      "num": "04",
+      "label": "Partner Execution",
+      "title": "Settlement & Wallet Ecosystem",
+      "desc": "Stablecoins delivered directly to client self-custody wallets. The platform never takes possession — settlement is cryptographically verifiable on-chain."
+    }
+  ],
+  "fiatFlowLabel": "Fiat flow (MSB / MSO scope)",
+  "cryptoFlowLabel": "Crypto flow (OTC partner scope)",
+  "isolationLabel": "Physical separation — no commingling of flows or institutions",
+
+  "capOverline": "CORE CAPABILITIES",
+  "capTitle": "End-to-End Capability Stack by Fund Flow Stage",
+  "capSubtitle": "Six capability modules spanning the full lifecycle from merchant onboarding to settlement completion, each aligned with a specific compliance boundary.",
+  "caps": [
+    {
+      "icon": "◇",
+      "title": "Merchant Acquiring",
+      "desc": "Scenario-based onboarding, order matching and reconciliation. Multiple acquiring rails with MCC-level compliance controls."
+    },
+    {
+      "icon": "⇄",
+      "title": "Compliant Deposit & Exchange",
+      "desc": "Independently executed by licensed partner institutions. Fiat-to-stablecoin conversion under separate legal entities with clear audit trails."
+    },
+    {
+      "icon": "⌁",
+      "title": "MPC Non-Custodial Wallet",
+      "desc": "Built on 2-of-3 threshold signature model. Platform can never unilaterally move client assets — security is architecturally guaranteed, not promised."
+    },
+    {
+      "icon": "◎",
+      "title": "On-Chain Finance Access",
+      "desc": "Connect to stablecoin and RWA product markets. Settlement rails extend from fiat channels into regulated on-chain liquidity venues."
+    },
+    {
+      "icon": "▹",
+      "title": "Account & Payout Routing",
+      "desc": "Partner-governed routing with transparent, auditable paths. Multi-rail payout options matched to destination jurisdiction requirements."
+    },
+    {
+      "icon": "⬡",
+      "title": "Risk & Continuous Monitoring",
+      "desc": "Transaction-level risk controls embedded throughout the business flow. Sanctions screening, anomaly detection and ongoing counterparty due diligence."
+    }
+  ],
+
+  "compOverline": "COMPLIANCE FRAMEWORK",
+  "compTitle": "Compliance Built Into the Product Design",
+  "compStatement": "MSB registration is an AML compliance prerequisite — not a comprehensive financial licence, not an official endorsement, and not an authorisation to engage in deposit-taking, banking or securities business.",
+  "compCards": [
+    {
+      "icon": "▣",
+      "title": "Canada MSB Registration",
+      "desc": "Registered with FINTRAC under the Proceeds of Crime (Money Laundering) and Terrorist Financing Act. This registration serves as the AML prerequisite for our fiat payment routing services and does not constitute government endorsement."
+    },
+    {
+      "icon": "◈",
+      "title": "Retail Payment Services",
+      "desc": "Acknowledging the PSP registration requirements under the Retail Payment Activities Act administered by the Bank of Canada, with ongoing monitoring of regulatory developments."
+    },
+    {
+      "icon": "◎",
+      "title": "Risk-Based Control Framework",
+      "desc": "Full-scope obligations including KYC, KYB, sanctions screening, FATF Travel Rule compliance, transaction monitoring and applicable 24-hour suspicious transaction reporting."
+    },
+    {
+      "icon": "⊘",
+      "title": "Clear Boundary Statement",
+      "desc": "We do not provide investment advice, promise yield, hold client assets on balance sheet, accept deposits, issue security tokens, or engage in trade matching. Every boundary is stated, auditable and enforced."
+    }
+  ],
+  "compDisclaimer": "This platform provides payment routing and software technology services only. It does not provide investment advice or guarantee asset performance. All virtual asset exchange and related financial services are independently provided by appropriately licensed institutions and remain subject to formal agreements and permitted scope. Services and availability vary by jurisdiction, client eligibility and partner coverage.",
+
+  "mpcOverline": "MPC NON-CUSTODIAL SECURITY",
+  "mpcTitle": "Non-Custodial by Architecture, Not by Promise",
+  "mpcText": "The 2-of-3 threshold signature model ensures that no single party — neither the platform nor any external actor — can unilaterally move client assets. This is a structural guarantee, not a policy statement.",
+  "mpcShards": [
+    {
+      "icon": "📱",
+      "label": "Shard 1",
+      "title": "User Device",
+      "desc": "One key shard resides on the end user's device. The platform has zero visibility into this shard — it is generated and stored entirely under user control."
+    },
+    {
+      "icon": "⚙",
+      "label": "Shard 2",
+      "title": "Policy Service",
+      "desc": "A second shard is held by a co-signing policy engine that enforces transaction rules — velocity limits, whitelist checks, time windows — before any signature can proceed."
+    },
+    {
+      "icon": "🔑",
+      "label": "Shard 3",
+      "title": "Independent Recovery",
+      "desc": "A third shard is held by an independent recovery provider. It is never active in normal operations and only used under a predefined disaster recovery protocol."
+    }
+  ],
+  "mpcCommitment": "The threshold is 2-of-3. The platform holds at most one shard at any time. Assets can never be moved without explicit user consent.",
+
+  "riskOverline": "RISK & MITIGATION",
+  "riskTitle": "Key Operational Risks — And How We Address Them",
+  "riskSubtitle": "Each risk is identified, assessed and mitigated through concrete architectural, legal and operational measures — not hand-waving.",
+  "risks": [
+    {
+      "tag": "Risk",
+      "title": "Trade Background Authenticity",
+      "desc": "Fictitious or inflated trade documentation undermines the lawful basis for cross-border payments.",
+      "strategy": "Strategy",
+      "strategyText": "Mandatory submission and verification of genuine trade documents at onboarding. Transaction-level reconciliation with order and logistics data. Continuous post-transaction sampling and audit."
+    },
+    {
+      "tag": "Risk",
+      "title": "OTC Third-Party Deposit Restrictions",
+      "desc": "OTC desks may restrict or reject deposits from third-party sources, creating settlement friction for VA-funded conversions.",
+      "strategy": "Strategy",
+      "strategyText": "Pre-vetted OTC partners with explicit third-party deposit policies. Dedicated virtual account architecture ensures clean fund provenance before conversion routing."
+    },
+    {
+      "tag": "Risk",
+      "title": "Repeated KYC Friction",
+      "desc": "Merchants face redundant KYC/KYB processes across multiple service layers, increasing drop-off and operational cost.",
+      "strategy": "Strategy",
+      "strategyText": "Once-verified, multi-use identity architecture. Compliance data is structured for reusability across partner institutions with consent, reducing duplication while maintaining audit integrity."
+    },
+    {
+      "tag": "Risk",
+      "title": "SFC Regulatory Boundaries",
+      "desc": "Hong Kong SFC licensing requirements impose clear red lines around virtual asset activities that must not be crossed.",
+      "strategy": "Strategy",
+      "strategyText": "Strict functional separation: the MSO handles fiat only. Virtual asset exchange is exclusively executed by SFC-licensed (or equivalent) partners under their own regulatory perimeter."
+    }
+  ],
+
+  "devOverline": "DEVELOPERS",
+  "devTitle": "One API, Multiple Rails",
+  "devText": "Clear, reliable and auditable interfaces for acquiring, routing and settlement — designed for integration teams that demand certainty.",
+  "devs": [
+    ["Versioned REST API", "Stable, versioned REST endpoints with sandbox access, integration support and comprehensive documentation."],
+    ["Reliable Webhooks", "Idempotent webhook delivery with automatic retry. Critical payment events arrive reliably — no silent failures."],
+    ["Encrypted Data Transfer", "Compliance-required information is encrypted in transit and at rest, aligned with data protection requirements."],
+    ["Multi-Rail Routing", "Configure payment routing rules by jurisdiction, amount threshold and currency pair. Programmatic control over settlement paths."],
+    ["Audit & Reconciliation", "Structured transaction logs with cryptographic integrity. Every state transition is queryable and verifiable."]
+  ],
+
+  "globalOverline": "GLOBAL COVERAGE",
+  "globalTitle": "Local Rules, Global Reach",
+  "globalText": "Compliance-presence across 6 key financial hubs, each with defined licensing scope and vetted partner coverage.",
+  "globalNote": "Services and availability vary by jurisdiction, client eligibility and partner coverage, and are independently performed by locally licensed institutions.",
+  "regions": [
+    ["Canada", "FINTRAC MSB · PSP registration pathway"],
+    ["United Kingdom", "Global sanctions screening alignment"],
+    ["Hong Kong", "MSO licence · Clear fiat-only scope"],
+    ["Singapore", "Asia hub · MPC technology architecture"],
+    ["Cayman / BVI", "Independent tech entity · Risk isolation"],
+    ["United States", "Cross-border rails · FATF standards"]
+  ],
+
+  "ctaOverline": "LET'S TALK",
+  "ctaTitle": "Run Your Cross-Border Flows Through Compliance First",
+  "ctaText": "Tell us about your acquiring markets, transaction scenarios and settlement needs. We'll assess available rails, compliant partner coverage and the right onboarding path — no obligation, no vague promises.",
+  "ctaGuide": "Whether you are an e-commerce merchant, game publisher, trade service provider or Web3 project, we can design a matching acquiring and settlement architecture.",
+  "contact": "Contact Our Team",
   "contactEmail": "Email",
   "contactEmailValue": "hello@unitypay.com",
   "contactLocation": "Locations",
   "contactLocationValue": "Hong Kong · Singapore · Shanghai",
   "contactHours": "Hours",
-  "contactHoursValue": "Mon–Fri 09:00–18:00 (HKT)",
+  "contactHoursValue": "Mon–Fri 09:00–18:00 HKT",
+
   "footerBrand": "UnityPay",
-  "footerDesc": "Global payments, settlement and compliance infrastructure.",
-  "footerColTech": "Technology",
+  "footerDesc": "Global payments, settlement and compliance infrastructure — connecting merchants, acquiring networks and licensed financial institutions through transparent, verifiable architecture.",
+  "footerColProduct": "Product",
+  "footerLinkPay": "Fiat Acquiring",
+  "footerLinkCapabilities": "Capabilities",
+  "footerLinkStable": "Stablecoin Settlement",
+  "footerLinkApi": "API & Integrations",
+  "footerColCompliance": "Compliance",
+  "footerLinkCompliance": "Framework & Licences",
+  "footerLinkSecurity": "MPC Security",
+  "footerLinkRisk": "Risk & Mitigation",
   "footerColCompany": "Company",
-  "footerLinkPay": "Payments & acquiring",
-  "footerLinkStable": "Stablecoin settlement",
-  "footerLinkApi": "API & integrations",
-  "footerLinkContact": "Contact us",
-  "footerCopyright": "© 2026 UNITYPAY. ALL RIGHTS RESERVED."
+  "footerLinkContact": "Contact Us",
+  "footerLinkTerms": "Terms of Service",
+  "footerLinkPrivacy": "Privacy Policy",
+  "footerCopyright": "© 2026 UNITYPAY. ALL RIGHTS RESERVED.",
+  "footerDisclaimer": "This website and its content are for informational purposes only. UnityPay provides payment routing and software technology services. It does not provide investment advice, custody of client assets, deposit-taking, or any regulated financial service requiring a licence beyond its current registrations. All regulated financial services are independently provided by appropriately licensed partner institutions."
 }

@@ -1,59 +1,100 @@
 "use client";
 
 import Image from "next/image";
+import defaultLocale from "../public/locales/en.json";
 import { useEffect, useRef, useState } from "react";
 
 // ---- types ----
 type Locale = "zh" | "en" | "zh-TW" | "ru" | "de" | "es" | "pt" | "ja" | "ko";
 type Pair = readonly [string, string];
 
+interface StepItem {
+  num: string;
+  label: string;
+  title: string;
+  desc: string;
+}
+
+interface CapItem {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+interface CompCard {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+interface MpcShard {
+  icon: string;
+  label: string;
+  title: string;
+  desc: string;
+}
+
+interface RiskItem {
+  tag: string;
+  title: string;
+  desc: string;
+  strategy: string;
+  strategyText: string;
+}
+
 interface LocaleContent {
+  langName: string;
+  langShort: string;
   nav: string[];
-  eyebrow: string;
-  hero: string;
-  heroAccent: string;
+  heroEyebrow: string;
+  heroTitle: string;
+  heroTitleAccent: string;
   heroText: string;
-  consult: string;
-  learn: string;
-  stats: Pair[];
-  statusLabel: string;
-  statusValue: string;
-  poolLabel: string;
-  poolValue: string;
-  mapOverline: string;
-  mapTitle: string;
-  mapText: string;
-  mapNote: string;
-  regions: Pair[];
-  trustOverline: string;
-  trustTitle: string;
-  trustText: string;
-  trusts: Pair[];
-  flowOverline: string;
-  flowTitle: string;
-  flowAccent: string;
-  steps: Pair[];
-  stepLabels: string[];
-  stepValues: string[];
+  heroDemo: string;
+  heroApiDocs: string;
+  heroStats: Pair[];
+  heroFlowLabel: string;
+  heroFlowStages: string[];
+  trustBarTitle: string;
+  trustCards: Pair[];
+  archOverline: string;
+  archTitle: string;
+  archSubtitle: string;
+  archSteps: StepItem[];
   fiatFlowLabel: string;
   cryptoFlowLabel: string;
   isolationLabel: string;
-  complianceOverline: string;
-  complianceTitle: string;
-  complianceText: string;
-  boundaries: Pair[];
-  disclaimer: string;
+  capOverline: string;
+  capTitle: string;
+  capSubtitle: string;
+  caps: CapItem[];
+  compOverline: string;
+  compTitle: string;
+  compStatement: string;
+  compCards: CompCard[];
+  compDisclaimer: string;
+  mpcOverline: string;
+  mpcTitle: string;
+  mpcText: string;
+  mpcShards: MpcShard[];
+  mpcCommitment: string;
+  riskOverline: string;
+  riskTitle: string;
+  riskSubtitle: string;
+  risks: RiskItem[];
   devOverline: string;
   devTitle: string;
   devText: string;
   devs: Pair[];
-  positioningOverline: string;
-  positioningTitle: string;
-  positioningText: string;
+  globalOverline: string;
+  globalTitle: string;
+  globalText: string;
+  globalNote: string;
+  regions: Pair[];
   ctaOverline: string;
   ctaTitle: string;
-  ctaGuide: string;
   ctaText: string;
+  ctaGuide: string;
   contact: string;
   contactEmail: string;
   contactEmailValue: string;
@@ -63,29 +104,39 @@ interface LocaleContent {
   contactHoursValue: string;
   footerBrand: string;
   footerDesc: string;
-  footerColTech: string;
-  footerColCompany: string;
+  footerColProduct: string;
   footerLinkPay: string;
+  footerLinkCapabilities: string;
   footerLinkStable: string;
   footerLinkApi: string;
+  footerColCompliance: string;
+  footerLinkCompliance: string;
+  footerLinkSecurity: string;
+  footerLinkRisk: string;
+  footerColCompany: string;
   footerLinkContact: string;
+  footerColLegal: string;
+  footerLinkTerms: string;
+  footerLinkPrivacy: string;
   footerCopyright: string;
+  footerDisclaimer: string;
 }
 
 const localeInfo: { code: Locale; name: string; short: string }[] = [
   { code: "en", name: "English", short: "EN" },
   { code: "zh", name: "简体中文", short: "中文" },
   { code: "zh-TW", name: "繁體中文", short: "繁中" },
-  { code: "ru", name: "Русский", short: "RU" },
-  { code: "de", name: "Deutsch", short: "DE" },
-  { code: "es", name: "Español", short: "ES" },
-  { code: "pt", name: "Português", short: "PT" },
-  { code: "ja", name: "日本語", short: "JP" },
-  { code: "ko", name: "한국어", short: "KR" },
+  // { code: "ru", name: "Русский", short: "RU" },
+  // { code: "de", name: "Deutsch", short: "DE" },
+  // { code: "es", name: "Español", short: "ES" },
+  // { code: "pt", name: "Português", short: "PT" },
+  // { code: "ja", name: "日本語", short: "JP" },
+  // { code: "ko", name: "한국어", short: "KR" },
 ];
 
-// ---- async locale loader with in-memory cache ----
-const localeCache = new Map<string, LocaleContent>();
+// ---- async locale loader ----
+const initialLocale = defaultLocale as unknown as LocaleContent;
+const localeCache = new Map<string, LocaleContent>([["en", initialLocale]]);
 
 async function loadLocale(code: string): Promise<LocaleContent> {
   if (localeCache.has(code)) return localeCache.get(code)!;
@@ -96,81 +147,86 @@ async function loadLocale(code: string): Promise<LocaleContent> {
     localeCache.set(code, data);
     return data;
   } catch {
-    // fallback to English for any locale-loading failure
-    if (code !== "en") return loadLocale("en");
-    throw new Error("Failed to load English locale — critical error");
+    return initialLocale;
   }
 }
 
 function useLocale(locale: Locale) {
-  const [t, setT] = useState<LocaleContent | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [t, setT] = useState<LocaleContent>(initialLocale);
 
   useEffect(() => {
     let cancelled = false;
-    // 只在首次加载且无缓存时显示 loading，切换语言时保留旧内容
-    if (!t) setLoading(true);
     loadLocale(locale)
-      .then((data) => {
-        if (!cancelled) {
-          setT(data);
-          setLoading(false);
-        }
-      })
+      .then((data) => { if (!cancelled) setT(data); })
       .catch(() => {
-        if (!cancelled) {
-          loadLocale("en").then((data) => {
-            if (!cancelled) {
-              setT(data);
-              setLoading(false);
-            }
-          });
-        }
+        if (!cancelled) loadLocale("en").then((data) => { if (!cancelled) setT(data); });
       });
-    return () => {
-      cancelled = true;
-    };
+    return () => { cancelled = true; };
   }, [locale]);
 
-  return { t, loading } as const;
+  return { t } as const;
 }
 
 // ---- helpers ----
-const anchors = ["#network", "#capabilities", "#flow", "#compliance", "#developers"];
+const anchorMap = ["#architecture", "#capabilities", "#compliance", "#security", "#developers", "#network"];
 
 function Arrow() {
-  return (
-    <span className="arrow" aria-hidden="true">
-      ↗
-    </span>
-  );
+  return <span className="arrow" aria-hidden="true">↗</span>;
 }
 
 function Overline({ children }: { children: React.ReactNode }) {
+  return <p className="overline"><i />{children}</p>;
+}
+
+// ---- language dropdown ----
+function LanguageDropdown({
+  current, onChange, open, setOpen,
+}: {
+  current: Locale; onChange: (c: Locale) => void; open: boolean; setOpen: (v: boolean) => void;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const onClick = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
+    const onEsc = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("mousedown", onClick);
+    document.addEventListener("keydown", onEsc);
+    return () => { document.removeEventListener("mousedown", onClick); document.removeEventListener("keydown", onEsc); };
+  }, [open, setOpen]);
+
+  const currentName = localeInfo.find((l) => l.code === current)?.name ?? "English";
+
   return (
-    <p className="overline">
-      <i />
-      {children}
-    </p>
+    <div className={`lang-dropdown${open ? " open" : ""}`} ref={ref}>
+      <button className="lang-trigger" onClick={() => setOpen(!open)} aria-expanded={open} aria-haspopup="listbox">
+        <span className="lang-globe" aria-hidden="true">◐</span>
+        <span className="lang-current">{currentName}</span>
+        <span className="lang-caret" aria-hidden="true">▾</span>
+      </button>
+      {open && (
+        <ul className="lang-menu" role="listbox">
+          {localeInfo.map((l) => (
+            <li key={l.code} role="option" aria-selected={l.code === current}>
+              <button className={`lang-option${l.code === current ? " active" : ""}`} onClick={() => onChange(l.code)}>
+                <span className="lang-name">{l.name}</span>
+                {l.code === current && <span className="lang-check" aria-hidden="true">✓</span>}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }
 
 // ---- world map ----
-function WorldMap({ regions, compact = false }: { regions: readonly Pair[]; compact?: boolean }) {
+function WorldMap({ regions }: { regions: readonly Pair[] }) {
   const nodes = [
-    { x: 18, y: 27, i: 0 },
-    { x: 22, y: 42, i: 1 },
-    { x: 46, y: 30, i: 2 },
-    { x: 79, y: 51, i: 3 },
-    { x: 76, y: 67, i: 4 },
-    { x: 29, y: 58, i: 5 },
+    { x: 18, y: 27, i: 0 }, { x: 22, y: 42, i: 1 }, { x: 46, y: 30, i: 2 },
+    { x: 79, y: 51, i: 3 }, { x: 76, y: 67, i: 4 }, { x: 29, y: 58, i: 5 },
   ];
   return (
-    <div
-      className={`world-map${compact ? " compact" : ""}`}
-      role="img"
-      aria-label={regions.map((x) => x[0]).join("、")}
-    >
+    <div className="world-map" role="img" aria-label={regions.map((x) => x[0]).join("、")}>
       <svg viewBox="0 0 1000 500" aria-hidden="true">
         <g className="map-grid">
           <path d="M0 100H1000M0 200H1000M0 300H1000M0 400H1000M125 0V500M250 0V500M375 0V500M500 0V500M625 0V500M750 0V500M875 0V500" />
@@ -188,129 +244,43 @@ function WorldMap({ regions, compact = false }: { regions: readonly Pair[]; comp
       </svg>
       {nodes.map((n) => (
         <span className="map-node" style={{ left: `${n.x}%`, top: `${n.y}%` }} key={n.i}>
-          <i />
-          <b>{regions[n.i][0]}</b>
+          <i /><b>{regions[n.i][0]}</b>
         </span>
       ))}
     </div>
   );
 }
 
-// ---- hero orbit decoration ----
-function HeroOrbit({
-  statusLabel,
-  statusValue,
-  poolLabel,
-  poolValue,
-}: {
-  statusLabel: string;
-  statusValue: string;
-  poolLabel: string;
-  poolValue: string;
-}) {
+// ---- hero flow visualization ----
+function HeroFlow({ label, stages }: { label: string; stages: string[] }) {
+  const positions = [
+    { top: "12%", left: "8%", accent: true },
+    { top: "15%", left: "68%", accent: false },
+    { top: "55%", left: "14%", accent: false },
+    { top: "52%", left: "64%", accent: true },
+  ];
   return (
-    <div className="hero-orbit" aria-hidden="true">
-      <div className="orbit-ring" />
-      <div className="orbit-ring orbit-ring-2" />
-      <div className="orbit-ring orbit-ring-3" />
-      <div className="orbit-center">
-        <span className="orbit-mark">
-          U<span>P</span>
+    <div className="hero-flow" aria-hidden="true">
+      <svg className="hero-flow-bg" viewBox="0 0 600 460">
+        <defs>
+          <linearGradient id="fg1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#3b82f6" /><stop offset="100%" stopColor="#60a5fa" /></linearGradient>
+          <linearGradient id="fg2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#5eead4" /><stop offset="100%" stopColor="#4ad8d8" /></linearGradient>
+        </defs>
+        <circle cx="120" cy="90" r="48" fill="none" stroke="rgba(59,130,246,.25)" strokeWidth="1" />
+        <circle cx="430" cy="130" r="72" fill="none" stroke="rgba(94,234,212,.18)" strokeWidth="1" />
+        <circle cx="160" cy="300" r="64" fill="none" stroke="rgba(59,130,246,.2)" strokeWidth="1" />
+        <circle cx="380" cy="320" r="52" fill="none" stroke="rgba(94,234,212,.25)" strokeWidth="2" />
+        <path d="M158 110 Q280 80 380 155" fill="none" stroke="url(#fg1)" strokeWidth="1.5" strokeDasharray="6 6" />
+        <path d="M400 190 Q240 240 210 280" fill="none" stroke="url(#fg2)" strokeWidth="1.5" strokeDasharray="6 6" />
+        <path d="M220 340 Q300 310 350 335" fill="none" stroke="url(#fg1)" strokeWidth="1.5" strokeDasharray="6 6" />
+      </svg>
+      {positions.map((position, i) => (
+        <span key={i} className="hero-flow-dot" style={{ top: position.top, left: position.left }}>
+          <i className={position.accent ? "accent" : ""} />
+          <b className={position.accent ? "accent" : ""}>{stages[i]}</b>
         </span>
-      </div>
-      <span className="orbit-coin coin-1">USDC</span>
-      <span className="orbit-coin coin-2">USDC</span>
-      <span className="orbit-coin coin-3">USDT</span>
-      <div className="orbit-card status-card">
-        <small>{statusLabel}</small>
-        <b>
-          <i className="dot" />
-          {statusValue}
-        </b>
-      </div>
-      <div className="orbit-card pool-card">
-        <small>{poolLabel}</small>
-        <div className="pool-value">{poolValue}</div>
-        <div className="pool-chart">
-          <i style={{ height: "38%" }} />
-          <i style={{ height: "55%" }} />
-          <i style={{ height: "48%" }} />
-          <i style={{ height: "72%" }} />
-          <i style={{ height: "65%" }} />
-          <i style={{ height: "90%" }} />
-          <i style={{ height: "100%" }} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ---- language dropdown ----
-function LanguageDropdown({
-  current,
-  onChange,
-  open,
-  setOpen,
-}: {
-  current: Locale;
-  onChange: (c: Locale) => void;
-  open: boolean;
-  setOpen: (v: boolean) => void;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (!open) return;
-    const onClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    const onEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    document.addEventListener("mousedown", onClick);
-    document.addEventListener("keydown", onEsc);
-    return () => {
-      document.removeEventListener("mousedown", onClick);
-      document.removeEventListener("keydown", onEsc);
-    };
-  }, [open, setOpen]);
-
-  const currentName = localeInfo.find((l) => l.code === current)?.name ?? "English";
-
-  return (
-    <div className={`lang-dropdown${open ? " open" : ""}`} ref={ref}>
-      <button
-        className="lang-trigger"
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-        aria-haspopup="listbox"
-      >
-        <span className="lang-globe" aria-hidden="true">
-          ◐
-        </span>
-        <span className="lang-current">{currentName}</span>
-        <span className="lang-caret" aria-hidden="true">
-          ▾
-        </span>
-      </button>
-      {open && (
-        <ul className="lang-menu" role="listbox">
-          {localeInfo.map((l) => (
-            <li key={l.code} role="option" aria-selected={l.code === current}>
-              <button
-                className={`lang-option${l.code === current ? " active" : ""}`}
-                onClick={() => onChange(l.code)}
-              >
-                <span className="lang-name">{l.name}</span>
-                {l.code === current && (
-                  <span className="lang-check" aria-hidden="true">
-                    ✓
-                  </span>
-                )}
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
+      ))}
+      <p className="hero-flow-label">{label}</p>
     </div>
   );
 }
@@ -320,314 +290,298 @@ export default function Home() {
   const [locale, setLocale] = useState<Locale>("en");
   const [menu, setMenu] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
-  const { t, loading } = useLocale(locale);
+  const { t } = useLocale(locale);
 
   useEffect(() => {
     const map: Record<Locale, string> = {
-      zh: "zh-CN",
-      en: "en",
-      "zh-TW": "zh-TW",
-      ru: "ru",
-      de: "de",
-      es: "es",
-      pt: "pt",
-      ja: "ja",
-      ko: "ko",
+      zh: "zh-CN", en: "en", "zh-TW": "zh-TW", ru: "ru", de: "de", es: "es", pt: "pt", ja: "ja", ko: "ko",
     };
     document.documentElement.lang = map[locale] ?? "en";
   }, [locale]);
 
-  if (loading || !t) {
-    return (
-      <main>
-        <header>
-          <a className="brand" href="#top">
-            <Image src="/logo.jpg" alt="UnityPay" width={130} height={48} priority />
-          </a>
-        </header>
-        <section className="hero" id="top" style={{ minHeight: 500 }}>
-          <div className="hero-copy">
-            <p style={{ color: "#94a3b8" }}>Loading…</p>
-          </div>
-        </section>
-      </main>
-    );
-  }
-
   return (
     <main>
-      {/* ---------- header ---------- */}
+      {/* ===== 1. NAVIGATION ===== */}
       <header>
         <a className="brand" href="#top">
           <Image src="/logo.jpg" alt="UnityPay" width={130} height={48} priority />
         </a>
         <nav className={menu ? "open" : ""}>
           {t.nav.map((x, i) => (
-            <a href={anchors[i]} key={x} onClick={() => setMenu(false)}>
-              {x}
-            </a>
+            <a href={anchorMap[i]} key={x} onClick={() => setMenu(false)}>{x}</a>
           ))}
         </nav>
         <div className="header-actions">
-          <LanguageDropdown
-            current={locale}
-            onChange={(c) => {
-              setLocale(c);
-              setLangOpen(false);
-            }}
-            open={langOpen}
-            setOpen={setLangOpen}
-          />
-          <a className="header-contact" href="#contact">
-            {t.contact}
-            <Arrow />
-          </a>
-          <button
-            className="menu-button"
-            aria-expanded={menu}
-            aria-label="Toggle menu"
-            onClick={() => setMenu(!menu)}
-          >
-            <i />
-            <i />
+          <LanguageDropdown current={locale} onChange={(c) => { setLocale(c); setLangOpen(false); }} open={langOpen} setOpen={setLangOpen} />
+          <a className="header-contact" href="#contact">{t.contact}<Arrow /></a>
+          <button className="menu-button" aria-expanded={menu} aria-label="Toggle menu" onClick={() => setMenu(!menu)}>
+            <i /><i />
           </button>
         </div>
       </header>
 
-      {/* ---------- hero ---------- */}
-      <section className="hero" id="top">
+      {/* ===== 2. HERO ===== */}
+      <section className="hero-section" id="top">
         <div className="hero-copy">
-          <Overline>{t.eyebrow}</Overline>
-          <h1>
-            {t.hero}
-            <br />
-            <em>{t.heroAccent}</em>
-          </h1>
-          <p>{t.heroText}</p>
+          <Overline>{t.heroEyebrow}</Overline>
+          <h1>{t.heroTitle}<br /><em>{t.heroTitleAccent}</em></h1>
+          <p className="hero-desc">{t.heroText}</p>
           <div className="hero-actions">
-            <a className="button light" href="#contact">
-              {t.consult}
-              <Arrow />
-            </a>
-            <a className="text-link" href="#flow">
-              {t.learn}
-              <span>↓</span>
-            </a>
+            <a className="button primary" href="#contact">{t.heroDemo}<Arrow /></a>
+            <a className="button outline" href="#developers">{t.heroApiDocs}<span>↓</span></a>
           </div>
         </div>
-        <HeroOrbit
-          statusLabel={t.statusLabel}
-          statusValue={t.statusValue}
-          poolLabel={t.poolLabel}
-          poolValue={t.poolValue}
-        />
-        <div className="hero-stats">
-          {t.stats.map(([num, label]) => (
-            <div key={label}>
-              <b>{num}</b>
-              <small>{label}</small>
+        <HeroFlow label={t.heroFlowLabel} stages={t.heroFlowStages} />
+        <div className="hero-stats-bar">
+          {t.heroStats.map(([num, label]) => (
+            <div key={label}><b>{num}</b><small>{label}</small></div>
+          ))}
+        </div>
+      </section>
+
+      {/* ===== 3. TRUST BAR ===== */}
+      <section className="trust-bar">
+        <h3 className="trust-bar-title">{t.trustBarTitle}</h3>
+        <div className="trust-bar-grid">
+          {t.trustCards.map(([name, desc]) => (
+            <div className="trust-bar-card" key={name}>
+              <b>{name}</b>
+              <p>{desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ---------- global network ---------- */}
-      <section className="section network" id="network">
-        <div className="section-heading">
-          <div>
-            <Overline>{t.mapOverline}</Overline>
-            <h2>{t.mapTitle}</h2>
-          </div>
-          <p>{t.mapText}</p>
+      {/* ===== 4. DECOUPLED ARCHITECTURE ===== */}
+      <section className="section architecture" id="architecture">
+        <div className="section-header">
+          <Overline>{t.archOverline}</Overline>
+          <h2>{t.archTitle}</h2>
+          <p className="section-sub">{t.archSubtitle}</p>
         </div>
-        <WorldMap regions={t.regions} />
-        <div className="region-grid">
-          {t.regions.map(([name, text]) => (
-            <article key={name}>
-              <div>
-                <h3>{name}</h3>
-                <p>{text}</p>
-              </div>
+        <div className="arch-flow">
+          {t.archSteps.map((step, i) => (
+            <div className="arch-step" key={step.num}>
+              <span className="arch-step-num">{step.num}</span>
+              <small>{step.label}</small>
+              <h4>{step.title}</h4>
+              <p>{step.desc}</p>
+              {i < 3 && <span className="arch-arrow">→</span>}
+            </div>
+          ))}
+        </div>
+        <div className="arch-isolation">
+          <div className="isolation-bar fiat">
+            <span className="isolation-dot fiat" />
+            <span>{t.fiatFlowLabel}</span>
+          </div>
+          <span className="isolation-divider">{t.isolationLabel}</span>
+          <div className="isolation-bar crypto">
+            <span className="isolation-dot crypto" />
+            <span>{t.cryptoFlowLabel}</span>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== 5. CORE CAPABILITIES ===== */}
+      <section className="section capabilities" id="capabilities">
+        <div className="section-header">
+          <Overline>{t.capOverline}</Overline>
+          <h2>{t.capTitle}</h2>
+          <p className="section-sub">{t.capSubtitle}</p>
+        </div>
+        <div className="cap-grid">
+          {t.caps.map((cap) => (
+            <article className="cap-card" key={cap.title}>
+              <span className="cap-icon">{cap.icon}</span>
+              <h4>{cap.title}</h4>
+              <p>{cap.desc}</p>
             </article>
           ))}
         </div>
-        <p className="map-note">{t.mapNote}</p>
       </section>
 
-      {/* ---------- trust ---------- */}
-      <section className="section trust" id="capabilities">
-        <div className="section-heading">
-          <div>
-            <Overline>{t.trustOverline}</Overline>
-            <h2>{t.trustTitle}</h2>
-          </div>
-          <p>{t.trustText}</p>
-        </div>
-        <div className="trust-grid">
-          {t.trusts.map(([title, text], i) => (
-            <article key={title}>
-              <div className="trust-icon">{["◇", "⇄", "⌁"][i]}</div>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* ---------- flow / swimlane ---------- */}
-      <section className="section flow" id="flow">
-        <div className="flow-heading">
-          <Overline>{t.flowOverline}</Overline>
-          <h2>
-            {t.flowTitle}
-            <br />
-            <em>{t.flowAccent}</em>
-          </h2>
-        </div>
-        <div className="flow-diagram">
-          <div className="flow-step-row">
-            {t.steps.map(([title, text], i) => (
-              <div className="flow-step-item" key={title}>
-                <div className="step-icon">{i + 1}</div>
-                <small>{t.stepLabels[i]}</small>
-                <h3>{title}</h3>
-                <p>
-                  {text}
-                  <span className="step-value"> {t.stepValues[i]}</span>
-                </p>
-                {i < 3 && <span className="flow-arrow">→</span>}
-              </div>
-            ))}
-          </div>
-          <div className="flow-swimlane">
-            <div className="swimlane-labels">
-              <span className="lane-label fiat-label">{t.fiatFlowLabel}</span>
-              <span className="lane-label crypto-label">{t.cryptoFlowLabel}</span>
-            </div>
-            <div className="swimlane-track">
-              <div className="lane-bar fiat-bar" />
-              <div className="lane-bar crypto-bar" />
-              <span className="lane-divider">{t.isolationLabel}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- compliance ---------- */}
+      {/* ===== 6. COMPLIANCE FRAMEWORK ===== */}
       <section className="section compliance" id="compliance">
-        <div className="compliance-heading">
-          <Overline>{t.complianceOverline}</Overline>
-          <h2>{t.complianceTitle}</h2>
-          <p>{t.complianceText}</p>
+        <div className="section-header">
+          <Overline>{t.compOverline}</Overline>
+          <h2>{t.compTitle}</h2>
         </div>
-        <div className="boundary-grid">
-          {t.boundaries.map(([title, text]) => (
-            <article key={title}>
-              <div className="check">✓</div>
-              <h3>{title}</h3>
-              <p>{text}</p>
+        <p className="comp-statement">{t.compStatement}</p>
+        <div className="comp-grid">
+          {t.compCards.map((card) => (
+            <article className="comp-card" key={card.title}>
+              <span className="comp-icon">{card.icon}</span>
+              <h4>{card.title}</h4>
+              <p>{card.desc}</p>
             </article>
           ))}
         </div>
-        <p className="disclaimer">{t.disclaimer}</p>
+        <p className="comp-disclaimer">{t.compDisclaimer}</p>
       </section>
 
-      {/* ---------- developers ---------- */}
+      {/* ===== 7. MPC SECURITY ===== */}
+      <section className="section mpc-security" id="security">
+        <div className="section-header">
+          <Overline>{t.mpcOverline}</Overline>
+          <h2>{t.mpcTitle}</h2>
+          <p className="section-sub">{t.mpcText}</p>
+        </div>
+        <div className="mpc-grid">
+          {t.mpcShards.map((shard) => (
+            <article className="mpc-card" key={shard.title}>
+              <span className="mpc-emoji">{shard.icon}</span>
+              <small className="mpc-label">{shard.label}</small>
+              <h4>{shard.title}</h4>
+              <p>{shard.desc}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mpc-commitment">
+          <i>⌁</i>
+          <p>{t.mpcCommitment}</p>
+        </div>
+      </section>
+
+      {/* ===== 8. RISK & MITIGATION ===== */}
+      <section className="section risk" id="risk">
+        <div className="section-header">
+          <Overline>{t.riskOverline}</Overline>
+          <h2>{t.riskTitle}</h2>
+          <p className="section-sub">{t.riskSubtitle}</p>
+        </div>
+        <div className="risk-grid">
+          {t.risks.map((r) => (
+            <article className="risk-card" key={r.title}>
+              <div className="risk-top">
+                <span className="risk-tag risk">{r.tag}</span>
+                <h4>{r.title}</h4>
+                <p className="risk-desc">{r.desc}</p>
+              </div>
+              <div className="risk-bottom">
+                <span className="risk-tag strategy">{r.strategy}</span>
+                <p>{r.strategyText}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* ===== 9. DEVELOPERS ===== */}
       <section className="section developers" id="developers">
-        <div className="dev-copy">
+        <div className="dev-side">
           <Overline>{t.devOverline}</Overline>
           <h2>{t.devTitle}</h2>
-          <p>{t.devText}</p>
+          <p className="dev-desc">{t.devText}</p>
           <div className="dev-list">
             {t.devs.map(([title, text], i) => (
               <article key={title}>
-                <span>{["{ }", "↻", "⌁"][i]}</span>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </div>
+                <span>{["{ }", "↻", "⌁", "◎", "◷"][i]}</span>
+                <div><h4>{title}</h4><p>{text}</p></div>
               </article>
             ))}
           </div>
         </div>
         <div className="code-window">
-          <div>
-            <i />
-            <i />
-            <i />
-            <span>API REQUEST</span>
-          </div>
+          <div className="code-bar"><i /><i /><i /><span>API REQUEST</span></div>
           <pre>
             <b>POST</b> /v1/settlement_routes{"\n\n"}
-            {'{\n  "source": "USD",\n  "destination": "USDC",\n  "amount": 25000\n}'}
+            {'{\n  "source": "USD",\n  "destination": "USDC",\n  "amount": 25000,\n  "webhook_url": "https://...",\n  "idempotency_key": "req_..."\n}'}
             {"\n\n"}
-            <em>→ 200 OK settlement route created</em>
+            <em>→ 200 OK  settlement route created</em>
           </pre>
         </div>
       </section>
 
-      {/* ---------- cta ---------- */}
+      {/* ===== 10. GLOBAL NETWORK ===== */}
+      <section className="section global" id="network">
+        <div className="section-header">
+          <Overline>{t.globalOverline}</Overline>
+          <h2>{t.globalTitle}</h2>
+          <p className="section-sub">{t.globalText}</p>
+        </div>
+        <WorldMap regions={t.regions} />
+        <div className="region-grid">
+          {t.regions.map(([name, text]) => (
+            <article key={name}>
+              <h4>{name}</h4>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+        <p className="global-note">{t.globalNote}</p>
+      </section>
+
+      {/* ===== 11. CTA ===== */}
       <section className="section cta-section" id="contact">
         <p className="cta-guide">{t.ctaGuide}</p>
         <Overline>{t.ctaOverline}</Overline>
         <h2>{t.ctaTitle}</h2>
-        <p>{t.ctaText}</p>
-        <a className="button light" href="mailto:hello@unitypay.com">
-          {t.contact}
-          <Arrow />
-        </a>
+        <p className="cta-text">{t.ctaText}</p>
+        <div className="cta-buttons">
+          <a className="button primary" href="mailto:hello@unitypay.com">{t.contactEmail}<Arrow /></a>
+          <a className="button outline-light" href="#contact">{t.contact} →</a>
+        </div>
         <div className="cta-info-row">
           <a className="cta-info" href="mailto:hello@unitypay.com">
             <i aria-hidden="true">✉</i>
-            <div>
-              <small>{t.contactEmail}</small>
-              <b>{t.contactEmailValue}</b>
-            </div>
+            <div><small>{t.contactEmail}</small><b>{t.contactEmailValue}</b></div>
           </a>
           <div className="cta-info">
             <i aria-hidden="true">⌖</i>
-            <div>
-              <small>{t.contactLocation}</small>
-              <b>{t.contactLocationValue}</b>
-            </div>
+            <div><small>{t.contactLocation}</small><b>{t.contactLocationValue}</b></div>
           </div>
           <div className="cta-info">
             <i aria-hidden="true">⏱</i>
-            <div>
-              <small>{t.contactHours}</small>
-              <b>{t.contactHoursValue}</b>
-            </div>
+            <div><small>{t.contactHours}</small><b>{t.contactHoursValue}</b></div>
           </div>
         </div>
       </section>
 
-      {/* ---------- footer ---------- */}
+      {/* ===== 12. FOOTER ===== */}
       <footer>
         <div className="footer-cols">
           <div className="footer-brand">
             <a className="brand" href="#top">
-              <Image src="/logo.jpg" alt="UnityPay" width={130} height={48} />
+              <Image src="/logo.jpg" alt="UnityPay" width={36} height={36} />
               <span>{t.footerBrand}</span>
             </a>
             <p>{t.footerDesc}</p>
           </div>
           <div className="footer-col">
-            <h4>{t.footerColTech}</h4>
+            <h4>{t.footerColProduct}</h4>
             <nav>
-              <a href="#network">{t.footerLinkPay}</a>
-              <a href="#flow">{t.footerLinkStable}</a>
+              <a href="#architecture">{t.footerLinkPay}</a>
+              <a href="#capabilities">{t.footerLinkCapabilities}</a>
               <a href="#developers">{t.footerLinkApi}</a>
+            </nav>
+          </div>
+          <div className="footer-col">
+            <h4>{t.footerColCompliance}</h4>
+            <nav>
+              <a href="#compliance">{t.footerLinkCompliance}</a>
+              <a href="#security">{t.footerLinkSecurity}</a>
+              <a href="#risk">{t.footerLinkRisk}</a>
             </nav>
           </div>
           <div className="footer-col">
             <h4>{t.footerColCompany}</h4>
             <nav>
               <a href="#contact">{t.footerLinkContact}</a>
+              <a href="#">{t.footerLinkTerms}</a>
+              <a href="#">{t.footerLinkPrivacy}</a>
             </nav>
           </div>
         </div>
+        <div className="footer-regulatory">
+          <p>{t.footerDisclaimer}</p>
+        </div>
         <div className="footer-bottom">
           <span>{t.footerCopyright}</span>
+          <span className="footer-bottom-dot">·</span>
+          <a href="#">{t.footerLinkTerms}</a>
+          <span className="footer-bottom-dot">·</span>
+          <a href="#">{t.footerLinkPrivacy}</a>
         </div>
       </footer>
     </main>
