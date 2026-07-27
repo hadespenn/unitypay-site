@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { type Dispatch, type SetStateAction, useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // ---- types ----
 type Locale = "zh" | "en" | "zh-TW" | "ru" | "de" | "es" | "pt" | "ja" | "ko";
