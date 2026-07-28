@@ -69,9 +69,29 @@ interface HeaderProps {
 export default function Header({ locale, setLocale, nav, contact, transparent }: HeaderProps) {
   const [menu, setMenu] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  // Close mobile menu when clicking/tapping outside the header
+  useEffect(() => {
+    if (!menu) return;
+    const onPointerDown = (e: MouseEvent | TouchEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setMenu(false);
+      }
+    };
+    const onEsc = (e: KeyboardEvent) => { if (e.key === "Escape") setMenu(false); };
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("touchstart", onPointerDown);
+    document.addEventListener("keydown", onEsc);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("touchstart", onPointerDown);
+      document.removeEventListener("keydown", onEsc);
+    };
+  }, [menu]);
 
   return (
-    <header style={transparent ? { background: "transparent", borderBottom: "none", backdropFilter: "none" } : undefined}>
+    <header ref={headerRef} style={transparent ? { background: "transparent", borderBottom: "none", backdropFilter: "none" } : undefined}>
       <Link className="brand" href="/">
         <Image src="/logo.jpg" alt="UnityPay" width={130} height={48} priority />
       </Link>
