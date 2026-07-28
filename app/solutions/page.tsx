@@ -1,14 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import type { Locale } from "../lib/locale";
-import { useLocale } from "../lib/locale";
+import { useLocale, useLocaleState } from "../lib/locale";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export default function SolutionsPage() {
-  const [locale, setLocale] = useState<Locale>("en");
+  const [locale, setLocale] = useLocaleState();
   const { t } = useLocale(locale);
+
+  useEffect(() => { window.scrollTo(0, 0); }, []);
 
   useEffect(() => {
     const map: Record<Locale, string> = {

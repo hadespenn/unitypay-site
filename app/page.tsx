@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import type { Locale, Pair } from "./lib/locale";
-import { useLocale } from "./lib/locale";
+import { useLocale, useLocaleState } from "./lib/locale";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -88,7 +88,7 @@ function HeroFlowLabel({ children }: { children: React.ReactNode }) {
 
 // ---- main page ----
 export default function Home() {
-  const [locale, setLocale] = useState<Locale>("en");
+  const [locale, setLocale] = useLocaleState();
   const { t } = useLocale(locale);
 
   useEffect(() => {

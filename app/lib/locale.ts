@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import defaultLocale from "../../public/locales/en.json";
+import { useEffect, useLayoutEffect, useState } from "react";
+import enLocaleData from "../../public/locales/en.json";
+import zhLocaleData from "../../public/locales/zh.json";
+import zhTWLocaleData from "../../public/locales/zh-TW.json";
 
 export type Locale = "zh" | "en" | "zh-TW" | "ru" | "de" | "es" | "pt" | "ja" | "ko";
 export type Pair = readonly [string, string];
@@ -180,8 +182,15 @@ export interface LocaleContent {
   solutionsAdvantages: string[];
 }
 
-const initialLocale = defaultLocale as unknown as LocaleContent;
-const localeCache = new Map<string, LocaleContent>([["en", initialLocale]]);
+const initialLocale = enLocaleData as unknown as LocaleContent;
+
+// Eager preload: zh/zh-TW bundled directly so no flicker when switching
+const eagerLocales: Record<string, LocaleContent> = {
+  en: initialLocale,
+  zh: zhLocaleData as unknown as LocaleContent,
+  "zh-TW": zhTWLocaleData as unknown as LocaleContent,
+};
+const localeCache = new Map<string, LocaleContent>(Object.entries(eagerLocales));
 
 async function loadLocale(code: string): Promise<LocaleContent> {
   if (localeCache.has(code)) return localeCache.get(code)!;
@@ -197,17 +206,51 @@ async function loadLocale(code: string): Promise<LocaleContent> {
 }
 
 export function useLocale(locale: Locale) {
-  const [t, setT] = useState<LocaleContent>(initialLocale);
+  // For non-eager locales (ru/de/es/…), track async-loaded content
+  const [nonEagerContent, setNonEagerContent] = useState<LocaleContent | null>(null);
+
+  // t is computed synchronously from locale — no useState async lag
+  const t = eagerLocales[locale] || nonEagerContent || initialLocale;
 
   useEffect(() => {
+    if (eagerLocales[locale]) {
+      setNonEagerContent(null);
+      return;
+    }
     let cancelled = false;
     loadLocale(locale)
-      .then((data) => { if (!cancelled) setT(data); })
+      .then((data) => { if (!cancelled) setNonEagerContent(data); })
       .catch(() => {
-        if (!cancelled) loadLocale("en").then((data) => { if (!cancelled) setT(data); });
+        if (!cancelled) loadLocale("en").then((data) => { if (!cancelled) setNonEagerContent(data); });
       });
     return () => { cancelled = true; };
   }, [locale]);
 
   return { t } as const;
+}
+
+const LOCALE_STORAGE_KEY = "unitypay-locale";
+
+export function useLocaleState(): [Locale, (l: Locale) => void] {
+  // Always start as "en" to match static pre-rendered HTML (avoids hydration mismatch)
+  const [locale, setLocale] = useState<Locale>("en");
+
+  // After hydration but BEFORE browser paint, apply stored locale
+  useLayoutEffect(() => {
+    const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
+    if (stored && stored !== "en") {
+      setLocale(stored as Locale);
+    }
+    // Restore visibility hidden by the inline <script> in layout.tsx
+    if (typeof document !== "undefined") {
+      document.documentElement.style.visibility = "";
+    }
+  }, []);
+
+  const setAndPersist = (l: Locale) => {
+    localStorage.setItem(LOCALE_STORAGE_KEY, l);
+    setLocale(l);
+  };
+
+  return [locale, setAndPersist];
 }
