@@ -299,7 +299,7 @@ export default function Home() {
             ))}
           </div>
           <div className="dev-actions">
-            <a className="button primary" href="/developers">查看开发者文档<span>↗</span></a>
+            <a className="button primary" href="/developers">{t.footerLinkDevelopers}<span>↗</span></a>
           </div>
         </div>
         <div className="code-window">

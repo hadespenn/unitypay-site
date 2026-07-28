@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export default function CompliancePage() {
-  const [locale, setLocale] = useState<Locale>("zh");
+  const [locale, setLocale] = useState<Locale>("en");
   const { t } = useLocale(locale);
 
   useEffect(() => {
@@ -17,70 +17,20 @@ export default function CompliancePage() {
     document.documentElement.lang = map[locale] ?? "en";
   }, [locale]);
 
-  const jurisdictions = [
-    { region: "加拿大", framework: "MSB / FINTRAC", desc: "联邦 AML/ATF 框架下登记规定货币服务" },
-    { region: "香港", framework: "MSO 牌照", desc: "严格限定法币服务，不涉足虚拟资产" },
-    { region: "新加坡", framework: "MAS 框架", desc: "亚洲枢纽，MPC 技术架构" },
-    { region: "开曼 / BVI", framework: "独立科技架构", desc: "风险隔离，与金融牌照主体分离" },
-  ];
-
-  const obligations = [
-    { type: "客户身份核验 (KYC)", desc: "核验个人或实体身份，识别受益所有人" },
-    { type: "企业尽职调查 (KYB)", desc: "审查商户实际控制人、业务模式、历史交易" },
-    { type: "制裁筛查", desc: "客户、受益所有人、代理、母子公司、收付款人筛查" },
-    { type: "交易监控", desc: "持续信号与可配置规则，识别异常活动" },
-    { type: "可疑交易报告（STR）", desc: "有合理理由怀疑与洗钱/恐怖融资有关时，无金额门槛报告" },
-    { type: "24小时聚合报告", desc: "大额现金、虚拟货币、电子资金转移报告" },
-    { type: "FATF Travel Rule", desc: "应报告 EFT 或虚拟货币转移随附发起人与受益人信息" },
-    { type: "记录保存", desc: "多数法定记录至少保存 5 年" },
-  ];
-
-  const boundaries = [
-    { label: "不提供投资建议", desc: "平台内容仅限技术教育与信息披露" },
-    { label: "不承诺收益", desc: "不保证任何投资回报或资产增值" },
-    { label: "不托管客户资产", desc: "平台不持有客户私钥或资金" },
-    { label: "不吸收存款", desc: "不接受客户资金作为平台负债" },
-    { label: "不发行证券型代币", desc: "不发行或承销任何形式的证券型代币" },
-    { label: "不参与交易撮合", desc: "平台不介入买卖双方的交易匹配" },
-  ];
-
-  const risks = [
-    {
-      title: "贸易背景真实性",
-      desc: "虚假贸易可能利用通道洗钱",
-      strategy: "强制真实贸易凭证核验 · AI驱动交易监控",
-    },
-    {
-      title: "OTC第三方入金限制",
-      desc: "合规OTC严禁第三方入金",
-      strategy: "B2B支付网关协议 · API级合规信息同步",
-    },
-    {
-      title: "KYC重复摩擦",
-      desc: "跨平台重复认证导致用户流失",
-      strategy: "KYC互认协议 · 1-Click授权开户",
-    },
-    {
-      title: "SFC监管红线",
-      desc: "投资建议触犯第4类牌照要求",
-      strategy: "坚守技术中立 · 明确免责声明",
-    },
-  ];
-
   return (
     <main>
       <Header locale={locale} setLocale={setLocale} nav={t.nav} contact={t.contact} />
 
       {/* ===== 1. HERO ===== */}
       <section className="compliance-hero">
-        <p className="overline"><i />合规与信任</p>
+        <p className="overline"><i />{t.complianceEyebrow}</p>
         <h1>
-          合规融入产品设计
+          {t.complianceTitle}
           <br />
-          <em>而非事后补充</em>
+          <em>{t.complianceTitleAccent}</em>
         </h1>
         <p className="compliance-hero-desc">
-          我们以透明公开的合规框架连接持牌金融机构，确保每一笔资金流转都满足多司法辖区的监管要求。
+          {t.complianceDesc}
         </p>
       </section>
 
@@ -89,30 +39,29 @@ export default function CompliancePage() {
         <div className="statement-banner">
           <div className="statement-title">
           <i>⚠</i>
-           <h3>重要声明</h3>
+           <h3>{t.complianceStatementTitle}</h3>
           </div>
-           
+
             <p>
-              MSB 登记是反洗钱合规的前提，不代表政府背书或综合金融牌照。
-              FINTRAC 登记是 AML 合规必要条件，不构成银行、证券或存款业务的经营许可。
+              {t.complianceStatementText}
             </p>
-          
+
         </div>
       </section>
 
       {/* ===== 3. JURISDICTIONS ===== */}
       <section className="compliance-section compliance-jurisdictions">
         <div className="section-header">
-          <p className="overline"><i />全球布局</p>
-          <h2>持牌司法辖区</h2>
+          <p className="overline"><i />{t.complianceJuriEyebrow}</p>
+          <h2>{t.complianceJuriTitle}</h2>
         </div>
         <div className="jurisdiction-table">
           <div className="jurisdiction-row header">
-            <div>地区</div>
-            <div>框架 / 牌照</div>
-            <div>说明</div>
+            {t.complianceJuriHeader.map((h) => (
+              <div key={h}>{h}</div>
+            ))}
           </div>
-          {jurisdictions.map((j) => (
+          {t.complianceJurisdictions.map((j) => (
             <div className="jurisdiction-row" key={j.region}>
               <div className="jurisdiction-region">
                 <span className="jurisdiction-dot" />
@@ -128,11 +77,11 @@ export default function CompliancePage() {
       {/* ===== 4. OBLIGATIONS ===== */}
       <section className="compliance-section compliance-obligations">
         <div className="section-header">
-          <p className="overline"><i />合规义务</p>
-          <h2>清单式义务框架</h2>
+          <p className="overline"><i />{t.complianceObliEyebrow}</p>
+          <h2>{t.complianceObliTitle}</h2>
         </div>
         <div className="obligation-grid">
-          {obligations.map((o) => (
+          {t.complianceObligations.map((o) => (
             <article className="obligation-card" key={o.type}>
               <span className="obligation-check">✓</span>
               <div>
@@ -147,11 +96,11 @@ export default function CompliancePage() {
       {/* ===== 5. BOUNDARIES ===== */}
       <section className="compliance-section compliance-boundaries">
         <div className="section-header">
-          <p className="overline"><i />边界声明</p>
-          <h2>明确"我们不做的事"</h2>
+          <p className="overline"><i />{t.complianceBounEyebrow}</p>
+          <h2>{t.complianceBounTitle}</h2>
         </div>
         <div className="boundaries-grid">
-          {boundaries.map((b) => (
+          {t.complianceBoundaries.map((b) => (
             <article className="boundary-card" key={b.label}>
               <span className="boundary-line" />
               <div>
@@ -166,11 +115,11 @@ export default function CompliancePage() {
       {/* ===== 6. RISK & MITIGATION ===== */}
       <section className="compliance-section compliance-risks">
         <div className="section-header">
-          <p className="overline"><i />风险与应对</p>
-          <h2>四大核心风险</h2>
+          <p className="overline"><i />{t.complianceRiskEyebrow}</p>
+          <h2>{t.complianceRiskTitle}</h2>
         </div>
         <div className="compliance-risk-grid">
-          {risks.map((r) => (
+          {t.complianceRisks.map((r) => (
             <article className="compliance-risk-card" key={r.title}>
               <div className="compliance-risk-top">
                 <div className="compliance-risk-head">
@@ -194,9 +143,7 @@ export default function CompliancePage() {
         <div className="disclaimer-box">
           <i>⌁</i>
           <p>
-            本平台仅提供支付路由与软件技术服务，不提供投资建议，不保证资产表现。
-            所有虚拟资产兑换及相关金融服务均由具备相应资质的持牌机构独立提供，并以正式协议及适用范围为准。
-            服务及可用性因司法辖区、客户资格和合作伙伴覆盖而异。
+            {t.complianceDisclaimerText}
           </p>
         </div>
       </section>
@@ -263,7 +210,7 @@ export default function CompliancePage() {
         }
         .statement-banner {
           display: flex;
-          align-items: flex-start;
+          align-items: center;
           gap: 18px;
           padding: 28px 32px;
           background: linear-gradient(160deg, rgba(201, 168, 76, .08), rgba(201, 168, 76, .02));

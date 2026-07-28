@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export default function AboutPage() {
-  const [locale, setLocale] = useState<Locale>("zh");
+  const [locale, setLocale] = useState<Locale>("en");
   const { t } = useLocale(locale);
 
   useEffect(() => {
@@ -28,41 +28,28 @@ export default function AboutPage() {
 
       {/* ===== ABOUT HERO ===== */}
       <section className="about-hero">
-        <p className="overline"><i />关于 UnityPay</p>
+        <p className="overline"><i />{t.aboutEyebrow}</p>
         <h1>
-          做出海企业信得过的
+          {t.aboutTitle}
           <br />
-          <em>跨境支付伙伴</em>
+          <em>{t.aboutTitleAccent}</em>
         </h1>
         <p className="about-desc">
-          UnityPay 是面向出海企业的全球支付结算技术与软件服务平台，提供产品界面、流程编排、路由指令、状态展示及对账支持。
-          我们以解耦式架构连接收单、合规筛查与持牌机构执行，让每一笔资金流转都有迹可循；
-          支付、汇款、兑换及虚拟资产相关的受监管服务，由具备相应资质的合作伙伴独立提供。
-          团队长期深耕跨境支付、贸易合规与金融科技，致力于用透明、可验证的方式连接商户、收单网络与持牌金融机构。
+          {t.aboutDesc}
         </p>
       </section>
 
       {/* ===== MISSION · VALUES · COMMITMENT ===== */}
       <section className="about-cards">
         <div className="about-cards-grid">
-          <article className="about-card">
-            <span className="about-card-icon">◈</span>
-            <h3>使命</h3>
-            <b>让价值无国界</b>
-            <p>消除跨境支付的摩擦与障碍，帮助出海企业自由流动资金。</p>
-          </article>
-          <article className="about-card">
-            <span className="about-card-icon">⬡</span>
-            <h3>价值观</h3>
-            <b>合规优先</b>
-            <p>合规是产品设计的一部分，而非事后补充。</p>
-          </article>
-          <article className="about-card">
-            <span className="about-card-icon">⌁</span>
-            <h3>承诺</h3>
-            <b>技术中立，不持客户资产</b>
-            <p>平台仅提供支付路由与软件技术服务。</p>
-          </article>
+          {t.aboutMissionCards.map((card, i) => (
+            <article className="about-card" key={i}>
+              <span className="about-card-icon">{["◈", "⬡", "⌁"][i]}</span>
+              <h3>{card.title}</h3>
+              <b>{card.subtitle}</b>
+              <p>{card.desc}</p>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -109,7 +96,7 @@ export default function AboutPage() {
           font-size: 14.5px;
           line-height: 1.9;
           color: #9fadc0;
-          max-width: 680px;
+          max-width: 850px;
           margin: 28px auto 0;
           position: relative;
           z-index: 2;

@@ -12,6 +12,21 @@ export interface CompCard { icon: string; title: string; desc: string; }
 export interface MpcShard { icon: string; label: string; title: string; desc: string; }
 export interface RiskItem { tag: string; title: string; desc: string; strategy: string; strategyText: string; }
 
+// ---- sub-page interfaces ----
+export interface AboutMissionCard { title: string; subtitle: string; desc: string; }
+
+export interface ComplianceJurisdiction { region: string; framework: string; desc: string; }
+export interface ComplianceObligation { type: string; desc: string; }
+export interface ComplianceBoundary { label: string; desc: string; }
+export interface ComplianceRisk { title: string; desc: string; strategy: string; }
+
+export interface DeveloperFeature { icon: string; title: string; desc: string; }
+export interface DeveloperStep { num: string; title: string; desc: string; }
+
+export interface SolutionsArchStep { num: string; label: string; items: string[]; }
+export interface SolutionsFlowStep { num: string; name: string; desc: string; }
+export interface SolutionsScenario { icon: string; title: string; desc: string; }
+
 export interface LocaleContent {
   langName: string;
   langShort: string;
@@ -97,6 +112,72 @@ export interface LocaleContent {
   footerCopyright: string;
   footerDisclaimer: string;
   footerLink: string;
+
+  // ---- about page ----
+  aboutEyebrow: string;
+  aboutTitle: string;
+  aboutTitleAccent: string;
+  aboutDesc: string;
+  aboutMissionCards: AboutMissionCard[];
+
+  // ---- compliance page ----
+  complianceEyebrow: string;
+  complianceTitle: string;
+  complianceTitleAccent: string;
+  complianceDesc: string;
+  complianceStatementTitle: string;
+  complianceStatementText: string;
+  complianceJuriEyebrow: string;
+  complianceJuriTitle: string;
+  complianceJuriHeader: string[];
+  complianceJurisdictions: ComplianceJurisdiction[];
+  complianceObliEyebrow: string;
+  complianceObliTitle: string;
+  complianceObligations: ComplianceObligation[];
+  complianceBounEyebrow: string;
+  complianceBounTitle: string;
+  complianceBoundaries: ComplianceBoundary[];
+  complianceRiskEyebrow: string;
+  complianceRiskTitle: string;
+  complianceRisks: ComplianceRisk[];
+  complianceDisclaimerText: string;
+
+  // ---- developers page ----
+  devPageEyebrow: string;
+  devPageTitle: string;
+  devPageTitleAccent: string;
+  devPageDesc: string;
+  devPageFeaturesEyebrow: string;
+  devPageFeaturesTitle: string;
+  devPageFeatures: DeveloperFeature[];
+  devPageApiEyebrow: string;
+  devPageApiTitle: string;
+  devPageApiSubtitle: string;
+  devPageSandboxEyebrow: string;
+  devPageSandboxTitle: string;
+  devPageSandboxCardTitle: string;
+  devPageSandboxCardText: string;
+  devPageStepsEyebrow: string;
+  devPageStepsTitle: string;
+  devPageSteps: DeveloperStep[];
+
+  // ---- solutions page ----
+  solutionsEyebrow: string;
+  solutionsTitle: string;
+  solutionsTitleAccent: string;
+  solutionsDesc: string;
+  solutionsArchEyebrow: string;
+  solutionsArchTitle: string;
+  solutionsArchSteps: SolutionsArchStep[];
+  solutionsFlowEyebrow: string;
+  solutionsFlowTitle: string;
+  solutionsFlowSteps: SolutionsFlowStep[];
+  solutionsScenarioEyebrow: string;
+  solutionsScenarioTitle: string;
+  solutionsScenarios: SolutionsScenario[];
+  solutionsAdvantageTitle: string;
+  solutionsAdvantageSubtitle: string;
+  solutionsAdvantages: string[];
 }
 
 const initialLocale = defaultLocale as unknown as LocaleContent;

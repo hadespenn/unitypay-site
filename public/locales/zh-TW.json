@@ -77,7 +77,7 @@
   "riskTitle": "關鍵落地風險應對策略",
   "riskSubtitle": "每個風險都經過識別、評估，並通過具體的架構、法律和運營措施加以緩解 — 不含糊。",
   "risks": [
-    {"tag": "風險", "title": "貿易背景真實性", "desc": "虛構或誇大的貿易文件破壞了跨境支付的合法基礎。", "strategy": "應對", "strategyText": "入駐時強制提交並核驗真實貿易文件。交易級對賬與訂單和物流數據交叉比對。持續的售後抽樣審計。"},
+    {"tag": "風險", "title": "貿易背景真實性", "desc": "虛構或誇大的貿易文件削弱了跨境支付的合法基礎。", "strategy": "應對", "strategyText": "入駐時強制提交並核驗真實貿易文件。交易級對賬與訂單和物流數據交叉比對。持續的售後抽樣審計。"},
     {"tag": "風險", "title": "OTC 第三方入金限制", "desc": "OTC 櫃檯可能限制或拒絕第三方來源的入金，為 VA 資金的兌換路由製造結算摩擦。", "strategy": "應對", "strategyText": "預審 OTC 合作夥伴的第三方入金政策。專屬虛擬賬戶架構確保資金在進入兌換路由前有清晰的來源追溯。"},
     {"tag": "風險", "title": "KYC 重複摩擦", "desc": "商戶在多個服務層面臨重複的 KYC/KYB 流程，增加流失率和運營成本。", "strategy": "應對", "strategyText": "一次核驗、多場景復用的身份架構。合規數據結構化設計，經用戶同意在合作機構間復用，減少重複的同時保持審計完整性。"},
     {"tag": "風險", "title": "SFC 監管紅線", "desc": "香港證監會牌照要求為虛擬資產活動設定了明確且不可逾越的紅線。", "strategy": "應對", "strategyText": "嚴格功能分離：MSO 僅處理法幣。虛擬資產兌換由 SFC 持牌（或等效資質）合作夥伴在其自身監管範圍內獨立執行。"}
@@ -142,5 +142,124 @@
   "footerLinkPrivacy": "隱私政策",
   "footerCopyright": "© 2026 UNITYPAY. ALL RIGHTS RESERVED.",
   "footerLink": "查看完整免責聲明 →",
-  "footerDisclaimer": "⚠️ 本平台僅提供支付路由與軟體技術服務，不提供投資建議，不託管客戶資產。所有受監管金融服務由持牌合作機構獨立提供。"
+  "footerDisclaimer": "⚠️ 本平台僅提供支付路由與軟體技術服務，不提供投資建議，不託管客戶資產。所有受監管金融服務由持牌合作機構獨立提供。",
+
+  "aboutEyebrow": "關於 UnityPay",
+  "aboutTitle": "做出海企業信得過的",
+  "aboutTitleAccent": "跨境支付夥伴",
+  "aboutDesc": "UnityPay 是面向出海企業的全球支付結算技術與軟件服務平台，提供產品界面、流程編排、路由指令、狀態展示及對賬支持。我們以解耦式架構連接收單、合規篩查與持牌機構執行，讓每一筆資金流轉都有跡可循；支付、匯款、兌換及虛擬資產相關的受監管服務，由具備相應資質的合作夥伴獨立提供。團隊長期深耕跨境支付、貿易合規與金融科技，致力於用透明、可驗證的方式連接商戶、收單網絡與持牌金融機構。",
+  "aboutMissionCards": [
+    {"title": "使命", "subtitle": "讓價值無國界", "desc": "消除跨境支付的摩擦與障礙，幫助出海企業自由流動資金。"},
+    {"title": "價值觀", "subtitle": "合規優先", "desc": "合規是產品設計的一部分，而非事後補充。"},
+    {"title": "承諾", "subtitle": "技術中立，不持客戶資產", "desc": "平台僅提供支付路由與軟件技術服務。"}
+  ],
+
+  "complianceEyebrow": "合規與信任",
+  "complianceTitle": "合規融入產品設計",
+  "complianceTitleAccent": "而非事後補充",
+  "complianceDesc": "我們以透明公開的合規框架連接持牌金融機構，確保每一筆資金流轉都滿足多司法轄區的監管要求。",
+  "complianceStatementTitle": "重要聲明",
+  "complianceStatementText": "MSB 登記是反洗錢合規的前提，不代表政府背書或綜合金融牌照。FINTRAC 登記是 AML 合規必要條件，不構成銀行、證券或存款業務的經營許可。",
+  "complianceJuriEyebrow": "全球佈局",
+  "complianceJuriTitle": "持牌司法轄區",
+  "complianceJuriHeader": ["地區", "框架 / 牌照", "說明"],
+  "complianceJurisdictions": [
+    {"region": "加拿大", "framework": "MSB / FINTRAC", "desc": "聯邦 AML/ATF 框架下登記規定貨幣服務"},
+    {"region": "香港", "framework": "MSO 牌照", "desc": "嚴格限定法幣服務，不涉足虛擬資產"},
+    {"region": "新加坡", "framework": "MAS 框架", "desc": "亞洲樞紐，MPC 技術架構"},
+    {"region": "開曼 / BVI", "framework": "獨立科技架構", "desc": "風險隔離，與金融牌照主體分離"}
+  ],
+  "complianceObliEyebrow": "合規義務",
+  "complianceObliTitle": "清單式義務框架",
+  "complianceObligations": [
+    {"type": "客戶身份核驗 (KYC)", "desc": "核驗個人或實體身份，識別受益所有人"},
+    {"type": "企業盡職調查 (KYB)", "desc": "審查商戶實際控制人、業務模式、歷史交易"},
+    {"type": "制裁篩查", "desc": "客戶、受益所有人、代理、母子公司、收付款人篩查"},
+    {"type": "交易監控", "desc": "持續信號與可配置規則，識別異常活動"},
+    {"type": "可疑交易報告（STR）", "desc": "有合理理由懷疑與洗錢/恐怖融資有關時，無金額門檻報告"},
+    {"type": "24小時聚合報告", "desc": "大額現金、虛擬貨幣、電子資金轉移報告"},
+    {"type": "FATF Travel Rule", "desc": "應報告 EFT 或虛擬貨幣轉移隨附發起人與受益人信息"},
+    {"type": "記錄保存", "desc": "多數法定記錄至少保存 5 年"}
+  ],
+  "complianceBounEyebrow": "邊界聲明",
+  "complianceBounTitle": "明確「我們不做的事」",
+  "complianceBoundaries": [
+    {"label": "不提供投資建議", "desc": "平台內容僅限技術教育與信息披露"},
+    {"label": "不承諾收益", "desc": "不保證任何投資回報或資產增值"},
+    {"label": "不託管客戶資產", "desc": "平台不持有客戶私鑰或資金"},
+    {"label": "不吸收存款", "desc": "不接受客戶資金作為平台負債"},
+    {"label": "不發行證券型代幣", "desc": "不發行或承銷任何形式的證券型代幣"},
+    {"label": "不參與交易撮合", "desc": "平台不介入買賣雙方的交易匹配"}
+  ],
+  "complianceRiskEyebrow": "風險與應對",
+  "complianceRiskTitle": "四大核心風險",
+  "complianceRisks": [
+    {"title": "貿易背景真實性", "desc": "虛假貿易可能利用通道洗錢", "strategy": "強制真實貿易憑證核驗 · AI驅動交易監控"},
+    {"title": "OTC第三方入金限制", "desc": "合規OTC嚴禁第三方入金", "strategy": "B2B支付網關協議 · API級合規信息同步"},
+    {"title": "KYC重複摩擦", "desc": "跨平台重複認證導致用戶流失", "strategy": "KYC互認協議 · 1-Click授權開戶"},
+    {"title": "SFC監管紅線", "desc": "投資建議觸犯第4類牌照要求", "strategy": "堅守技術中立 · 明確免責聲明"}
+  ],
+  "complianceDisclaimerText": "本平台僅提供支付路由與軟件技術服務，不提供投資建議，不保證資產表現。所有虛擬資產兌換及相關金融服務均由具備相應資質的持牌機構獨立提供，並以正式協議及適用範圍為準。服務及可用性因司法轄區、客戶資格和合作夥伴覆蓋而異。",
+
+  "devPageEyebrow": "開發者文檔",
+  "devPageTitle": "一個 API",
+  "devPageTitleAccent": "多種軌道",
+  "devPageDesc": "為收單、路由和結算提供清晰、可靠且可審計的接口 — 為追求確定性的集成團隊而設計。",
+  "devPageFeaturesEyebrow": "核心功能",
+  "devPageFeaturesTitle": "清晰、可審計、可靠",
+  "devPageFeatures": [
+    {"icon": "{ }", "title": "版本化 REST API", "desc": "清晰、版本化的 REST API，配套沙箱環境與集成支持"},
+    {"icon": "↻", "title": "可靠 Webhook", "desc": "支持冪等投遞，確保事件可靠送達"},
+    {"icon": "⌁", "title": "加密數據傳輸", "desc": "加密傳輸合規必要信息，遵循數據保護要求"},
+    {"icon": "◎", "title": "商戶信息同步", "desc": "交易狀態查詢、餘額核對與合規資料交換"}
+  ],
+  "devPageApiEyebrow": "端點示例",
+  "devPageApiTitle": "創建結算路由",
+  "devPageApiSubtitle": "通過單一端點發起一筆跨幣種結算，平台返回路由 ID 與預計結算時間。",
+  "devPageSandboxEyebrow": "沙箱環境",
+  "devPageSandboxTitle": "上線前完整測試",
+  "devPageSandboxCardTitle": "減少人工對賬成本",
+  "devPageSandboxCardText": "沙箱環境模擬真實交易流程，支持完整 API 調用測試。所有 Webhook 事件、簽名校驗、錯誤碼均與生產環境一致，幫助集成方在上線前完成端到端驗證，顯著降低上線後的對賬與排障成本。",
+  "devPageStepsEyebrow": "集成流程",
+  "devPageStepsTitle": "從註冊到上線",
+  "devPageSteps": [
+    {"num": "①", "title": "註冊賬號並獲取 API Key", "desc": "在控制台創建商戶賬號，完成實名認證後自動簽發 API Key。"},
+    {"num": "②", "title": "接入沙箱環境進行測試", "desc": "使用沙箱密鑰在隔離環境中完成端到端集成測試，無需真實資金。"},
+    {"num": "③", "title": "完成合規資料提交與審核", "desc": "提交 KYC/KYB 材料及業務場景說明，由合規團隊完成審核。"},
+    {"num": "④", "title": "切換至生產環境正式上線", "desc": "審核通過後切換為生產密鑰，按計劃灰度上線並開啟實時監控。"}
+  ],
+
+  "solutionsEyebrow": "解決方案",
+  "solutionsTitle": "解耦式收單與",
+  "solutionsTitleAccent": "合規出金架構",
+  "solutionsDesc": "基於真實貿易服務場景，以物理隔離架構連接法幣收單與合規出金，確保每一筆資金流轉都有清晰的牌照邊界與審計軌跡。",
+  "solutionsArchEyebrow": "架構總覽",
+  "solutionsArchTitle": "三段式解耦流程",
+  "solutionsArchSteps": [
+    {"num": "01", "label": "前端收單", "items": ["依託加拿大 MSB 與香港 MSO 牌照資質", "基於真實貿易服務場景，進行信用卡或法幣收單", "使用正常商業 MCC 代碼（如 5999），確保收單通道合規"]},
+    {"num": "02", "label": "資金停靠", "items": ["法幣資金清算至專屬虛擬賬戶 (VA)", "資金性質界定為「商戶/客戶已合法擁有的法幣收入」", "實現法幣流與加密流的物理隔離與時間緩衝"]},
+    {"num": "03", "label": "用戶決策與分流", "items": ["法幣路徑：客戶選擇法幣，MSO 執行常規法幣匯款", "加密路徑：客戶選擇穩定幣，跳轉至持牌 OTC（OSL / MetaComp）", "MSO 僅按指令將 VA 資金匯至 OTC 信託賬戶，OTC 負責兌換"]}
+  ],
+  "solutionsFlowEyebrow": "流程詳解",
+  "solutionsFlowTitle": "四段清晰流程",
+  "solutionsFlowSteps": [
+    {"num": "①", "name": "業務核驗", "desc": "KYB 企業盡調、實際控制人識別、貿易憑證交叉驗證"},
+    {"num": "②", "name": "法幣收單", "desc": "銀行卡、銀行轉賬、本地支付，訂單匹配清分對賬"},
+    {"num": "③", "name": "合規路由", "desc": "制裁篩查、交易監控、24 小時聚合，路由至合資格夥伴"},
+    {"num": "④", "name": "結算執行", "desc": "持牌 OTC 獨立執行兌換，返回可審計結算狀態"}
+  ],
+  "solutionsScenarioEyebrow": "適用場景",
+  "solutionsScenarioTitle": "為誰而建",
+  "solutionsScenarios": [
+    {"icon": "▣", "title": "跨境電商", "desc": "多幣種收單"},
+    {"icon": "◈", "title": "遊戲出海", "desc": "全球玩家收款"},
+    {"icon": "⬢", "title": "貿易服務商", "desc": "合規跨境結算"},
+    {"icon": "⌬", "title": "Web3 項目方", "desc": "鏈上支付接入"}
+  ],
+  "solutionsAdvantageTitle": "法幣流與加密流物理隔離",
+  "solutionsAdvantageSubtitle": "確保收單通道與牌照邊界清晰合規",
+  "solutionsAdvantages": [
+    "MSO 全程僅處理法幣流轉，不觸碰虛擬資產",
+    "合規責任由持牌機構執行，平台僅提供技術路由"
+  ]
 }
