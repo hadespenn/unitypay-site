@@ -29,6 +29,7 @@ export default function CompliancePage() {
     { type: "企业尽职调查 (KYB)", desc: "审查商户实际控制人、业务模式、历史交易" },
     { type: "制裁筛查", desc: "客户、受益所有人、代理、母子公司、收付款人筛查" },
     { type: "交易监控", desc: "持续信号与可配置规则，识别异常活动" },
+    { type: "可疑交易报告（STR）", desc: "有合理理由怀疑与洗钱/恐怖融资有关时，无金额门槛报告" },
     { type: "24小时聚合报告", desc: "大额现金、虚拟货币、电子资金转移报告" },
     { type: "FATF Travel Rule", desc: "应报告 EFT 或虚拟货币转移随附发起人与受益人信息" },
     { type: "记录保存", desc: "多数法定记录至少保存 5 年" },
@@ -170,8 +171,10 @@ export default function CompliancePage() {
           {risks.map((r) => (
             <article className="compliance-risk-card" key={r.title}>
               <div className="compliance-risk-top">
-                <span className="compliance-risk-icon">⚠</span>
-                <h4>{r.title}</h4>
+                <div className="compliance-risk-head">
+                  <span className="compliance-risk-icon">⚠</span>
+                  <h4>{r.title}</h4>
+                </div>
                 <p className="compliance-risk-desc">{r.desc}</p>
               </div>
               <div className="compliance-risk-divider"><i /></div>
@@ -234,7 +237,7 @@ export default function CompliancePage() {
           font-size: 14.5px;
           line-height: 1.9;
           color: #9fadc0;
-          max-width: 620px;
+          max-width: 720px;
           margin: 28px auto 0;
           position: relative;
           z-index: 2;
@@ -401,7 +404,8 @@ export default function CompliancePage() {
           background: linear-gradient(180deg, rgba(248, 113, 113, .5), rgba(248, 113, 113, .1));
         }
         .compliance-risk-top { padding-bottom: 20px; }
-        .compliance-risk-bottom { padding-top: 20px; }
+        .compliance-risk-head { display: flex; align-items: center; gap: 16px; }
+        .compliance-risk-bottom { padding-top: 20px; display: flex; align-items: center; gap: 20px;}
         .compliance-risk-icon {
           display: inline-flex;
           align-items: center;
@@ -425,7 +429,7 @@ export default function CompliancePage() {
           font-size: 13px;
           line-height: 1.7;
           color: #a0aec0;
-          margin: 0;
+          margin: 0 48px;
         }
         .compliance-risk-divider {
           position: relative;
@@ -446,7 +450,6 @@ export default function CompliancePage() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          margin-bottom: 12px;
           padding: 4px 10px 4px 8px;
           border-radius: 20px;
           background: rgba(94, 234, 212, .08);

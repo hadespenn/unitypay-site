@@ -12,7 +12,7 @@ header{height:78px;padding:0 max(4vw,40px);display:flex;align-items:center;justi
 .hero-copy{position:relative;z-index:2;max-width:680px;padding-top:10px}
 .hero-copy h1{font-size:clamp(48px,4vw,72px);line-height:1.06;letter-spacing:-.05em;font-weight:460;margin:0}
 .hero-copy h1 em{font-style:normal;color:var(--blue2);display:inline-block;margin-top:8px}
-.hero-desc{font-size:14.5px;line-height:1.9;color:#9fadc0;max-width:620px;margin:30px 0 36px}
+.hero-desc{font-size:14.5px;line-height:1.9;color:#9fadc0;max-width:720px;margin:30px 0 36px}
 .hero-actions{display:flex;align-items:center;gap:20px}
 .hero-actions .button.outline span{color:var(--cyan);margin-left:10px}
 
@@ -44,7 +44,7 @@ header{height:78px;padding:0 max(4vw,40px);display:flex;align-items:center;justi
 .trust-bar-card{position:relative;padding:4px 22px 8px;min-height:96px;border-right:1px solid rgba(120,180,210,.1);display:flex;flex-direction:column;justify-content:flex-start}
 .trust-bar-card:first-child{padding-left:0}.trust-bar-card:last-child{border-right:0;padding-right:0}
 .trust-bar-card b{display:block;font-size:16px;font-weight:700;margin-bottom:10px;color:#e0e8f0;line-height:1.35}
-.trust-bar-card p{font-size:12.5px;line-height:1.7;color:#7f8fa2;margin:0;max-width:245px}
+.trust-bar-card p{font-size:12.5px;line-height:1.7;color:#7f8fa2;margin:0;}
 
 /* ===== 4. ARCHITECTURE ===== */
 .architecture{background:var(--bg2)}
@@ -118,6 +118,7 @@ header{height:78px;padding:0 max(4vw,40px);display:flex;align-items:center;justi
 .risk-card{padding:30px 30px 28px;background:linear-gradient(160deg,rgba(255,255,255,.03),rgba(255,255,255,.01));border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;position:relative;overflow:hidden}
 .risk-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,rgba(248,113,113,.5),rgba(248,113,113,.1))}
 .risk-top{flex:1;padding-bottom:20px}
+.risk-head{display: flex; align-items: center; gap: 16px;}
 .risk-bottom{padding-top:20px}
 .risk-label{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;padding:4px 10px 4px 8px;border-radius:20px;background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.15)}
 .risk-bottom .risk-label{background:rgba(94,234,212,.08);border-color:rgba(94,234,212,.18)}

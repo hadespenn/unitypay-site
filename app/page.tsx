@@ -262,11 +262,13 @@ export default function Home() {
           {t.risks.map((r) => (
             <article className="risk-card" key={r.title}>
               <div className="risk-top">
+                <div className="risk-head">
                 <div className="risk-label">
                   <span className="risk-icon risk">⚠</span>
                   <small>{r.tag}</small>
                 </div>
                 <h4>{r.title}</h4>
+                </div>
                 <p className="risk-desc">{r.desc}</p>
               </div>
               <div className="risk-divider"><i /></div>
