@@ -47,9 +47,11 @@ export default function SolutionsPage() {
         </div>
         <div className="arch-three">
           <article className="arch-three-card">
+            <div className="arch-three-wrap">
             <span className="arch-three-num">01</span>
             <div className="arch-three-label">前端收单</div>
-            <h3>Acquiring</h3>
+            </div>
+            {/* <h3>Acquiring</h3> */}
             <ul>
               <li>依托加拿大 MSB 与香港 MSO 牌照资质</li>
               <li>基于真实贸易服务场景，进行信用卡或法币收单</li>
@@ -58,9 +60,11 @@ export default function SolutionsPage() {
           </article>
           <span className="arch-three-arrow">→</span>
           <article className="arch-three-card">
+            <div className="arch-three-wrap">
             <span className="arch-three-num">02</span>
             <div className="arch-three-label">资金停靠</div>
-            <h3>VA Parking</h3>
+            </div>
+            {/* <h3>VA Parking</h3> */}
             <ul>
               <li>法币资金清算至专属虚拟账户 (VA)</li>
               <li>资金性质界定为&ldquo;商户/客户已合法拥有的法币收入&rdquo;</li>
@@ -69,9 +73,11 @@ export default function SolutionsPage() {
           </article>
           <span className="arch-three-arrow">→</span>
           <article className="arch-three-card">
+            <div className="arch-three-wrap">
             <span className="arch-three-num">03</span>
             <div className="arch-three-label">用户决策与分流</div>
-            <h3>Routing</h3>
+            </div>
+            {/* <h3>Routing</h3> */}
             <ul>
               <li><b>法币路径：</b>客户选择法币，MSO 执行常规法币汇款</li>
               <li><b>加密路径：</b>客户选择稳定币，跳转至持牌 OTC（OSL / MetaComp）</li>
@@ -222,6 +228,11 @@ export default function SolutionsPage() {
           font-size: 12px;
           font-weight: 800;
           font-family: ui-monospace, monospace;
+        }
+        .arch-three-wrap {
+          display: flex;
+          align-items: center;
+          gap: 16px;
           margin-bottom: 14px;
         }
         .arch-three-label {
@@ -229,7 +240,6 @@ export default function SolutionsPage() {
           letter-spacing: .18em;
           color: var(--cyan);
           text-transform: uppercase;
-          margin-bottom: 6px;
           font-weight: 700;
         }
         .arch-three-card h3 { font-size: 20px; font-weight: 650; margin: 0 0 14px; color: #e0e8f0; }
@@ -253,7 +263,7 @@ export default function SolutionsPage() {
 
         /* Flow Four */
         .solutions-flow {
-          padding: 0 max(4vw, 40px) 80px;
+          padding: 0 max(4vw, 18px) 80px;
           max-width: 1440px;
           margin: 0 auto;
           background: var(--bg2);
@@ -295,7 +305,7 @@ export default function SolutionsPage() {
 
         /* Scenarios */
         .solutions-scenarios {
-          padding: 80px max(4vw, 40px) 80px;
+          padding: 80px max(4vw, 18px) 80px;
           max-width: 1440px;
           margin: 0 auto;
         }
@@ -374,7 +384,7 @@ export default function SolutionsPage() {
         .advantage-point p { font-size: 13px; line-height: 1.6; color: #8796aa; margin: 0; }
 
         @media (max-width: 1050px) {
-          .arch-three { grid-template-columns: 1fr; gap: 0; }
+          .arch-three { grid-template-columns: 1fr; gap: 16px; }
           .arch-three-arrow { transform: rotate(90deg); padding: 8px 0; }
           .flow-four { grid-template-columns: repeat(2, 1fr); }
           .flow-step:nth-child(2) { border-right: 0; }
@@ -383,7 +393,7 @@ export default function SolutionsPage() {
         }
         @media (max-width: 760px) {
           .solutions-hero { padding: 120px 18px 48px; min-height: auto; }
-          .solutions-hero h1 { font-size: 26px; }
+          .solutions-hero h1 { font-size: 26px; line-height: normal}
           .solutions-desc { font-size: 13px; margin-top: 20px; }
           .solutions-arch { padding: 0 18px 48px; }
           .solutions-arch .section-header, .solutions-flow .section-header, .solutions-scenarios .section-header { text-align: center; padding-top: 48px; }

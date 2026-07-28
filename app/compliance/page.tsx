@@ -87,14 +87,16 @@ export default function CompliancePage() {
       {/* ===== 2. CORE STATEMENT ===== */}
       <section className="compliance-statement-section">
         <div className="statement-banner">
+          <div className="statement-title">
           <i>⚠</i>
-          <div>
-            <h3>重要声明</h3>
+           <h3>重要声明</h3>
+          </div>
+           
             <p>
               MSB 登记是反洗钱合规的前提，不代表政府背书或综合金融牌照。
               FINTRAC 登记是 AML 合规必要条件，不构成银行、证券或存款业务的经营许可。
             </p>
-          </div>
+          
         </div>
       </section>
 
@@ -249,7 +251,7 @@ export default function CompliancePage() {
           margin: 0 auto;
           padding: 0 max(4vw, 40px) 80px;
         }
-        .compliance-section .section-header { text-align: center; }
+        .compliance-section .section-header { text-align: center; margin-top: 24px;}
         .compliance-section .overline i { background: #c9a84c; }
         .compliance-section .overline { color: #c9a84c; justify-content: center; }
 
@@ -267,6 +269,11 @@ export default function CompliancePage() {
           background: linear-gradient(160deg, rgba(201, 168, 76, .08), rgba(201, 168, 76, .02));
           border: 1px solid rgba(201, 168, 76, .25);
           border-radius: 12px;
+        }
+        .statement-title {
+          display: flex;
+          align-items: center;
+          gap: 16px;
         }
         .statement-banner i { font-size: 28px; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
         .statement-banner h3 { font-size: 16px; margin: 0 0 6px; font-weight: 700; color: var(--gold); }
@@ -484,7 +491,7 @@ export default function CompliancePage() {
         @media (max-width: 1050px) {
           .obligation-grid { grid-template-columns: 1fr; }
           .boundaries-grid { grid-template-columns: repeat(2, 1fr); }
-          .compliance-risk-grid { grid-template-columns: 1fr; gap: 12px; }
+          .compliance-risk-grid { grid-template-columns: 1fr; gap: 16px; }
           .compliance-risk-card { padding: 24px 24px 22px; }
           .compliance-risk-divider { margin: 0 -24px; }
         }
@@ -492,7 +499,7 @@ export default function CompliancePage() {
         /* ----- Responsive (mobile) ----- */
         @media (max-width: 760px) {
           .compliance-hero { padding: 120px 18px 48px; min-height: auto; }
-          .compliance-hero h1 { font-size: 26px; }
+          .compliance-hero h1 { font-size: 26px; line-height: normal}
           .compliance-hero-desc { font-size: 13px; margin-top: 20px; }
           .compliance-statement-section { padding: 0 18px 40px; }
           .statement-banner { flex-direction: column; padding: 22px 20px; }
