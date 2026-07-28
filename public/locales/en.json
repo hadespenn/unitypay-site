@@ -5,6 +5,7 @@
   "nav": ["Architecture", "Capabilities", "Compliance", "Security", "Developers", "Global Network"],
 
   "heroEyebrow": "GLOBAL PAYMENT INFRASTRUCTURE",
+  "eyebrow": "INFRASTRUCTURE",
   "heroTitle": "Cross-Border Value Flow",
   "heroTitleAccent": "Compliant, Transparent, Trustworthy",
   "heroText": "UnityPay connects acquiring, compliance screening and licensed institution execution through a decoupled architecture, enabling cross-border merchants to move value with clear jurisdictional boundaries and verifiable settlement paths.",
@@ -239,5 +240,6 @@
   "footerLinkTerms": "Terms of Service",
   "footerLinkPrivacy": "Privacy Policy",
   "footerCopyright": "© 2026 UNITYPAY. ALL RIGHTS RESERVED.",
-  "footerDisclaimer": "This website and its content are for informational purposes only. UnityPay provides payment routing and software technology services. It does not provide investment advice, custody of client assets, deposit-taking, or any regulated financial service requiring a licence beyond its current registrations. All regulated financial services are independently provided by appropriately licensed partner institutions."
+  "footerLink": "View full disclaimer →",
+  "footerDisclaimer": "⚠️ This platform provides payment routing and software technology services only. It does not offer investment advice, nor does it custody client assets. All regulated financial services are independently provided by licensed partner institutions."
 }

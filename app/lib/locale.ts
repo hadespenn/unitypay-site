@@ -17,6 +17,7 @@ export interface LocaleContent {
   langShort: string;
   nav: string[];
   heroEyebrow: string;
+  eyebrow: string;
   heroTitle: string;
   heroTitleAccent: string;
   heroText: string;
@@ -95,6 +96,7 @@ export interface LocaleContent {
   footerLinkPrivacy: string;
   footerCopyright: string;
   footerDisclaimer: string;
+  footerLink: string;
 }
 
 const initialLocale = defaultLocale as unknown as LocaleContent;

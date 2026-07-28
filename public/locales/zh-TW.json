@@ -5,6 +5,7 @@
   "nav": ["解耦架構", "核心能力", "合規框架", "安全設計", "開發者", "全球網絡"],
 
   "heroEyebrow": "全球支付基礎設施",
+  "eyebrow": "基礎設施",
   "heroTitle": "讓跨境價值流轉",
   "heroTitleAccent": "合規、透明、可信賴",
   "heroText": "UnityPay 以解耦式架構連接收單、合規篩查與持牌機構執行，讓跨境商戶在清晰的司法轄區邊界和可驗證的結算路徑中完成價值流轉。",
@@ -140,5 +141,6 @@
   "footerLinkTerms": "服務條款",
   "footerLinkPrivacy": "隱私政策",
   "footerCopyright": "© 2026 UNITYPAY. ALL RIGHTS RESERVED.",
-  "footerDisclaimer": "本網站及其內容僅供參考。UnityPay 提供支付路由與軟件技術服務，不提供投資建議、不託管客戶資產、不吸收存款，也不從事超出當前登記範圍的任何需持牌監管金融服務。所有受監管金融服務均由具備相應資質的持牌合作機構獨立提供。"
+  "footerLink": "查看完整免責聲明 →",
+  "footerDisclaimer": "⚠️ 本平台僅提供支付路由與軟體技術服務，不提供投資建議，不託管客戶資產。所有受監管金融服務由持牌合作機構獨立提供。"
 }

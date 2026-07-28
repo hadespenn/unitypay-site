@@ -195,16 +195,10 @@ export default function Home() {
       <section className="section compliance" id="compliance">
         <div className="section-header">
           <Overline>{t.compOverline}</Overline>
-          <h2>{t.compTitle}<br/><em>{t.compTitleAccent}</em></h2>
+          <h2>{t.compTitle}<br/></h2>
           <p className="section-sub">{t.compSubtitle}</p>
         </div>
-        <div className="comp-statement">
-          <span className="comp-statement-icon" aria-hidden="true">⚠</span>
-          <div>
-            <h5 className="comp-statement-label">{t.compStatementLabel}</h5>
-            <p>{t.compStatement}</p>
-          </div>
-        </div>
+       
         <div className="comp-grid">
           {t.compCards.map((card) => (
             <article className="comp-card" key={card.title}>
@@ -217,9 +211,16 @@ export default function Home() {
             </article>
           ))}
         </div>
-        <div className="comp-disclaimer">
+        {/* <div className="comp-disclaimer">
           <span className="comp-disclaimer-icon" aria-hidden="true">⌁</span>
           <p>{t.compDisclaimer}</p>
+        </div> */}
+         <div className="comp-disclaimer comp-statement">
+          <span className="comp-statement-icon" aria-hidden="true">⚠</span>
+          <div>
+            <h5 className="comp-statement-label">{t.compStatementLabel}</h5>
+            <p>{t.compStatement}{t.compDisclaimer}</p>
+          </div>
         </div>
       </section>
 
@@ -284,7 +285,7 @@ export default function Home() {
       {/* ===== 9. DEVELOPERS ===== */}
       <section className="section developers" id="developers">
         <div className="dev-side">
-          <Overline>{t.devOverline}</Overline>
+          <Overline>{t.footerLinkApi}</Overline>
           <h2>{t.devTitle}</h2>
           <p className="dev-desc">{t.devText}</p>
           <div className="dev-list">

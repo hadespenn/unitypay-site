@@ -30,7 +30,7 @@ export default function Footer({ locale }: FooterProps) {
             {/* <Link href="/developers">{t.footerLinkDevelopers}</Link>
             <Link href="/#architecture">{t.footerLinkPay}</Link>
             <Link href="/#capabilities">{t.footerLinkCapabilities}</Link> */}
-            <Link href="/#developers">{t.footerLinkApi}</Link>
+            <Link href="/#top">{t.eyebrow}</Link>
           </nav>
         </div>
         <div className="footer-col">
@@ -42,7 +42,7 @@ export default function Footer({ locale }: FooterProps) {
         </div>
       </div>
       <div className="footer-regulatory">
-        <p>{t.footerDisclaimer}</p>
+        <p>{t.footerDisclaimer}<Link href="/#compliance">{t.footerLink}</Link></p>
       </div>
       <div className="footer-bottom">
         <span>{t.footerCopyright}</span>
