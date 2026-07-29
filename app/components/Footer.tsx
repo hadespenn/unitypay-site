@@ -6,17 +6,17 @@ import type { Locale } from "../lib/locale";
 import { useLocale } from "../lib/locale";
 
 interface FooterProps {
-  locale: Locale;
+  locale: string;
 }
 
 export default function Footer({ locale }: FooterProps) {
-  const { t } = useLocale(locale);
+  const { t } = useLocale(locale as Locale);
 
   return (
     <footer>
       <div className="footer-cols">
         <div className="footer-brand">
-          <Link className="brand" href="/">
+          <Link className="brand" href={`/${locale}`}>
             <Image src="/logo.jpg" alt="UnityPay" width={36} height={36} />
             <span>{t.footerBrand}</span>
           </Link>
@@ -25,24 +25,21 @@ export default function Footer({ locale }: FooterProps) {
         <div className="footer-col">
           <h4>{t.footerColProduct}</h4>
           <nav>
-            <Link href="/solutions">{t.footerLinkSolutions}</Link>
-            <Link href="/compliance">{t.footerLinkCompliance}</Link>
-            {/* <Link href="/developers">{t.footerLinkDevelopers}</Link>
-            <Link href="/#architecture">{t.footerLinkPay}</Link>
-            <Link href="/#capabilities">{t.footerLinkCapabilities}</Link> */}
-            <Link href="/#top">{t.eyebrow}</Link>
+            <Link href={`/${locale}/solutions`}>{t.footerLinkSolutions}</Link>
+            <Link href={`/${locale}/compliance`}>{t.footerLinkCompliance}</Link>
+            <Link href={`/${locale}/#top`}>{t.eyebrow}</Link>
           </nav>
         </div>
         <div className="footer-col">
           <h4>{t.footerColCompany}</h4>
           <nav>
-            <Link href="/about">{t.footerLinkAbout}</Link>
-            <Link href="/#contact">{t.footerLinkContact}</Link>
+            <Link href={`/${locale}/about`}>{t.footerLinkAbout}</Link>
+            <Link href={`/${locale}/#contact`}>{t.footerLinkContact}</Link>
           </nav>
         </div>
       </div>
       <div className="footer-regulatory">
-        <p>{t.footerDisclaimer}<Link href="/#compliance">{t.footerLink}</Link></p>
+        <p>{t.footerDisclaimer}<Link href={`/${locale}/#compliance`}>{t.footerLink}</Link></p>
       </div>
       <div className="footer-bottom">
         <span>{t.footerCopyright}</span>

@@ -1,26 +1,32 @@
 "use client";
 
 import { useEffect } from "react";
-import type { Locale } from "../lib/locale";
-import { useLocale, useLocaleState } from "../lib/locale";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { useRouter, usePathname } from "next/navigation";
+import type { LocaleContent } from "../../lib/locale";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
-export default function SolutionsPage() {
-  const [locale, setLocale] = useLocaleState();
-  const { t } = useLocale(locale);
+interface SolutionsClientProps {
+  locale: string;
+  t: LocaleContent;
+}
+
+export default function SolutionsPage({ locale, t }: SolutionsClientProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const setLocale = (newLocale: string) => {
+    const segments = pathname.split("/");
+    segments[1] = newLocale;
+    router.push(segments.join("/"));
+  };
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   useEffect(() => {
-    const map: Record<Locale, string> = {
-      zh: "zh-CN", en: "en", "zh-TW": "zh-TW", ru: "ru", de: "de", es: "es", pt: "pt", ja: "ja", ko: "ko",
-    };
-    document.documentElement.lang = map[locale] ?? "en";
-    document.title = t.seoTitle;
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute("content", t.seoDescription);
-  }, [locale, t.seoTitle, t.seoDescription]);
+    document.documentElement.lang =
+      locale === "zh" ? "zh-CN" : locale === "zh-TW" ? "zh-TW" : "en";
+  }, [locale]);
 
   return (
     <main>

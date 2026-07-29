@@ -3,8 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-
-export type Locale = "zh" | "en" | "zh-TW" | "ru" | "de" | "es" | "pt" | "ja" | "ko";
+import type { Locale } from "../lib/locale";
 
 const localeInfo: { code: Locale; name: string; short: string }[] = [
   { code: "en", name: "English", short: "EN" },
@@ -12,7 +11,7 @@ const localeInfo: { code: Locale; name: string; short: string }[] = [
   { code: "zh-TW", name: "繁體中文", short: "繁中" },
 ];
 
-const anchorMap = ["/#architecture", "/#capabilities", "/#compliance", "/#security", "/#developers", "/#network"];
+const navAnchors = ["#architecture", "#capabilities", "#compliance", "#security", "#developers", "#network"];
 
 function Arrow() {
   return <span className="arrow" aria-hidden="true">↗</span>;
@@ -59,8 +58,8 @@ function LanguageDropdown({
 }
 
 interface HeaderProps {
-  locale: Locale;
-  setLocale: (c: Locale) => void;
+  locale: string;
+  setLocale: (c: string) => void;
   nav: string[];
   contact: string;
   transparent?: boolean;
@@ -92,17 +91,17 @@ export default function Header({ locale, setLocale, nav, contact, transparent }:
 
   return (
     <header ref={headerRef} style={transparent ? { background: "transparent", borderBottom: "none", backdropFilter: "none" } : undefined}>
-      <Link className="brand" href="/">
+      <Link className="brand" href={`/${locale}`}>
         <Image src="/logo.jpg" alt="UnityPay" width={130} height={48} priority />
       </Link>
       <nav className={menu ? "open" : ""}>
         {nav.map((x, i) => (
-          <a href={anchorMap[i]} key={x} onClick={() => setMenu(false)}>{x}</a>
+          <a href={`/${locale}/${navAnchors[i]}`} key={x} onClick={() => setMenu(false)}>{x}</a>
         ))}
       </nav>
       <div className="header-actions">
         <LanguageDropdown current={locale} onChange={(c) => { setLocale(c); setLangOpen(false); }} open={langOpen} setOpen={setLangOpen} />
-        <Link className="header-contact" href="/#contact">{contact}<Arrow /></Link>
+        <Link className="header-contact" href={`/${locale}/#contact`}>{contact}<Arrow /></Link>
         <button className="menu-button" aria-expanded={menu} aria-label="Toggle menu" onClick={() => setMenu(!menu)}>
           <i /><i />
         </button>
