@@ -1,0 +1,27 @@
+# Cloudflare Pages redirects (301 Permanent)
+# Docs: https://developers.cloudflare.com/pages/configuration/redirects/
+
+# --- Force trailing slash (canonical URL normalization) ---
+# /en/about  →  /en/about/
+/en/about /en/about/ 301
+/en/compliance /en/compliance/ 301
+/en/developers /en/developers/ 301
+/en/solutions /en/solutions/ 301
+/zh/about /zh/about/ 301
+/zh/compliance /zh/compliance/ 301
+/zh/developers /zh/developers/ 301
+/zh/solutions /zh/solutions/ 301
+/zh-TW/about /zh-TW/about/ 301
+/zh-TW/compliance /zh-TW/compliance/ 301
+/zh-TW/developers /zh-TW/developers/ 301
+/zh-TW/solutions /zh-TW/solutions/ 301
+
+# --- Root locale aliases (if you ever need them) ---
+# /zh  →  /zh/
+# /zh-TW  →  /zh-TW/
+
+# --- Catch-all trailing slash (fallback) ---
+/* /:splat/ 301
+
+# --- 404 fallback ---
+/* /404.html 404

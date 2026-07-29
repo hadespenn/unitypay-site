@@ -7,10 +7,11 @@ const HREFLANG_LOCALES = ["en", "zh", "zh-TW"] as const;
 /** Build hreflang alternates for the current page path */
 export function hreflangAlternates(path: string): Record<string, string> {
   const map: Record<string, string> = {};
+  const slug = path ? `${path}/` : "";
   for (const l of HREFLANG_LOCALES) {
-    map[l === "zh-TW" ? "zh-Hant" : l] = `/${l}/${path}`;
+    map[l === "zh-TW" ? "zh-Hant" : l] = `/${l}/${slug}`;
   }
-  map["x-default"] = `/en/${path}`;
+  map["x-default"] = `/en/${slug}`;
   return map;
 }
 
@@ -31,7 +32,7 @@ export async function pageMetadata(
     openGraph: { title, description, images: [img], type: "website", siteName: "UnityPay", locale: locale === "zh" ? "zh_CN" : locale === "zh-TW" ? "zh_TW" : "en_US" },
     twitter: { card: "summary_large_image", title, description, images: [t.ogImage] },
     alternates: {
-      canonical: `https://unitypay.com/${locale}${pagePath ? `/${pagePath}` : ""}`,
+      canonical: `https://unity-pay.pages.dev/${locale}/${pagePath ? `${pagePath}/` : ""}`,
       languages: hreflangAlternates(pagePath),
     },
   };
@@ -42,7 +43,8 @@ type BreadcrumbPage = "about" | "compliance" | "developers" | "solutions";
 /** Generate BreadcrumbList JSON-LD schema */
 export async function breadcrumbSchema(locale: string, currentPage?: BreadcrumbPage) {
   const t = await getMessages(locale);
-  const items = [{ "@type": "ListItem" as const, position: 1, name: t.breadcrumbHome, item: `https://unitypay.com/${locale}` }];
+  const baseUrl = "https://unity-pay.pages.dev";
+  const items = [{ "@type": "ListItem" as const, position: 1, name: t.breadcrumbHome, item: `${baseUrl}/${locale}/` }];
 
   if (currentPage) {
     const pageNames: Record<BreadcrumbPage, string> = {
@@ -51,7 +53,7 @@ export async function breadcrumbSchema(locale: string, currentPage?: BreadcrumbP
       developers: t.breadcrumbDevelopers,
       solutions: t.breadcrumbSolutions,
     };
-    items.push({ "@type": "ListItem" as const, position: 2, name: pageNames[currentPage], item: `https://unitypay.com/${locale}/${currentPage}` });
+    items.push({ "@type": "ListItem" as const, position: 2, name: pageNames[currentPage], item: `${baseUrl}/${locale}/${currentPage}/` });
   }
 
   return { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items };
