@@ -88,7 +88,7 @@ export default function SolutionsPage({ locale, t }: SolutionsClientProps) {
           {t.solutionsFlowSteps.map((step, i) => (
             <article className="flow-step" key={step.num}>
               <span className="flow-step-num">{step.num}</span>
-              <h4>{step.name}</h4>
+              <h3>{step.name}</h3>
               <p>{step.desc}</p>
               {i < t.solutionsFlowSteps.length - 1 && <span className="flow-step-arrow">↓</span>}
             </article>
@@ -118,7 +118,7 @@ export default function SolutionsPage({ locale, t }: SolutionsClientProps) {
         <div className="advantage-banner">
           <i>⌁</i>
           <div>
-            <h3>{t.solutionsAdvantageTitle}</h3>
+            <h2>{t.solutionsAdvantageTitle}</h2>
             <p>{t.solutionsAdvantageSubtitle}</p>
           </div>
         </div>
@@ -204,7 +204,7 @@ export default function SolutionsPage({ locale, t }: SolutionsClientProps) {
         }
         .flow-step:last-child { border-right: 0; }
         .flow-step-num { font-size: 28px; color: var(--cyan); display: block; margin-bottom: 12px; }
-        .flow-step h4 { font-size: 15px; margin: 0 0 10px; font-weight: 650; color: #e0e8f0; }
+        .flow-step h3 { font-size: 15px; margin: 0 0 10px; font-weight: 650; color: #e0e8f0; }
         .flow-step p { font-size: 13px; line-height: 1.7; color: #8796aa; margin: 0; }
         .flow-step-arrow {
           position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
@@ -234,7 +234,7 @@ export default function SolutionsPage({ locale, t }: SolutionsClientProps) {
           border: 1px solid rgba(94,234,212,.18); border-radius: 12px; margin-bottom: 20px;
         }
         .advantage-banner i { font-size: 32px; color: var(--cyan); flex-shrink: 0; }
-        .advantage-banner h3 { font-size: 18px; margin: 0 0 4px; font-weight: 650; color: #e0e8f0; }
+        .advantage-banner h2 { font-size: 18px; margin: 0 0 4px; font-weight: 650; color: #e0e8f0; }
         .advantage-banner p { font-size: 13px; color: #8796aa; margin: 0; }
         .advantage-points { display: flex; flex-direction: column; gap: 10px; }
         .advantage-point {

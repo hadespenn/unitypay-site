@@ -50,7 +50,7 @@ export default function CompliancePage({ locale, t }: ComplianceClientProps) {
         <div className="statement-banner">
           <div className="statement-title">
           <i>⚠</i>
-           <h3>{t.complianceStatementTitle}</h3>
+           <h2>{t.complianceStatementTitle}</h2>
           </div>
 
             <p>
@@ -135,7 +135,7 @@ export default function CompliancePage({ locale, t }: ComplianceClientProps) {
               <div className="compliance-risk-top">
                 <div className="compliance-risk-head">
                   <span className="compliance-risk-icon">⚠</span>
-                  <h4>{r.title}</h4>
+                  <h3>{r.title}</h3>
                 </div>
                 <p className="compliance-risk-desc">{r.desc}</p>
               </div>
@@ -234,7 +234,7 @@ export default function CompliancePage({ locale, t }: ComplianceClientProps) {
           gap: 16px;
         }
         .statement-banner i { font-size: 28px; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
-        .statement-banner h3 { font-size: 16px; margin: 0 0 6px; font-weight: 700; color: var(--gold); }
+        .statement-banner h2 { font-size: 16px; margin: 0 0 6px; font-weight: 700; color: var(--gold); }
         .statement-banner p { font-size: 14px; line-height: 1.75; color: #c0c8d4; margin: 0; }
 
         /* ----- Jurisdictions ----- */
@@ -383,7 +383,7 @@ export default function CompliancePage({ locale, t }: ComplianceClientProps) {
           font-size: 12px;
           color: #f87171;
         }
-        .compliance-risk-card h4 {
+        .compliance-risk-card h3 {
           font-size: 17px;
           margin: 0 0 10px;
           font-weight: 600;

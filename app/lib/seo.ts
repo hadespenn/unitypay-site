@@ -30,7 +30,10 @@ export async function pageMetadata(
     icons: { icon: "/logo.jpg" },
     openGraph: { title, description, images: [img], type: "website", siteName: "UnityPay", locale: locale === "zh" ? "zh_CN" : locale === "zh-TW" ? "zh_TW" : "en_US" },
     twitter: { card: "summary_large_image", title, description, images: [t.ogImage] },
-    alternates: { languages: hreflangAlternates(pagePath) },
+    alternates: {
+      canonical: `https://unitypay.com/${locale}${pagePath ? `/${pagePath}` : ""}`,
+      languages: hreflangAlternates(pagePath),
+    },
   };
 }
 

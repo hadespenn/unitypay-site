@@ -56,7 +56,7 @@ export default function AboutClient({ locale, t }: AboutClientProps) {
           {t.aboutMissionCards.map((card: any, i: number) => (
             <article className="about-card" key={i}>
               <span className="about-card-icon">{["◈", "⬡", "⌁"][i]}</span>
-              <h3>{card.title}</h3>
+              <h2>{card.title}</h2>
               <b>{card.subtitle}</b>
               <p>{card.desc}</p>
             </article>

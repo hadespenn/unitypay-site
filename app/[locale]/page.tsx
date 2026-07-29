@@ -33,7 +33,7 @@ export default async function LocaleHomePage({ params }: { params: Promise<{ loc
   const t = await getMessages(locale);
   return (
     <>
-      <Script id="jsonld-org" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <Script id="jsonld-org" type="application/ld+json" strategy="lazyOnload" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <HomeClient locale={locale} t={t} />
     </>
   );

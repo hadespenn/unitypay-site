@@ -19,7 +19,7 @@ export default async function LocaleCompliancePage({ params }: { params: Promise
   const crumb = await breadcrumbSchema(locale, "compliance");
   return (
     <>
-      <Script id="breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumb) }} />
+      <Script id="breadcrumb" type="application/ld+json" strategy="lazyOnload" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumb) }} />
       <ComplianceClient locale={locale} t={t} />
     </>
   );

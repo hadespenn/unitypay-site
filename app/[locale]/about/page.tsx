@@ -19,7 +19,7 @@ export default async function LocaleAboutPage({ params }: { params: Promise<{ lo
   const crumb = await breadcrumbSchema(locale, "about");
   return (
     <>
-      <Script id="breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumb) }} />
+      <Script id="breadcrumb" type="application/ld+json" strategy="lazyOnload" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumb) }} />
       <AboutClient locale={locale} t={t} />
     </>
   );

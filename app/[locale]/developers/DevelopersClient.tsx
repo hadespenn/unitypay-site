@@ -56,7 +56,7 @@ export default function DevelopersPage({ locale, t }: DevelopersClientProps) {
             <article className="dev-feature-card" key={f.title}>
               <span className="dev-feature-icon">{f.icon}</span>
               <div>
-                <h4>{f.title}</h4>
+                <h3>{f.title}</h3>
                 <p>{f.desc}</p>
               </div>
             </article>
@@ -99,7 +99,7 @@ export default function DevelopersPage({ locale, t }: DevelopersClientProps) {
            <div className="dev-sandbox-head">
           <div className="dev-sandbox-icon">⚙</div>
          
-            <h3>{t.devPageSandboxCardTitle}</h3>
+            <div className="dev-sandbox-heading">{t.devPageSandboxCardTitle}</div>
             </div>
             <p>{t.devPageSandboxCardText}</p>
           
@@ -118,7 +118,7 @@ export default function DevelopersPage({ locale, t }: DevelopersClientProps) {
               <div>
               <span className="dev-step-num">{s.num}</span>
               
-                <h4>{s.title}</h4>
+                <h3>{s.title}</h3>
                  </div>
                 <p>{s.desc}</p>
              
@@ -177,7 +177,7 @@ export default function DevelopersPage({ locale, t }: DevelopersClientProps) {
           border-radius: 50%; display: flex; align-items: center; justify-content: center;
           color: var(--cyan); font-family: ui-monospace, monospace; font-size: 14px; flex-shrink: 0;
         }
-        .dev-feature-card h4 { font-size: 15px; margin: 0 0 6px; font-weight: 700; color: #e0e8f0; }
+        .dev-feature-card h3 { font-size: 15px; margin: 0 0 6px; font-weight: 700; color: #e0e8f0; }
         .dev-feature-card p { font-size: 13px; line-height: 1.7; color: #8796aa; margin: 0; }
         .dev-api-split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
         .dev-api-request, .dev-api-response {
@@ -224,7 +224,7 @@ export default function DevelopersPage({ locale, t }: DevelopersClientProps) {
           border-radius: 50%; display: flex; align-items: center; justify-content: center;
           font-size: 24px; color: var(--cyan); flex-shrink: 0;
         }
-        .dev-sandbox-card h3 { font-size: 18px; margin: 0; font-weight: 700; color: #e0e8f0; }
+        .dev-sandbox-card .dev-sandbox-heading { font-size: 18px; margin: 0; font-weight: 700; color: #e0e8f0; }
         .dev-sandbox-card p { padding-left: 71px; font-size: 14px; line-height: 1.8; color: #bac8d4; margin: 0; }
         .dev-steps-grid {
           display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
@@ -245,7 +245,7 @@ export default function DevelopersPage({ locale, t }: DevelopersClientProps) {
           font-size: 28px; font-weight: 300; color: var(--cyan);
           font-family: ui-monospace, monospace; line-height: 1;
         }
-        .dev-step-card h4 { font-size: 14px; margin: 0; font-weight: 650; color: #e0e8f0; line-height: 1.4; }
+        .dev-step-card h3 { font-size: 14px; margin: 0; font-weight: 650; color: #e0e8f0; line-height: 1.4; }
         .dev-step-card p { font-size: 12.5px; line-height: 1.7; color: #8796aa; margin: 0; }
         @media (max-width: 1050px) {
           .dev-features-grid { grid-template-columns: 1fr; }

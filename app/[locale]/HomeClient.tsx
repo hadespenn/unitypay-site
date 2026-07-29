@@ -132,7 +132,7 @@ export default function Home({ locale, t }: HomeClientProps) {
 
       {/* ===== 3. TRUST BAR ===== */}
       <section className="trust-bar">
-        <h3 className="trust-bar-title">{t.trustBarTitle}</h3>
+        <h2 className="trust-bar-title">{t.trustBarTitle}</h2>
         <div className="trust-bar-grid">
           {t.trustCards.map(([name, desc]) => (
             <div className="trust-bar-card" key={name}>
@@ -157,7 +157,7 @@ export default function Home({ locale, t }: HomeClientProps) {
                 <span className="arch-step-num">{step.num}</span>
                 <div>
                   <small>{step.label}</small>
-                  <h4>{step.title}</h4>
+                  <h3>{step.title}</h3>
                 </div>
               </div>
               <p>{step.desc}</p>
@@ -190,7 +190,7 @@ export default function Home({ locale, t }: HomeClientProps) {
             <article className="cap-card" key={cap.title}>
               <div className="card-head">
                 <span className="cap-icon">{cap.icon}</span>
-                <h4>{cap.title}</h4>
+                <h3>{cap.title}</h3>
               </div>
               <p>{cap.desc}</p>
             </article>
@@ -212,7 +212,7 @@ export default function Home({ locale, t }: HomeClientProps) {
               <span className="comp-card-accent" aria-hidden="true" />
               <div className="card-head">
                 <span className="comp-icon">{card.icon}</span>
-                <h4>{card.title}</h4>
+                <h3>{card.title}</h3>
               </div>
               <p>{card.desc}</p>
             </article>
@@ -225,7 +225,7 @@ export default function Home({ locale, t }: HomeClientProps) {
          <div className="comp-disclaimer comp-statement">
           <span className="comp-statement-icon" aria-hidden="true">⚠</span>
           <div>
-            <h5 className="comp-statement-label">{t.compStatementLabel}</h5>
+            <div className="comp-statement-label">{t.compStatementLabel}</div>
             <p>{t.compStatement}{t.compDisclaimer}</p>
           </div>
         </div>
@@ -245,7 +245,7 @@ export default function Home({ locale, t }: HomeClientProps) {
                 <span className="mpc-emoji">{shard.icon}</span>
                 <div>
                   <small className="mpc-label">{shard.label}</small>
-                  <h4>{shard.title}</h4>
+                  <h3>{shard.title}</h3>
                 </div>
               </div>
               <p>{shard.desc}</p>
@@ -274,7 +274,7 @@ export default function Home({ locale, t }: HomeClientProps) {
                   <span className="risk-icon risk">⚠</span>
                   <small>{r.tag}</small>
                 </div>
-                <h4>{r.title}</h4>
+                <h3>{r.title}</h3>
                 </div>
                 <p className="risk-desc">{r.desc}</p>
               </div>
@@ -301,7 +301,7 @@ export default function Home({ locale, t }: HomeClientProps) {
             {t.devs.map(([title, text], i) => (
               <article key={title}>
                 <span>{["{ }", "↻", "⌁", "◎", "◷"][i]}</span>
-                <div><h4>{title}</h4><p>{text}</p></div>
+                <div><h3>{title}</h3><p>{text}</p></div>
               </article>
             ))}
           </div>
@@ -331,7 +331,7 @@ export default function Home({ locale, t }: HomeClientProps) {
         <div className="region-grid">
           {t.regions.map(([name, text]) => (
             <article key={name}>
-              <h4>{name}</h4>
+              <h3>{name}</h3>
               <p>{text}</p>
             </article>
           ))}

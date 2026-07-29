@@ -91,7 +91,7 @@ export default function Header({ locale, setLocale, nav, contact, transparent }:
 
   return (
     <header ref={headerRef} style={transparent ? { background: "transparent", borderBottom: "none", backdropFilter: "none" } : undefined}>
-      <Link className="brand" href={`/${locale}`}>
+      <Link className="brand" href={`/${locale}`} aria-label="UnityPay Home">
         <Image src="/logo.jpg" alt="UnityPay" width={130} height={48} priority />
       </Link>
       <nav className={menu ? "open" : ""}>
