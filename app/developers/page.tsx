@@ -17,7 +17,10 @@ export default function DevelopersPage() {
       zh: "zh-CN", en: "en", "zh-TW": "zh-TW", ru: "ru", de: "de", es: "es", pt: "pt", ja: "ja", ko: "ko",
     };
     document.documentElement.lang = map[locale] ?? "en";
-  }, [locale]);
+    document.title = t.seoTitle;
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute("content", t.seoDescription);
+  }, [locale, t.seoTitle, t.seoDescription]);
 
   return (
     <main>
@@ -87,11 +90,13 @@ export default function DevelopersPage() {
           <h2>{t.devPageSandboxTitle}</h2>
         </div>
         <div className="dev-sandbox-card">
+           <div className="dev-sandbox-head">
           <div className="dev-sandbox-icon">⚙</div>
-          <div>
+         
             <h3>{t.devPageSandboxCardTitle}</h3>
+            </div>
             <p>{t.devPageSandboxCardText}</p>
-          </div>
+          
         </div>
       </section>
 
@@ -104,11 +109,13 @@ export default function DevelopersPage() {
         <div className="dev-steps-grid">
           {t.devPageSteps.map((s) => (
             <article className="dev-step-card" key={s.num}>
-              <span className="dev-step-num">{s.num}</span>
               <div>
+              <span className="dev-step-num">{s.num}</span>
+              
                 <h4>{s.title}</h4>
+                 </div>
                 <p>{s.desc}</p>
-              </div>
+             
             </article>
           ))}
         </div>
@@ -148,7 +155,7 @@ export default function DevelopersPage() {
         .dev-page-section {
           max-width: 1440px; margin: 0 auto; padding: 0 max(4vw, 40px) 80px;
         }
-        .dev-page-section .section-header { text-align: center; }
+        .dev-page-section .section-header { text-align: center; margin-top: 24px}
         .dev-page-section .overline { justify-content: center; }
         .dev-features-grid {
           display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
@@ -192,18 +199,27 @@ export default function DevelopersPage() {
           border-bottom: 1px solid var(--line); padding-top: 80px;
         }
         .dev-sandbox-card {
-          display: flex; align-items: flex-start; gap: 22px; padding: 36px 36px;
+          display: flex; 
+          flex-direction: column;
+          align-items: flex-start; 
+          gap: 22px; 
+          padding: 36px 36px;
           background: linear-gradient(160deg, rgba(94,234,212,.05), rgba(94,234,212,.01));
           border: 1px solid rgba(94,234,212,.18); border-radius: 12px;
           max-width: 980px; margin: 0 auto;
+        }
+        .dev-sandbox-head {
+          display: flex; 
+          align-items: center; 
+          gap: 16px; 
         }
         .dev-sandbox-icon {
           width: 56px; height: 56px; border: 1px solid rgba(94,234,212,.35);
           border-radius: 50%; display: flex; align-items: center; justify-content: center;
           font-size: 24px; color: var(--cyan); flex-shrink: 0;
         }
-        .dev-sandbox-card h3 { font-size: 18px; margin: 0 0 8px; font-weight: 700; color: #e0e8f0; }
-        .dev-sandbox-card p { font-size: 14px; line-height: 1.8; color: #bac8d4; margin: 0; }
+        .dev-sandbox-card h3 { font-size: 18px; margin: 0; font-weight: 700; color: #e0e8f0; }
+        .dev-sandbox-card p { padding-left: 71px; font-size: 14px; line-height: 1.8; color: #bac8d4; margin: 0; }
         .dev-steps-grid {
           display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
           background: var(--line); border: 1px solid var(--line);
@@ -212,6 +228,11 @@ export default function DevelopersPage() {
         .dev-step-card {
           padding: 28px 22px 26px; background: var(--bg); display: flex;
           flex-direction: column; gap: 12px; transition: background .25s;
+        }
+        .dev-step-card div {
+          display: flex;
+          align-items: center;
+          gap: 16px;
         }
         .dev-step-card:hover { background: var(--bg2); }
         .dev-step-num {
@@ -231,6 +252,7 @@ export default function DevelopersPage() {
           .dev-page-desc { font-size: 13px; margin-top: 20px; }
           .dev-page-section { padding: 0 18px 48px; }
           .dev-page-sandbox { padding-top: 48px; padding-bottom: 60px; }
+          .dev-sandbox-card p { padding-left: 0; }
           .dev-feature-card { padding: 22px 20px; gap: 14px; }
           .dev-feature-icon { width: 38px; height: 38px; font-size: 12px; }
           .dev-api-split { grid-template-columns: 1fr; gap: 12px; }

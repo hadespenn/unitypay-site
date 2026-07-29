@@ -32,6 +32,8 @@ export interface SolutionsScenario { icon: string; title: string; desc: string; 
 export interface LocaleContent {
   langName: string;
   langShort: string;
+  seoTitle: string;
+  seoDescription: string;
   nav: string[];
   heroEyebrow: string;
   eyebrow: string;

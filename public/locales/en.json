@@ -1,6 +1,8 @@
 {
   "langName": "English",
   "langShort": "EN",
+  "seoTitle": "UnityPay | Licensed Cross-Border Acquiring & Compliant Payout",
+  "seoDescription": "UnityPay is licensed under Canadian MSB and Hong Kong MSO frameworks, providing fiat acquiring and stablecoin settlement for cross-border merchants.",
 
   "nav": ["Architecture", "Capabilities", "Compliance", "Security", "Developers", "Global Network"],
 

@@ -17,7 +17,10 @@ export default function SolutionsPage() {
       zh: "zh-CN", en: "en", "zh-TW": "zh-TW", ru: "ru", de: "de", es: "es", pt: "pt", ja: "ja", ko: "ko",
     };
     document.documentElement.lang = map[locale] ?? "en";
-  }, [locale]);
+    document.title = t.seoTitle;
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute("content", t.seoDescription);
+  }, [locale, t.seoTitle, t.seoDescription]);
 
   return (
     <main>
