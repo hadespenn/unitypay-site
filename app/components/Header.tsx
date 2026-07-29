@@ -20,7 +20,7 @@ function Arrow() {
 function LanguageDropdown({
   current, onChange, open, setOpen,
 }: {
-  current: Locale; onChange: (c: Locale) => void; open: boolean; setOpen: (v: boolean) => void;
+  current: string; onChange: (c: string) => void; open: boolean; setOpen: (v: boolean) => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
