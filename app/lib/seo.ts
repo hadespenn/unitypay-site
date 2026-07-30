@@ -2,16 +2,19 @@ import type { Metadata } from "next";
 import { getMessages } from "./messages";
 import type { LocaleContent } from "./locale";
 
+const BASE_URL = "https://unity-pay.pages.dev";
 const HREFLANG_LOCALES = ["en", "zh", "zh-TW"] as const;
 
-/** Build hreflang alternates for the current page path */
+/** Build hreflang alternates for the current page path — absolute URLs required by spec */
 export function hreflangAlternates(path: string): Record<string, string> {
   const map: Record<string, string> = {};
   const slug = path ? `${path}/` : "";
   for (const l of HREFLANG_LOCALES) {
-    map[l === "zh-TW" ? "zh-Hant" : l] = `/${l}/${slug}`;
+    // zh-TW → zh-Hant (BCP 47) for search engine language recognition
+    const lang = l === "zh-TW" ? "zh-Hant" : l;
+    map[lang] = `${BASE_URL}/${l}/${slug}`;
   }
-  map["x-default"] = `/en/${slug}`;
+  map["x-default"] = `${BASE_URL}/en/${slug}`;
   return map;
 }
 
@@ -32,7 +35,7 @@ export async function pageMetadata(
     openGraph: { title, description, images: [img], type: "website", siteName: "UnityPay", locale: locale === "zh" ? "zh_CN" : locale === "zh-TW" ? "zh_TW" : "en_US" },
     twitter: { card: "summary_large_image", title, description, images: [t.ogImage] },
     alternates: {
-      canonical: `https://unity-pay.pages.dev/${locale}/${pagePath ? `${pagePath}/` : ""}`,
+      canonical: `${BASE_URL}/${locale}/${pagePath ? `${pagePath}/` : ""}`,
       languages: hreflangAlternates(pagePath),
     },
   };

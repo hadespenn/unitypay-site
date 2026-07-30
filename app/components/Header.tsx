@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { Locale } from "../lib/locale";
@@ -91,10 +92,7 @@ export default function Header({ locale, setLocale, nav, contact, transparent }:
   return (
     <header ref={headerRef} style={transparent ? { background: "transparent", borderBottom: "none", backdropFilter: "none" } : undefined}>
       <Link className="brand" href={`/${locale}`} aria-label="UnityPay Home">
-        <picture>
-          <source srcSet="/logo.webp" type="image/webp" />
-          <img src="/logo.jpg" alt="UnityPay" width={130} height={48} />
-        </picture>
+        <Image src="/logo.jpg" alt="UnityPay" width={130} height={48} priority />
       </Link>
       <nav className={menu ? "open" : ""}>
         {nav.map((x, i) => (

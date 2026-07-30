@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/defer-blocking.mjs",
-    "pages:build": "npx @cloudflare/next-on-pages@1 && node scripts/defer-blocking.mjs",
+    "build": "next build && node scripts/defer-blocking.mjs && next-sitemap",
+    "pages:build": "npx @cloudflare/next-on-pages@1 && node scripts/defer-blocking.mjs && next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -18,6 +18,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "next-sitemap": "^4.2.3",
     "typescript": "^5"
   }
 }

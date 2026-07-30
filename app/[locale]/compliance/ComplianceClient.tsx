@@ -26,7 +26,7 @@ export default function CompliancePage({ locale, t }: ComplianceClientProps) {
 
 
   return (
-    <main>
+    <main id="main-content">
       <Header locale={locale} setLocale={setLocale} nav={t.nav} contact={t.contact} />
 
       {/* ===== 1. HERO ===== */}

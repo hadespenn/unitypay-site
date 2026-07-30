@@ -102,7 +102,7 @@ export default function Home({ locale, t }: HomeClientProps) {
 
 
   return (
-    <main>
+    <main id="main-content">
       {/* ===== 1. NAVIGATION ===== */}
       <Header locale={locale} setLocale={setLocale} nav={t.nav} contact={t.contact} />
 

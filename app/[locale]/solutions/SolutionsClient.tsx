@@ -26,7 +26,7 @@ export default function SolutionsPage({ locale, t }: SolutionsClientProps) {
 
 
   return (
-    <main>
+    <main id="main-content">
       <Header locale={locale} setLocale={setLocale} nav={t.nav} contact={t.contact} />
 
       {/* ===== HERO ===== */}

@@ -27,7 +27,7 @@ export default function AboutClient({ locale, t }: AboutClientProps) {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <main>
+    <main id="main-content">
       <Header
         locale={locale}
         setLocale={setLocale}
