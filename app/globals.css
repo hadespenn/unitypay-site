@@ -57,11 +57,11 @@ header{height:78px;padding:0 max(4vw,40px);display:flex;align-items:center;justi
 .arch-step small{font-size:10.5px;letter-spacing:.18em;color:var(--cyan);text-transform:uppercase;display:block;margin-bottom:3px}
 .arch-step h3{font-size:16px;margin:0;font-weight:650;line-height:1.3}
 .arch-step p{font-size:13px;line-height:1.75;color:#a0b0c0;margin:0}
-.arch-arrow{position:absolute;right:-11px;top:50%;transform:translateY(-50%);color:#526076;font-size:20px;z-index:1}
+.arch-arrow{position:absolute;right:-11px;top:50%;transform:translateY(-50%);color:#9aaabb;font-size:20px;z-index:1}
 .arch-isolation{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:32px;padding:22px 28px;border:1px solid var(--line);background:rgba(0,0,0,.15)}
 .isolation-bar{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:#b0bed0}
 .isolation-dot{width:10px;height:10px;border-radius:50%}.isolation-dot.fiat{background:var(--blue2);box-shadow:0 0 8px rgba(59,130,246,.4)}.isolation-dot.crypto{background:var(--cyan);box-shadow:0 0 8px rgba(94,234,212,.4)}
-.isolation-divider{font-size:12px;color:#526076;letter-spacing:.05em;white-space:nowrap}
+.isolation-divider{font-size:12px;color:#9aaabb;letter-spacing:.05em;white-space:nowrap}
 
 /* ===== 5. CAPABILITIES ===== */
 .capabilities{background:var(--bg)}
@@ -75,14 +75,14 @@ header{height:78px;padding:0 max(4vw,40px);display:flex;align-items:center;justi
 
 /* ===== 6. COMPLIANCE ===== */
 .compliance{background:var(--paper);color:#14242d}
-.compliance .overline{color:#8a7628}
+.compliance .overline{color:#6b5510}
 .compliance .section h2 em{font-style:normal;color:var(--gold);display:inline-block;margin-top:6px}
 .compliance .section-sub{color:#4e5e64;margin:18px 0 0;max-width:680px}
 .compliance .section-header{margin-bottom:52px}
 .comp-statement{display:flex;align-items:flex-start;gap:20px;padding:30px 34px;background:linear-gradient(135deg,rgba(201,168,76,.10),rgba(201,168,76,.03));border:1px solid rgba(201,168,76,.22);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;margin:0 0 56px;position:relative;overflow:hidden}
 .comp-statement:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(201,168,76,.12),transparent 65%);pointer-events:none}
-.comp-statement-icon{font-size:26px;color:#8a7628;flex-shrink:0;margin-top:2px;position:relative;z-index:1;width:46px;height:46px;border:1px solid rgba(201,168,76,.4);border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.5)}
-.comp-statement-label{font-size:11.5px;font-weight:800;letter-spacing:.18em;color:#8a7628;text-transform:uppercase;margin:0 0 8px;position:relative;z-index:1}
+.comp-statement-icon{font-size:26px;color:#6b5510;flex-shrink:0;margin-top:2px;position:relative;z-index:1;width:46px;height:46px;border:1px solid rgba(201,168,76,.4);border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.5)}
+.comp-statement-label{font-size:11.5px;font-weight:800;letter-spacing:.18em;color:#6b5510;text-transform:uppercase;margin:0 0 8px;position:relative;z-index:1}
 .comp-statement p{font-size:14.5px;line-height:1.85;color:#3a4a52;margin:0;position:relative;z-index:1;font-weight:500}
 .comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
 .comp-card{position:relative;padding:30px 24px 26px;background:#fff;border:1px solid #cbd4d2;border-radius:10px;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s,border-color .3s;overflow:hidden}
@@ -90,7 +90,7 @@ header{height:78px;padding:0 max(4vw,40px);display:flex;align-items:center;justi
 .comp-card-accent{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold) 0%,rgba(201,168,76,.15) 100%);transform:scaleX(0);transform-origin:left center;transition:transform .4s}
 .comp-card:hover .comp-card-accent{transform:scaleX(1)}
 .comp-card .card-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-.comp-icon{width:44px;height:44px;border:1px solid rgba(201,168,76,.5);border-radius:50%;display:grid;place-items:center;color:#8a7628;font-size:17px;flex-shrink:0;background:rgba(201,168,76,.08);transition:transform .3s,background .3s}
+.comp-icon{width:44px;height:44px;border:1px solid rgba(201,168,76,.5);border-radius:50%;display:grid;place-items:center;color:#6b5510;font-size:17px;flex-shrink:0;background:rgba(201,168,76,.08);transition:transform .3s,background .3s}
 .comp-card:hover .comp-icon{background:rgba(201,168,76,.18);transform:rotate(-6deg)}
 .comp-card h3{font-size:15px;margin:0;font-weight:700;line-height:1.3}
 .comp-card p{font-size:13px;line-height:1.75;color:#4a5a60;margin:0}
@@ -135,14 +135,14 @@ header{height:78px;padding:0 max(4vw,40px);display:flex;align-items:center;justi
 
 /* ===== 9. DEVELOPERS ===== */
 .developers{background:var(--paper);color:#14242d;display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center}
-.developers .overline{color:#8a7628}
+.developers .overline{color:#6b5510}
 .dev-desc{font-size:14px;line-height:1.85;color:#4a5a60;margin:0 0 30px}
 .dev-actions{display:flex;gap:14px;margin-top:28px}
 .dev-actions .button span{color:rgba(255,255,255,.85);margin-left:10px;font-size:13px;transition:transform .2s,color .2s}
 .dev-actions .button:hover span{transform:translate(3px,-3px);color:#fff}
 .dev-list article{display:grid;grid-template-columns:44px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid #cbd4d2}
 .dev-list article:last-child{border-bottom:0}
-.dev-list article>span{width:38px;height:38px;border:1px solid #aebfbc;border-radius:50%;display:grid;place-items:center;color:#8a7628;font:12px monospace;flex-shrink:0}
+.dev-list article>span{width:38px;height:38px;border:1px solid #aebfbc;border-radius:50%;display:grid;place-items:center;color:#6b5510;font:12px monospace;flex-shrink:0}
 .dev-list h3{font-size:14px;margin:0 0 4px;font-weight:650}
 .dev-list p{font-size:12px;line-height:1.65;color:#5a6872;margin:0}
 .code-window{align-self:stretch;background:#091c2c;color:#c4d0dc;border-radius:10px;overflow:hidden;box-shadow:0 25px 55px rgba(15,30,40,.22);display:flex;flex-direction:column;min-height:440px}

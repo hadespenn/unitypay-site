@@ -6,7 +6,7 @@ import { pageMetadata, breadcrumbSchema } from "../../lib/seo";
 import type { Metadata } from "next";
 import Script from "next/script";
 
-const pageCSS = readFileSync(join(process.cwd(), "app/page-css/about.css"), "utf-8");
+const pageCSS = readFileSync(join(process.cwd(), "styles/pages/about.css"), "utf-8");
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
