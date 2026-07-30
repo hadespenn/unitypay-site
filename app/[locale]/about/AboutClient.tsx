@@ -24,7 +24,7 @@ export default function AboutClient({ locale, t }: AboutClientProps) {
   };
 
   // 页面滚动置顶
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+  useEffect(() => { requestAnimationFrame(() => window.scrollTo(0, 0)); }, []);
 
   return (
     <main id="main-content">

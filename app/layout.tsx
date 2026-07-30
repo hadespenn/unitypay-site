@@ -29,6 +29,7 @@ const notoSansSC = Noto_Sans_SC({
   subsets: ["latin"],
   variable: "--font-noto-sc",
   display: "swap",
+  weight: ["400", "700"], // only regular + bold for Chinese fallback text
 });
 
 /** Read the full stylesheet at build time so it can be inlined into every page's <head>. */

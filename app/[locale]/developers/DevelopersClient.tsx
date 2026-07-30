@@ -21,7 +21,7 @@ export default function DevelopersPage({ locale, t }: DevelopersClientProps) {
     router.push(segments.join("/"));
   };
 
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+  useEffect(() => { requestAnimationFrame(() => window.scrollTo(0, 0)); }, []);
 
 
 

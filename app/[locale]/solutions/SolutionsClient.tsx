@@ -21,7 +21,7 @@ export default function SolutionsPage({ locale, t }: SolutionsClientProps) {
     router.push(segments.join("/"));
   };
 
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+  useEffect(() => { requestAnimationFrame(() => window.scrollTo(0, 0)); }, []);
 
 
 
