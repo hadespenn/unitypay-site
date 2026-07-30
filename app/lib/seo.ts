@@ -28,7 +28,7 @@ export async function pageMetadata(
   return {
     title,
     description,
-    icons: { icon: "/logo.jpg" },
+    icons: { icon: "/logo.webp" },
     openGraph: { title, description, images: [img], type: "website", siteName: "UnityPay", locale: locale === "zh" ? "zh_CN" : locale === "zh-TW" ? "zh_TW" : "en_US" },
     twitter: { card: "summary_large_image", title, description, images: [t.ogImage] },
     alternates: {

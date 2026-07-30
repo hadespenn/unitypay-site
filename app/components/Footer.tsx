@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import type { Locale } from "../lib/locale";
 import { useLocale } from "../lib/locale";
@@ -17,7 +16,10 @@ export default function Footer({ locale }: FooterProps) {
       <div className="footer-cols">
         <div className="footer-brand">
           <Link className="brand" href={`/${locale}`} aria-label="UnityPay Home">
-            <Image src="/logo.jpg" alt="UnityPay" width={36} height={36} />
+            <picture>
+              <source srcSet="/logo.webp" type="image/webp" />
+              <img src="/logo.jpg" alt="UnityPay" width={36} height={36} />
+            </picture>
             <span>{t.footerBrand}</span>
           </Link>
           <p>{t.footerDesc}</p>

@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: messages.seoTitle,
     description: messages.seoDescription,
-    icons: { icon: "/logo.jpg" },
+    icons: { icon: "/logo.webp" },
   };
 }
 

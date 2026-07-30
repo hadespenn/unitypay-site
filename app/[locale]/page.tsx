@@ -18,7 +18,7 @@ const jsonLd = {
   "@type": "Organization",
   name: "UnityPay",
   url: "https://unity-pay.pages.dev/",
-  logo: "https://unity-pay.pages.dev/logo.jpg",
+  logo: "https://unity-pay.pages.dev/logo.webp",
   description: "Licensed cross-border acquiring and compliant payout infrastructure",
   foundingDate: "2023",
   contactPoint: { "@type": "ContactPoint", email: "hello@unitypay.com", contactType: "customer support" },
