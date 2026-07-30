@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import type { LocaleContent, Pair } from "../lib/locale";
 import Header from "../components/Header";
@@ -100,10 +99,7 @@ export default function Home({ locale, t }: HomeClientProps) {
     router.push(segments.join("/"));
   };
 
-  useEffect(() => {
-    document.documentElement.lang =
-      locale === "zh" ? "zh-CN" : locale === "zh-TW" ? "zh-TW" : "en";
-  }, [locale]);
+
 
   return (
     <main>

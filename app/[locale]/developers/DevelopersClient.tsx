@@ -23,10 +23,7 @@ export default function DevelopersPage({ locale, t }: DevelopersClientProps) {
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
-  useEffect(() => {
-    document.documentElement.lang =
-      locale === "zh" ? "zh-CN" : locale === "zh-TW" ? "zh-TW" : "en";
-  }, [locale]);
+
 
   return (
     <main>

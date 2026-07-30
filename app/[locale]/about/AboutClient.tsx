@@ -26,12 +26,6 @@ export default function AboutClient({ locale, t }: AboutClientProps) {
   // 页面滚动置顶
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
-  // 设置 html lang 属性（SEO 辅助）
-  useEffect(() => {
-    document.documentElement.lang = 
-      locale === "zh" ? "zh-CN" : locale === "zh-TW" ? "zh-TW" : "en";
-  }, [locale]);
-
   return (
     <main>
       <Header
