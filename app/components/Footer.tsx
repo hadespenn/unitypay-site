@@ -23,7 +23,7 @@ export default function Footer({ locale }: FooterProps) {
           <p>{t.footerDesc}</p>
         </div>
         <div className="footer-col">
-          <h4>{t.footerColProduct}</h4>
+          <h2>{t.footerColProduct}</h2>
           <nav>
             <Link href={`/${locale}/solutions`}>{t.footerLinkSolutions}</Link>
             <Link href={`/${locale}/compliance`}>{t.footerLinkCompliance}</Link>
@@ -31,7 +31,7 @@ export default function Footer({ locale }: FooterProps) {
           </nav>
         </div>
         <div className="footer-col">
-          <h4>{t.footerColCompany}</h4>
+          <h2>{t.footerColCompany}</h2>
           <nav>
             <Link href={`/${locale}/about`}>{t.footerLinkAbout}</Link>
             <Link href={`/${locale}/#contact`}>{t.footerLinkContact}</Link>
