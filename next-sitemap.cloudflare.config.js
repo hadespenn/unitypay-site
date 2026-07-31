@@ -2,9 +2,9 @@
 module.exports = {
   siteUrl: "https://unity-pay.pages.dev",
   generateRobotsTxt: true,
-  // Standard Next.js static export → out/
-  outDir: "./out",
-  sourceDir: "./out",
+  // Cloudflare @cloudflare/next-on-pages 输出目录
+  outDir: ".vercel/output/static",
+  sourceDir: ".vercel/output/static",
   changefreq: "monthly",
   priority: 0.7,
   sitemapSize: 5000,

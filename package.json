@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && node scripts/defer-blocking.mjs && next-sitemap",
-    "pages:build": "npx @cloudflare/next-on-pages@1 && node scripts/defer-blocking.mjs && next-sitemap",
+    "pages:build": "npx @cloudflare/next-on-pages@1 && node scripts/defer-blocking.mjs && next-sitemap --config next-sitemap.cloudflare.config.js",
     "start": "next start",
     "lint": "next lint"
   },

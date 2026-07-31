@@ -17,7 +17,7 @@ export default function Footer({ locale }: FooterProps) {
       <div className="footer-cols">
         <div className="footer-brand">
           <Link className="brand" href={`/${locale}`} aria-label="UnityPay Home">
-            <Image src="/logo.jpg" alt="" width={36} height={36} aria-hidden="true" />
+            <Image src="/logo.webp" alt="" width={36} height={36} aria-hidden="true" />
             <span>{t.footerBrand}</span>
           </Link>
           <p>{t.footerDesc}</p>

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   icons: { icon: "/logo.webp" },
   openGraph: {
     siteName: "UnityPay",
-    images: [{ url: "/logo.jpg", width: 512, height: 512 }],
+    images: [{ url: "/logo.webp", width: 512, height: 512 }],
   },
   twitter: { card: "summary_large_image" },
 };
@@ -41,7 +41,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         {/* Preload hero logo (WebP when available, JPG as immediate fallback) */}
         <link rel="preload" href="/logo.webp" as="image" fetchPriority="high" />
-        <link rel="preload" href="/logo.jpg" as="image" fetchPriority="high" />
+        <link rel="preload" href="/logo.webp" as="image" fetchPriority="high" />
         {/* Full CSS inlined at build time — zero render-blocking external requests, zero FOUC */}
         <style dangerouslySetInnerHTML={{ __html: fullCSS }} />
       </head>

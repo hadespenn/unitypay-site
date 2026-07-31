@@ -1,12 +1,12 @@
 /**
- * Convert logo.jpg to logo.webp for modern browsers.
+ * Convert logo.webp to logo.webp for modern browsers.
  * Run: node scripts/convert-logo.mjs
  * Requires: npm install --save-dev sharp (Node 18+)
  */
 import sharp from "sharp";
 import { join } from "path";
 
-const src = join(process.cwd(), "public/logo.jpg");
+const src = join(process.cwd(), "public/logo.webp");
 const dest = join(process.cwd(), "public/logo.webp");
 
 sharp(src)
