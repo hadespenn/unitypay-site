@@ -81,7 +81,7 @@ async function main() {
       /<script\s+src=["'][^"']+["'][^>]*>/gi,
       (match) => {
         if (match.includes("defer") || match.includes("async")) return match;
-        if (match.includes('type="module"') || match.includes("type='module"')) return match;
+        if (match.includes('type="module"') || match.includes("type='module'")) return match;
         return match.replace(/>$/, " defer>");
       },
     );
