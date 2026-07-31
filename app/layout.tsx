@@ -18,13 +18,13 @@ export const metadata: Metadata = {
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
-  display: "swap",
+  display: "optional",
 });
 
 const notoSansSC = Noto_Sans_SC({
   subsets: ["latin"],
   variable: "--font-noto-sc",
-  display: "swap",
+  display: "optional",
   weight: ["400", "700"],
 });
 

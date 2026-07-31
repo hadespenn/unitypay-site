@@ -59,7 +59,7 @@ function LanguageDropdown({
 
 interface HeaderProps {
   locale: string;
-  setLocale: (c: string) => void;
+  setLocale: (c: Locale) => void;
   nav: string[];
   contact: string;
   transparent?: boolean;
@@ -100,7 +100,7 @@ export default function Header({ locale, setLocale, nav, contact, transparent }:
         ))}
       </nav>
       <div className="header-actions">
-        <LanguageDropdown current={locale} onChange={(c) => { setLocale(c); setLangOpen(false); }} open={langOpen} setOpen={setLangOpen} />
+        <LanguageDropdown current={locale} onChange={(c) => { setLocale(c as Locale); setLangOpen(false); }} open={langOpen} setOpen={setLangOpen} />
         <Link className="header-contact" href={`/${locale}/#contact`}>{contact}<Arrow /></Link>
         <button className="menu-button" aria-expanded={menu} aria-label="Toggle menu" onClick={() => setMenu(!menu)}>
           <i /><i />

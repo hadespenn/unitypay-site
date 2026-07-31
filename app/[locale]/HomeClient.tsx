@@ -1,4 +1,7 @@
+"use client";
+
 import type { LocaleContent, Pair } from "../lib/locale";
+import { useLocaleState } from "../lib/locale";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -87,10 +90,12 @@ interface HomeClientProps {
 }
 
 export default function Home({ locale, t }: HomeClientProps) {
+  const [currentLocale, setLocale] = useLocaleState();
+
   return (
     <main id="main-content">
       {/* ===== 1. NAVIGATION ===== */}
-      <Header locale={locale} nav={t.nav} contact={t.contact} />
+      <Header locale={currentLocale} setLocale={setLocale} nav={t.nav} contact={t.contact} />
 
       {/* ===== 2. HERO ===== */}
       <section className="hero-section" id="top">
@@ -356,7 +361,7 @@ export default function Home({ locale, t }: HomeClientProps) {
       </section>
 
       {/* ===== 12. FOOTER ===== */}
-      <Footer locale={locale} t={t} />
+      <Footer locale={currentLocale} />
     </main>
   );
 }

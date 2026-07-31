@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import enLocaleData from "../../public/locales/en.json";
 import zhLocaleData from "../../public/locales/zh.json";
 import zhTWLocaleData from "../../public/locales/zh-TW.json";
@@ -245,26 +245,28 @@ export function useLocale(locale: Locale) {
   return { t } as const;
 }
 
-const LOCALE_STORAGE_KEY = "unitypay-locale";
+const LOCALE_COOKIE_KEY = "unitypay-locale";
+
+/** Read locale from cookie synchronously (no I/O — cookies are available in JS at init time) */
+function getCookieLocale(): Locale | null {
+  if (typeof document === "undefined") return null;
+  const match = document.cookie.match(new RegExp(`(?:^|;\\s*)${LOCALE_COOKIE_KEY}=([^;]*)`));
+  const val = match?.[1];
+  if (val && ["en", "zh", "zh-TW"].includes(val)) return val as Locale;
+  return null;
+}
+
+function setCookieLocale(l: Locale) {
+  if (typeof document === "undefined") return;
+  document.cookie = `${LOCALE_COOKIE_KEY}=${l};path=/;max-age=31536000;SameSite=Lax`;
+}
 
 export function useLocaleState(): [Locale, (l: Locale) => void] {
-  // Always start as "en" to match static pre-rendered HTML (avoids hydration mismatch)
-  const [locale, setLocale] = useState<Locale>("en");
-
-  // After hydration but BEFORE browser paint, apply stored locale
-  useLayoutEffect(() => {
-    const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
-    if (stored && stored !== "en") {
-      setLocale(stored as Locale);
-    }
-    // Restore visibility hidden by the inline <script> in layout.tsx
-    if (typeof document !== "undefined") {
-      document.documentElement.style.visibility = "";
-    }
-  }, []);
+  // Read from cookie synchronously at init — no async state flip, no CLS
+  const [locale, setLocale] = useState<Locale>(() => getCookieLocale() ?? "en");
 
   const setAndPersist = (l: Locale) => {
-    localStorage.setItem(LOCALE_STORAGE_KEY, l);
+    setCookieLocale(l);
     setLocale(l);
   };
 
