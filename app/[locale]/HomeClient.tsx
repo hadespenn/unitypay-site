@@ -1,6 +1,3 @@
-"use client";
-
-import { useRouter, usePathname } from "next/navigation";
 import type { LocaleContent, Pair } from "../lib/locale";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -90,21 +87,10 @@ interface HomeClientProps {
 }
 
 export default function Home({ locale, t }: HomeClientProps) {
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const setLocale = (newLocale: string) => {
-    const segments = pathname.split("/");
-    segments[1] = newLocale;
-    router.push(segments.join("/"));
-  };
-
-
-
   return (
     <main id="main-content">
       {/* ===== 1. NAVIGATION ===== */}
-      <Header locale={locale} setLocale={setLocale} nav={t.nav} contact={t.contact} />
+      <Header locale={locale} nav={t.nav} contact={t.contact} />
 
       {/* ===== 2. HERO ===== */}
       <section className="hero-section" id="top">
@@ -370,7 +356,7 @@ export default function Home({ locale, t }: HomeClientProps) {
       </section>
 
       {/* ===== 12. FOOTER ===== */}
-      <Footer locale={locale} />
+      <Footer locale={locale} t={t} />
     </main>
   );
 }

@@ -36,7 +36,7 @@ function LanguageDropdown({
 
   return (
     <div className={`lang-dropdown${open ? " open" : ""}`} ref={ref}>
-      <button className="lang-trigger" onClick={() => setOpen(!open)} aria-expanded={open} aria-haspopup="listbox">
+      <button aria-label="lan" className="lang-trigger" onClick={() => setOpen(!open)} aria-expanded={open} aria-haspopup="listbox">
         <span className="lang-globe" aria-hidden="true">◐</span>
         <span className="lang-current">{currentName}</span>
         <span className="lang-caret" aria-hidden="true">▾</span>
@@ -45,7 +45,7 @@ function LanguageDropdown({
         <ul className="lang-menu" role="listbox">
           {localeInfo.map((l) => (
             <li key={l.code} role="option" aria-selected={l.code === current}>
-              <button className={`lang-option${l.code === current ? " active" : ""}`} onClick={() => onChange(l.code)}>
+              <button aria-label="lan" className={`lang-option${l.code === current ? " active" : ""}`} onClick={() => onChange(l.code)}>
                 <span className="lang-name">{l.name}</span>
                 {l.code === current && <span className="lang-check" aria-hidden="true">✓</span>}
               </button>
