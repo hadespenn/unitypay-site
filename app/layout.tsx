@@ -40,6 +40,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <head>
         {/* Preload hero logo (WebP when available, JPG as immediate fallback) */}
+        <meta name="msvalidate.01" content="BFFE539D08610AA8D4D7AC1F64591BFC" />
         <link rel="preload" href="/logo.webp" as="image" fetchPriority="high" />
         <link rel="preload" href="/logo.webp" as="image" fetchPriority="high" />
         {/* Full CSS inlined at build time — zero render-blocking external requests, zero FOUC */}

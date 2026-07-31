@@ -2,9 +2,10 @@
 module.exports = {
   siteUrl: "https://unity-pay.pages.dev",
   generateRobotsTxt: true,
-  // Standard Next.js static export → out/
-  outDir: "./out",
-  sourceDir: "./out",
+  // `next-sitemap` runs after `next build`. With `output: "export"`,
+  // Cloudflare Pages deploys `out`, so write SEO files into that artifact.
+  outDir: "out",
+  // 不指定 sourceDir，默认就是 .next（自动读取路由）
   changefreq: "monthly",
   priority: 0.7,
   sitemapSize: 5000,
