@@ -283,13 +283,6 @@ export function useLocaleState(): [Locale, (l: Locale) => void] {
     const newPath = "/" + pathParts.join("/") + "/";
     window.location.href = newPath;
   };
-      pathParts[0] = l;
-    } else {
-      pathParts.unshift(l);
-    }
-    const newPath = "/" + pathParts.join("/") + "/";
-    window.location.href = newPath;
-  };
 
   return [locale, setAndPersist];
 }
