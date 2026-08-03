@@ -268,6 +268,17 @@ export function useLocaleState(): [Locale, (l: Locale) => void] {
   const setAndPersist = (l: Locale) => {
     setCookieLocale(l);
     setLocale(l);
+    // Navigate to the new locale URL so the page content switches
+    const pathParts = window.location.pathname.split("/").filter(Boolean);
+    // pathParts example: ["zh", "about"] or ["en"] or []
+    const currentLocale = pathParts[0];
+    if (currentLocale && ["en", "zh", "zh-TW"].includes(currentLocale)) {
+      pathParts[0] = l;
+    } else {
+      pathParts.unshift(l);
+    }
+    const newPath = "/" + pathParts.join("/") + "/";
+    window.location.href = newPath;
   };
 
   return [locale, setAndPersist];
