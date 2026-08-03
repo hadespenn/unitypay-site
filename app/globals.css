@@ -12,11 +12,12 @@ header{height:78px;padding:0 max(4vw,40px);display:flex;align-items:center;justi
 .hero-section{min-height:820px;padding:170px max(4vw,40px) 0;position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) 520px;grid-template-rows:1fr auto;gap:0 40px;align-items:start;max-width:1440px;margin:0 auto;width:100%}
 .hero-section:before{content:"";position:absolute;inset:78px 0 0;background:radial-gradient(ellipse at 78% 35%,rgba(59,130,246,.16),transparent 42%),radial-gradient(ellipse at 28% 55%,rgba(94,234,212,.07),transparent 40%);pointer-events:none}
 .hero-copy{position:relative;z-index:2;max-width:680px;padding-top:10px}
-.hero-copy h1{font-size:clamp(48px,4vw,72px);line-height:1.06;letter-spacing:-.05em;font-weight:460;margin:0}
+.hero-copy h1{font-size:clamp(48px,4vw,72px);line-height:1.06;letter-spacing:-.05em;font-weight:460;margin:0;min-height:1.06em}
 .hero-copy h1 em{font-style:normal;color:var(--blue2);display:inline-block;margin-top:8px}
 .hero-desc{font-size:14.5px;line-height:1.9;color:#b4c4d4;max-width:720px;margin:30px 0 36px}
-.hero-actions{display:flex;align-items:center;gap:20px}
+.hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .hero-actions .button.outline span{color:var(--cyan);margin-left:10px}
+.hero-actions .button{min-width:140px;min-height:51px}
 
 /* Hero Flow Visualization */
 .hero-flow-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:14px;align-self:center;justify-self:end;z-index:1}
@@ -254,7 +255,7 @@ footer{background:#05111c;padding:72px max(4vw,24px) 0;color:#9baab5}
   .hero-stats-bar b{font-size:28px;text-align:center}.hero-stats-bar small{font-size:11px;text-align:center}
 
   .trust-bar{padding:28px 18px}
-  .trust-bar-grid{grid-template-columns:1fr;gap:0}.trust-bar-card{height:auto;border-right:0!important;padding:16px 0;border-bottom:1px solid rgba(120,180,210,.08);}.trust-bar-card:last-child{border-bottom:0}.trust-bar-card b{height:auto}
+  .trust-bar-grid{grid-template-columns:1fr;gap:0}.trust-bar-card{height:auto;min-height:88px;border-right:0!important;padding:16px 0;border-bottom:1px solid rgba(120,180,210,.08);}.trust-bar-card:last-child{border-bottom:0}.trust-bar-card b{height:auto}
 
   .section{padding:70px 18px}.section h2{font-size:26px}
   .arch-flow{grid-template-columns:1fr}.arch-step{border-right:0;border-bottom:1px solid var(--line);padding:22px 20px}.arch-step:last-child{border-bottom:0}.arch-arrow{display:none}
