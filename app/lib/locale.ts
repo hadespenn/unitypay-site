@@ -246,13 +246,17 @@ export function useLocale(locale: Locale) {
 }
 
 const LOCALE_COOKIE_KEY = "unitypay-locale";
+const VALID_LOCALES = ["en", "zh", "zh-TW"] as const;
 
-/** Read locale from cookie synchronously (no I/O — cookies are available in JS at init time) */
+// Precompile regex once at module level — avoids per-render RegExp construction
+const COOKIE_REGEX = new RegExp(`(?:^|;\\s*)${LOCALE_COOKIE_KEY}=([^;]*)`);
+
+/** Read locale from cookie synchronously. Uses precompiled RegExp for zero per-call overhead. */
 function getCookieLocale(): Locale | null {
   if (typeof document === "undefined") return null;
-  const match = document.cookie.match(new RegExp(`(?:^|;\\s*)${LOCALE_COOKIE_KEY}=([^;]*)`));
+  const match = document.cookie.match(COOKIE_REGEX);
   const val = match?.[1];
-  if (val && ["en", "zh", "zh-TW"].includes(val)) return val as Locale;
+  if (val && (VALID_LOCALES as readonly string[]).includes(val)) return val as Locale;
   return null;
 }
 
@@ -270,9 +274,15 @@ export function useLocaleState(): [Locale, (l: Locale) => void] {
     setLocale(l);
     // Navigate to the new locale URL so the page content switches
     const pathParts = window.location.pathname.split("/").filter(Boolean);
-    // pathParts example: ["zh", "about"] or ["en"] or []
     const currentLocale = pathParts[0];
-    if (currentLocale && ["en", "zh", "zh-TW"].includes(currentLocale)) {
+    if (currentLocale && (VALID_LOCALES as readonly string[]).includes(currentLocale)) {
+      pathParts[0] = l;
+    } else {
+      pathParts.unshift(l);
+    }
+    const newPath = "/" + pathParts.join("/") + "/";
+    window.location.href = newPath;
+  };
       pathParts[0] = l;
     } else {
       pathParts.unshift(l);

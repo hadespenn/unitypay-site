@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter, usePathname } from "next/navigation";
 import type { LocaleContent } from "../../lib/locale";
+import { useLocaleState } from "../../lib/locale";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
@@ -11,15 +11,8 @@ interface DevelopersClientProps {
   t: LocaleContent;
 }
 
-export default function DevelopersPage({ locale, t }: DevelopersClientProps) {
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const setLocale = (newLocale: string) => {
-    const segments = pathname.split("/");
-    segments[1] = newLocale;
-    router.push(segments.join("/"));
-  };
+export default function DevelopersPage({ locale: _locale, t }: DevelopersClientProps) {
+  const [locale, setLocale] = useLocaleState();
 
   useEffect(() => { requestAnimationFrame(() => window.scrollTo(0, 0)); }, []);
 

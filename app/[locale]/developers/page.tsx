@@ -20,11 +20,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function LocaleDevelopersPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getMessages(locale);
-  const crumb = await breadcrumbSchema(locale, "developers");
+  const crumbStr = await breadcrumbSchema(locale, "developers");
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: pageCSS }} />
-      <Script id="breadcrumb" type="application/ld+json" strategy="lazyOnload" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumb) }} />
+      <Script id="breadcrumb" type="application/ld+json" strategy="lazyOnload" dangerouslySetInnerHTML={{ __html: crumbStr }} />
       <DevelopersClient locale={locale} t={t} />
     </>
   );

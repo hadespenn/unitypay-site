@@ -22,18 +22,18 @@ const jsonLd = {
   description: "Licensed cross-border acquiring and compliant payout infrastructure",
   foundingDate: "2023",
   contactPoint: { "@type": "ContactPoint", email: "hello@unitypay.com", contactType: "customer support" },
-  sameAs: [
-    // "https://twitter.com/unitypay",
-    // "https://linkedin.com/company/unitypay",
-  ],
+  sameAs: [] as string[],
 };
+
+// Pre-serialize at module level — avoids per-request JSON.stringify
+const jsonLdStr = JSON.stringify(jsonLd);
 
 export default async function LocaleHomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getMessages(locale);
   return (
     <>
-      <Script id="jsonld-org" type="application/ld+json" strategy="lazyOnload" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <Script id="jsonld-org" type="application/ld+json" strategy="lazyOnload" dangerouslySetInnerHTML={{ __html: jsonLdStr }} />
       <HomeClient locale={locale} t={t} />
     </>
   );

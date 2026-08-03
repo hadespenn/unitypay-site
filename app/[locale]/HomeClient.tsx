@@ -89,13 +89,13 @@ interface HomeClientProps {
   t: LocaleContent;
 }
 
-export default function Home({ locale, t }: HomeClientProps) {
-  const [currentLocale, setLocale] = useLocaleState();
+export default function Home({ locale: _locale, t }: HomeClientProps) {
+  const [locale, setLocale] = useLocaleState();
 
   return (
     <main id="main-content">
       {/* ===== 1. NAVIGATION ===== */}
-      <Header locale={currentLocale} setLocale={setLocale} nav={t.nav} contact={t.contact} />
+      <Header locale={locale} setLocale={setLocale} nav={t.nav} contact={t.contact} />
 
       {/* ===== 2. HERO ===== */}
       <section className="hero-section" id="top">
@@ -361,7 +361,7 @@ export default function Home({ locale, t }: HomeClientProps) {
       </section>
 
       {/* ===== 12. FOOTER ===== */}
-      <Footer locale={currentLocale} />
+      <Footer locale={locale} />
     </main>
   );
 }

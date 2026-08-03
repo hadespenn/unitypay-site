@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter, usePathname } from "next/navigation";
-import type { LocaleContent } from "../../lib/locale";
+import type { LocaleContent, Locale } from "../../lib/locale";
+import { useLocaleState } from "../../lib/locale";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
@@ -11,17 +11,8 @@ interface AboutClientProps {
   t: LocaleContent;
 }
 
-export default function AboutClient({ locale, t }: AboutClientProps) {
-  const router = useRouter();
-  const pathname = usePathname();
-
-  // 语言切换函数（修改 URL）
-  const setLocale = (newLocale: string) => {
-    // 将当前路径中的 locale 替换为新 locale
-    const segments = pathname.split('/');
-    segments[1] = newLocale;
-    router.push(segments.join('/'));
-  };
+export default function AboutClient({ locale: _locale, t }: AboutClientProps) {
+  const [locale, setLocale] = useLocaleState();
 
   // 页面滚动置顶
   useEffect(() => { requestAnimationFrame(() => window.scrollTo(0, 0)); }, []);

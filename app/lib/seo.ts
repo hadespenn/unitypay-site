@@ -43,11 +43,13 @@ export async function pageMetadata(
 
 type BreadcrumbPage = "about" | "compliance" | "developers" | "solutions";
 
-/** Generate BreadcrumbList JSON-LD schema */
-export async function breadcrumbSchema(locale: string, currentPage?: BreadcrumbPage) {
+/** Generate BreadcrumbList JSON-LD schema as a pre-serialized string */
+export async function breadcrumbSchema(locale: string, currentPage?: BreadcrumbPage): Promise<string> {
   const t = await getMessages(locale);
   const baseUrl = "https://unity-pay.pages.dev";
-  const items = [{ "@type": "ListItem" as const, position: 1, name: t.breadcrumbHome, item: `${baseUrl}/${locale}/` }];
+  const items: Array<{ "@type": string; position: number; name: string; item: string }> = [
+    { "@type": "ListItem", position: 1, name: t.breadcrumbHome, item: `${baseUrl}/${locale}/` },
+  ];
 
   if (currentPage) {
     const pageNames: Record<BreadcrumbPage, string> = {
@@ -56,8 +58,8 @@ export async function breadcrumbSchema(locale: string, currentPage?: BreadcrumbP
       developers: t.breadcrumbDevelopers,
       solutions: t.breadcrumbSolutions,
     };
-    items.push({ "@type": "ListItem" as const, position: 2, name: pageNames[currentPage], item: `${baseUrl}/${locale}/${currentPage}/` });
+    items.push({ "@type": "ListItem", position: 2, name: pageNames[currentPage], item: `${baseUrl}/${locale}/${currentPage}/` });
   }
 
-  return { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items };
+  return JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items });
 }
