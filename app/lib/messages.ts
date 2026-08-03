@@ -17,6 +17,11 @@ export async function getMessages(locale: string): Promise<LocaleContent> {
   return messageMap[locale] || messageMap[defaultLocale];
 }
 
+/** Synchronous message lookup — use when passing to Client Components directly. */
+export function getMessagesSync(locale: string): LocaleContent {
+  return messageMap[locale] || messageMap[defaultLocale];
+}
+
 export async function seoMetadata(locale: string) {
   const messages = await getMessages(locale);
   return {

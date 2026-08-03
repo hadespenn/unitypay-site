@@ -1,8 +1,7 @@
 # Cloudflare Pages redirects
 # Docs: https://developers.cloudflare.com/pages/configuration/redirects/
 
-# --- 1. Root: any bare locale prefix or no prefix → default locale ---
-/             /en/          301
+# --- 1. Bare locale prefix (no trailing slash) → add it (301) ---
 /en           /en/          301
 /zh           /zh/          301
 /zh-TW        /zh-TW/       301

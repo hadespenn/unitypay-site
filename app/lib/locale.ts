@@ -260,14 +260,24 @@ function getCookieLocale(): Locale | null {
   return null;
 }
 
+/** Read locale from current URL path — falls back when no cookie is set. */
+function getPathLocale(): Locale | null {
+  if (typeof window === "undefined") return null;
+  const seg = window.location.pathname.split("/")[1];
+  if (seg && (VALID_LOCALES as readonly string[]).includes(seg)) return seg as Locale;
+  return null;
+}
+
 function setCookieLocale(l: Locale) {
   if (typeof document === "undefined") return;
   document.cookie = `${LOCALE_COOKIE_KEY}=${l};path=/;max-age=31536000;SameSite=Lax`;
 }
 
 export function useLocaleState(): [Locale, (l: Locale) => void] {
-  // Read from cookie synchronously at init — no async state flip, no CLS
-  const [locale, setLocale] = useState<Locale>(() => getCookieLocale() ?? "en");
+  // Priority: cookie > URL path > "en". All sources are synchronous — no CLS.
+  const [locale, setLocale] = useState<Locale>(
+    () => getCookieLocale() ?? getPathLocale() ?? "en"
+  );
 
   const setAndPersist = (l: Locale) => {
     setCookieLocale(l);

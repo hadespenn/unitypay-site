@@ -16,6 +16,15 @@
 /*.ttf
   Cache-Control: public, max-age=31536000, immutable
 
+# ========== Next.js _next/static/* (chunks, media) ==========
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ========== Logo and other site images ==========
+/logo.webp
+/logo.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
 # ========== HTML 页面短缓存 ==========
 /*.html
   Cache-Control: public, max-age=3600, must-revalidate
