@@ -150,7 +150,7 @@ export default function CompliancePage({ locale: _locale, t }: ComplianceClientP
       </section>
 
       {/* ===== 8. FOOTER ===== */}
-      <Footer locale={locale} />
+      <Footer locale={locale} t={t} />
     </main>
   );
 }

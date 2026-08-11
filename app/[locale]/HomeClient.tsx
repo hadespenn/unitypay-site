@@ -361,7 +361,7 @@ export default function Home({ locale: _locale, t }: HomeClientProps) {
       </section>
 
       {/* ===== 12. FOOTER ===== */}
-      <Footer locale={locale} />
+      <Footer locale={locale} t={t} />
     </main>
   );
 }

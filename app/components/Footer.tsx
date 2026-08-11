@@ -2,16 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { Locale } from "../lib/locale";
-import { useLocale } from "../lib/locale";
+import type { LocaleContent } from "../lib/locale";
 
 interface FooterProps {
   locale: string;
+  t: LocaleContent;
 }
 
-export default function Footer({ locale }: FooterProps) {
-  const { t } = useLocale(locale as Locale);
-
+export default function Footer({ locale, t }: FooterProps) {
   return (
     <footer>
       <div className="footer-cols">

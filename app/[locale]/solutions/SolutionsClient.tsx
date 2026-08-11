@@ -122,7 +122,7 @@ export default function SolutionsPage({ locale: _locale, t }: SolutionsClientPro
         </div>
       </section>
 
-      <Footer locale={locale} />
+      <Footer locale={locale} t={t} />
     </main>
   );
 }

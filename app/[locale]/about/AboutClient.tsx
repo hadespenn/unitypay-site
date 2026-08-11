@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import type { LocaleContent, Locale } from "../../lib/locale";
+import type { LocaleContent } from "../../lib/locale";
 import { useLocaleState } from "../../lib/locale";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -49,7 +49,7 @@ export default function AboutClient({ locale: _locale, t }: AboutClientProps) {
         </div>
       </section>
 
-      <Footer locale={locale} />
+      <Footer locale={locale} t={t} />
     </main>
   );
 }

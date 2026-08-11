@@ -117,7 +117,7 @@ export default function DevelopersPage({ locale: _locale, t }: DevelopersClientP
         </div>
       </section>
 
-      <Footer locale={locale} />
+      <Footer locale={locale} t={t} />
     </main>
   );
 }
