@@ -268,16 +268,27 @@ function getPathLocale(): Locale | null {
   return null;
 }
 
+/** True when current URL has NO locale segment (root domain).
+ *  The root domain always renders the default locale (en) — cookie is ignored. */
+function isRootPath(): boolean {
+  if (typeof window === "undefined") return false;
+  const seg = window.location.pathname.split("/")[1];
+  return !seg || !(VALID_LOCALES as readonly string[]).includes(seg);
+}
+
 function setCookieLocale(l: Locale) {
   if (typeof document === "undefined") return;
   document.cookie = `${LOCALE_COOKIE_KEY}=${l};path=/;max-age=31536000;SameSite=Lax`;
 }
 
 export function useLocaleState(): [Locale, (l: Locale) => void] {
-  // Priority: cookie > URL path > "en". All sources are synchronous — no CLS.
-  const [locale, setLocale] = useState<Locale>(
-    () => getCookieLocale() ?? getPathLocale() ?? "en"
-  );
+  // Priority:
+  //   - Root path (/): always default locale (cookie ignored — root always renders default).
+  //   - URL path locale > cookie > "en" (synchronous; no async flip, no CLS).
+  const [locale, setLocale] = useState<Locale>(() => {
+    if (isRootPath()) return "en";
+    return getPathLocale() ?? getCookieLocale() ?? "en";
+  });
 
   const setAndPersist = (l: Locale) => {
     setCookieLocale(l);
