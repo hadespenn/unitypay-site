@@ -154,12 +154,24 @@ function makeCSSNonBlocking(html) {
 }
 
 // ─── Main ───────────────────────────────────────────────────────
+/** Root-domain-only cookie-aware redirect — must run before any rendering. */
+const ROOT_REDIRECT_SCRIPT = `<script>(function(){try{var m=document.cookie.match(/(?:^|;\\s*)unitypay-locale=([^;]*)/);var loc=m&&m[1];if(loc&&loc!=='en'&&(loc==='zh'||loc==='zh-TW')){window.location.replace('/'+loc+'/');}}catch(e){}})();</script>\n`;
+
 async function main() {
   let htmlFiles = 0;
   let fontCount = 0;
 
   for await (const file of walkHtmlFiles(OUT_DIR)) {
     let html = await readFile(file, "utf-8");
+
+    // 0. Inject root-domain redirect as the FIRST thing in <head> (before any CSS/JS).
+    //    This runs synchronously before any DOM rendering, so no FOUC.
+    //    Only inject into the actual root-domain file: out/index.html (no /locale/ in path).
+    const isRootIndex = file.endsWith("/index.html") &&
+      !/\/(en|zh|zh-TW)\/index\.html$/.test(file);
+    if (isRootIndex) {
+      html = html.replace(/<head>/, `<head>\n${ROOT_REDIRECT_SCRIPT}`);
+    }
 
     // 1. Defer scripts (skip module scripts and already deferred)
     html = html.replace(
@@ -185,8 +197,9 @@ async function main() {
 
   console.log(`✅ ${htmlFiles} HTML files processed`);
   console.log(`✅ ${fontCount} font files preloaded`);
-  console.log(`✅ Critical CSS inlined (~3.2 KB gzipped)`);
+  console.log(`✅ Critical CSS inlined (~2.7 KB)`);
   console.log(`✅ Full CSS loaded asynchronously (media="print" + onload)`);
+  console.log(`✅ Root-domain cookie-aware redirect injected`);
 }
 
 main().catch((e) => {
