@@ -1,0 +1,281 @@
+{
+  "langName": "Bahasa Melayu",
+  "langShort": "MS",
+  "seoTitle": "UnityPay | Pemerolehan & Pembayaran Rentas Sempadan Berlesen",
+  "seoDescription": "Pembayaran rentas sempadan dengan lesen MSB Kanada & MSO Hong Kong. Pemerolehan fiat global, penyelesaian stablecoin dan FX untuk perusahaan rentas sempadan.",
+  "ogImage": "/logo.webp",
+  "aboutSeoTitle": "Tentang UnityPay | Infrastruktur Pembayaran Rentas Sempadan",
+  "aboutSeoDescription": "UnityPay menghubungkan pemerolehan, pematuhan dan institusi berlesen melalui seni bina telus untuk pembayaran perniagaan global.",
+  "complianceSeoTitle": "Pematuhan & Kepercayaan | UnityPay",
+  "complianceSeoDescription": "Rangka kerja pematuhan telus yang menghubungkan institusi kewangan berlesen. Setiap aliran dana memenuhi keperluan pengawalseliaan pelbagai bidang kuasa.",
+  "developersSeoTitle": "Dokumentasi API | Pemerolehan & Penyelesaian Rentas Sempadan | UnityPay",
+  "developersSeoDescription": "API yang jelas, boleh dipercayai dan boleh diaudit untuk pemerolehan, penghalaan dan penyelesaian. Direka untuk pasukan integrasi yang menuntut kepastian.",
+  "solutionsSeoTitle": "Pemerolehan Rentas Sempadan & Penyelesaian Patuh | UnityPay",
+  "solutionsSeoDescription": "Seni bina pemerolehan dan pembayaran patuh yang terpisah menghubungkan pemerolehan fiat dengan penyelesaian stablecoin melalui infrastruktur terasing secara fizikal.",
+  "breadcrumbHome": "Utama",
+  "breadcrumbAbout": "Tentang Kami",
+  "breadcrumbCompliance": "Pematuhan & Kepercayaan",
+  "breadcrumbDevelopers": "Dokumentasi Pembangun",
+  "breadcrumbSolutions": "Penyelesaian",
+
+  "nav": ["Seni Bina", "Keupayaan", "Pematuhan", "Keselamatan", "Pembangun", "Rangkaian Global"],
+
+  "heroEyebrow": "INFRASTRUKTUR PEMBAYARAN GLOBAL",
+  "eyebrow": "INFRASTRUKTUR",
+  "heroTitle": "Aliran Nilai Rentas Sempadan",
+  "heroTitleAccent": "Patuh, Telus, Boleh Dipercayai",
+  "heroText": "UnityPay menghubungkan pemerolehan, saringan pematuhan dan pelaksanaan institusi berlesen melalui seni bina terpisah, membolehkan pedagang rentas sempadan memindahkan nilai dengan sempadan bidang kuasa yang jelas dan laluan penyelesaian yang boleh disahkan.",
+  "heroDemo": "Tempah Demo",
+  "heroApiDocs": "Lihat Dokumentasi API",
+  "heroStats": [["120+", "Pasaran Dilindungi"], ["40+", "Mata Wang Penyelesaian"], ["99.99%", "Masa Aktif Infrastruktur"], ["24/7", "Pemantauan Risiko"]],
+
+  "heroFlowLabel": "Pemerolehan Fiat → Penampan VA → Penghalaan OTC Patuh → Penyelesaian USDC",
+  "heroFlowStages": ["Pemerolehan Fiat", "Penampan VA", "Penghalaan OTC Patuh", "Penyelesaian USDC"],
+
+  "trustBarTitle": "Berlesen di Bidang Kuasa Kewangan Utama",
+  "trustCards": [
+    ["Kanada", "Pendaftaran MSB FINTRAC — prasyarat AML di bawah PCMLTFA"],
+    ["Hong Kong", "Lesen MSO — perkhidmatan fiat terkawal dengan skop statutori yang jelas"],
+    ["Singapura", "Hab operasi Asia dengan seni bina keselamatan MPC"],
+    ["Cayman / BVI", "Entiti teknologi bebas untuk pengasingan risiko undang-undang"]
+  ],
+
+  "archOverline": "SENI BINA TERPISAH",
+  "archTitle": "Aliran Dana Patuh Empat Peringkat",
+  "archSubtitle": "Setiap peringkat dilaksanakan oleh institusi yang dipertanggungjawabkan secara berasingan, dengan pengasingan fizikal antara aliran fiat dan kripto — prinsip reka bentuk teras pematuhan.",
+  "archSteps": [
+    {"num": "01", "label": "Pengesahan Perniagaan", "title": "KYC / KYB & Latar Belakang Dagangan", "desc": "Pendaftaran dengan penilaian kelayakan berasaskan senario, padanan pesanan dan penyesuaian. Dokumentasi dagangan tulen disahkan di titik masuk untuk mewujudkan asas transaksi yang sah."},
+    {"num": "02", "label": "Pemerolehan Fiat", "title": "Kad & Pembayaran Alternatif", "desc": "Pembayaran dikutip melalui saluran pemerolehan berlesen menggunakan kod MCC standard. Dana diselesaikan ke akaun maya (VA) khusus, mewujudkan penampan temporal dan spatial."},
+    {"num": "03", "label": "Penghalaan Patuh", "title": "MSO ↔ Rakan OTC Berlesen", "desc": "MSO hanya mengendalikan penyelesaian fiat. Institusi OTC berlesen melaksanakan penukaran stablecoin secara bebas di bawah kewajipan pematuhan mereka sendiri — tiada percampuran."},
+    {"num": "04", "label": "Pelaksanaan Rakan", "title": "Penyelesaian & Ekosistem Dompet", "desc": "Stablecoin dihantar terus ke dompet jagaan sendiri pelanggan. Platform tidak pernah mengambil milik — penyelesaian boleh disahkan secara kriptografi dalam rantaian."}
+  ],
+  "fiatFlowLabel": "Aliran fiat (skop MSB / MSO)",
+  "cryptoFlowLabel": "Aliran kripto (skop rakan OTC)",
+  "isolationLabel": "Pemisahan fizikal — tiada percampuran aliran atau institusi",
+
+  "capOverline": "KEUPAYAAN TERAS",
+  "capTitle": "Tindanan Keupayaan Hujung-ke-Hujung mengikut Peringkat Aliran Dana",
+  "capSubtitle": "Enam modul keupayaan merangkumi kitaran hayat penuh daripada pendaftaran pedagang hingga penyelesaian selesai, setiap satu sejajar dengan sempadan pematuhan tertentu.",
+  "caps": [
+    {"icon": "◇", "title": "Pemerolehan Pedagang", "desc": "Pendaftaran berasaskan senario, padanan pesanan dan penyesuaian. Pelbagai landasan pemerolehan dengan kawalan pematuhan peringkat MCC."},
+    {"icon": "⇄", "title": "Deposit & Pertukaran Patuh", "desc": "Dilaksanakan secara bebas oleh institusi rakan berlesen. Penukaran fiat-ke-stablecoin di bawah entiti undang-undang berasingan dengan jejak audit yang jelas."},
+    {"icon": "⌁", "title": "Dompet MPC Tanpa Jagaan", "desc": "Dibina pada model tandatangan ambang 2-daripada-3. Platform tidak boleh memindahkan aset pelanggan secara unilateral — keselamatan dijamin secara seni bina, bukan dijanjikan."},
+    {"icon": "◎", "title": "Akses Kewangan Dalam Rantaian", "desc": "Sambung ke pasaran produk stablecoin dan RWA. Landasan penyelesaian meluas daripada saluran fiat ke tempat kecairan dalam rantaian terkawal."},
+    {"icon": "▹", "title": "Penghalaan Akaun & Pembayaran", "desc": "Penghalaan tadbir rakan dengan laluan telus dan boleh diaudit. Pilihan pembayaran pelbagai landasan dipadankan dengan keperluan bidang kuasa destinasi."},
+    {"icon": "⬡", "title": "Risiko & Pemantauan Berterusan", "desc": "Kawalan risiko peringkat transaksi tertanam di seluruh aliran perniagaan. Saringan sekatan, pengesanan anomali dan usaha wajar rakan niaga yang berterusan."}
+  ],
+
+  "compOverline": "RANGKA KERJA PEMATUHAN",
+  "compTitle": "Pematuhan Dibina dalam Reka Bentuk Produk",
+  "compTitleAccent": "Bukan Ditambah Kemudian",
+  "compSubtitle": "Pematuhan bukan tambahan — ia membentuk setiap keputusan daripada skop lesen hingga seni bina dan cara aset pelanggan dikendalikan.",
+  "compStatementLabel": "Notis Penting",
+  "compStatement": "Pendaftaran MSB adalah prasyarat pematuhan AML — bukan lesen kewangan menyeluruh, bukan pengesahan rasmi, dan bukan kebenaran untuk terlibat dalam pengambilan deposit, perbankan atau perniagaan sekuriti.",
+  "compCards": [
+    {"icon": "▣", "title": "Pendaftaran MSB Kanada", "desc": "Berdaftar dengan FINTRAC di bawah Akta Hasil Jenayah (Pengubahan Wang Haram) dan Pembiayaan Keganasan. Pendaftaran ini berfungsi sebagai prasyarat AML untuk perkhidmatan penghalaan pembayaran fiat kami dan tidak membentuk pengesahan kerajaan."},
+    {"icon": "◈", "title": "Perkhidmatan Pembayaran Runcit", "desc": "Mengakui keperluan pendaftaran PSP di bawah Akta Aktiviti Pembayaran Runcit yang ditadbir oleh Bank Kanada, dengan pemantauan berterusan perkembangan pengawalseliaan."},
+    {"icon": "◎", "title": "Rangka Kerja Kawalan Berasaskan Risiko", "desc": "Kewajipan skop penuh termasuk KYC, KYB, saringan sekatan, pematuhan Peraturan Perjalanan FATF, pemantauan transaksi dan pelaporan transaksi mencurigakan 24 jam yang berkenaan."},
+    {"icon": "⊘", "title": "Penyata Sempadan Jelas", "desc": "Kami tidak memberikan nasihat pelaburan, menjanjikan pulangan, memegang aset pelanggan dalam kunci kira-kira, menerima deposit, menerbitkan token sekuriti, atau terlibat dalam padanan dagangan. Setiap sempadan dinyatakan, boleh diaudit dan dikuatkuasakan."}
+  ],
+  "compDisclaimer": "Platform ini hanya menyediakan perkhidmatan penghalaan pembayaran dan teknologi perisian. Ia tidak memberikan nasihat pelaburan atau menjamin prestasi aset. Semua pertukaran aset maya dan perkhidmatan kewangan berkaitan disediakan secara bebas oleh institusi berlesen yang sewajarnya dan kekal tertakluk kepada perjanjian rasmi dan skop yang dibenarkan. Perkhidmatan dan ketersediaan berbeza mengikut bidang kuasa, kelayakan pelanggan dan liputan rakan.",
+
+  "mpcOverline": "KESELAMATAN MPC TANPA JAGAAN",
+  "mpcTitle": "Tanpa Jagaan oleh Seni Bina, Bukan oleh Janji",
+  "mpcText": "Model tandatangan ambang 2-daripada-3 memastikan tiada pihak tunggal — bukan platform mahupun mana-mana aktor luaran — boleh memindahkan aset pelanggan secara unilateral. Ini adalah jaminan struktur, bukan penyata dasar.",
+  "mpcShards": [
+    {"icon": "📱", "label": "Serpihan 1", "title": "Peranti Pengguna", "desc": "Satu serpihan kunci berada pada peranti pengguna akhir. Platform tidak mempunyai keterlihatan terhadap serpihan ini — ia dijana dan disimpan sepenuhnya di bawah kawalan pengguna."},
+    {"icon": "⚙", "label": "Serpihan 2", "title": "Perkhidmatan Dasar", "desc": "Serpihan kedua dipegang oleh enjin dasar tandatangan bersama yang menguatkuasakan peraturan transaksi — had halaju, semakan senarai putih, tetingkap masa — sebelum sebarang tandatangan boleh diteruskan."},
+    {"icon": "🔑", "label": "Serpihan 3", "title": "Pemulihan Bebas", "desc": "Serpihan ketiga dipegang oleh penyedia pemulihan bebas. Ia tidak pernah aktif dalam operasi biasa dan hanya digunakan di bawah protokol pemulihan bencana yang telah ditetapkan."}
+  ],
+  "mpcCommitment": "Ambang adalah 2-daripada-3. Platform memegang paling banyak satu serpihan pada bila-bila masa. Aset tidak boleh dipindahkan tanpa persetujuan jelas pengguna.",
+
+  "riskOverline": "RISIKO & MITIGASI",
+  "riskTitle": "Risiko Operasi Utama — dan Cara Kami Menanganinya",
+  "riskSubtitle": "Setiap risiko dikenal pasti, dinilai dan dimitigasi melalui langkah seni bina, undang-undang dan operasi yang konkrit — bukan cakap kosong.",
+  "risks": [
+    {"tag": "Risiko", "title": "Ketulenan Latar Belakang Dagangan", "desc": "Dokumentasi dagangan palsu atau melambung melemahkan asas sah untuk pembayaran rentas sempadan.", "strategy": "Strategi", "strategyText": "Penyerahan dan pengesahan mandatori dokumen dagangan tulen semasa pendaftaran. Penyesuaian peringkat transaksi dengan data pesanan dan logistik. Persampelan dan audit berterusan selepas transaksi."},
+    {"tag": "Risiko", "title": "Sekatan Deposit Pihak Ketiga OTC", "desc": "Meja OTC mungkin menyekat atau menolak deposit daripada sumber pihak ketiga, mewujudkan geseran penyelesaian untuk penukaran yang dibiayai VA.", "strategy": "Strategi", "strategyText": "Rakan OTC yang telah disahkan dengan dasar deposit pihak ketiga yang jelas. Seni bina akaun maya khusus memastikan asal dana bersih sebelum penghalaan penukaran."},
+    {"tag": "Risiko", "title": "Geseran KYC Berulang", "desc": "Pedagang menghadapi proses KYC/KYB yang berlebihan merentas pelbagai lapisan perkhidmatan, meningkatkan keciciran dan kos operasi.", "strategy": "Strategi", "strategyText": "Seni bina identiti disahkan sekali, pelbagai guna. Data pematuhan distrukturkan untuk kebolehgunaan semula merentas institusi rakan dengan kebenaran, mengurangkan duplikasi sambil mengekalkan integriti audit."},
+    {"tag": "Risiko", "title": "Sempadan Pengawalseliaan SFC", "desc": "Keperluan lesen SFC Hong Kong mengenakan garis merah yang jelas terhadap aktiviti aset maya yang tidak boleh dilintasi.", "strategy": "Strategi", "strategyText": "Pemisahan fungsi yang ketat: MSO hanya mengendalikan fiat. Pertukaran aset maya dilaksanakan secara eksklusif oleh rakan berlesen SFC (atau setara) di bawah perimeter pengawalseliaan mereka sendiri."}
+  ],
+
+  "devOverline": "PEMBANGUN",
+  "devTitle": "Satu API, Pelbagai Landasan",
+  "devText": "Antara muka yang jelas, boleh dipercayai dan boleh diaudit untuk pemerolehan, penghalaan dan penyelesaian — direka untuk pasukan integrasi yang menuntut kepastian.",
+  "devs": [
+    ["API REST Berversi", "Endpoint REST berversi yang stabil dengan akses sandbox, sokongan integrasi dan dokumentasi menyeluruh."],
+    ["Webhook Boleh Dipercayai", "Penghantaran webhook idempoten dengan cubaan semula automatik. Acara pembayaran kritikal tiba dengan pasti — tiada kegagalan senyap."],
+    ["Pemindahan Data Disulitkan", "Maklumat yang diperlukan pematuhan disulitkan dalam transit dan semasa rehat, sejajar dengan keperluan perlindungan data."],
+    ["Penghalaan Pelbagai Landasan", "Konfigurasi peraturan penghalaan pembayaran mengikut bidang kuasa, ambang amaun dan pasangan mata wang. Kawalan programatik ke atas laluan penyelesaian."],
+    ["Audit & Penyesuaian", "Log transaksi berstruktur dengan integriti kriptografi. Setiap peralihan keadaan boleh disoal dan disahkan."]
+  ],
+
+  "globalOverline": "LIPUTAN GLOBAL",
+  "globalTitle": "Peraturan Tempatan, Jangkauan Global",
+  "globalText": "Kehadiran pematuhan merentas 6 hab kewangan utama, setiap satu dengan skop lesen yang ditakrifkan dan liputan rakan yang disahkan.",
+  "globalNote": "Perkhidmatan dan ketersediaan berbeza mengikut bidang kuasa, kelayakan pelanggan dan liputan rakan, dan dilaksanakan secara bebas oleh institusi berlesen tempatan.",
+  "regions": [
+    ["Kanada", "MSB FINTRAC · laluan pendaftaran PSP"],
+    ["United Kingdom", "Penjajaran saringan sekatan global"],
+    ["Hong Kong", "Lesen MSO · skop fiat sahaja yang jelas"],
+    ["Singapura", "Hab Asia · seni bina teknologi MPC"],
+    ["Cayman / BVI", "Entiti teknologi bebas · pengasingan risiko"],
+    ["Amerika Syarikat", "Landasan rentas sempadan · standard FATF"]
+  ],
+
+  "ctaOverline": "MARI BERBINCANG",
+  "ctaTitle": "Jalankan Aliran Rentas Sempadan Anda Melalui Pematuhan Dahulu",
+  "ctaText": "Beritahu kami tentang pasaran pemerolehan anda, senario transaksi dan keperluan penyelesaian. Kami akan menilai landasan tersedia, liputan rakan patuh dan laluan pendaftaran yang betul — tanpa obligasi, tanpa janji kabur.",
+  "ctaScenarios": [
+    { "icon": "🛒", "title": "E-Dagang\nPemerolehan Pelbagai Mata Wang" },
+    { "icon": "🎮", "title": "Penerbitan Permainan\nPembayaran Global" },
+    { "icon": "📦", "title": "Perkhidmatan Dagangan\nPenyelesaian Patuh" },
+    { "icon": "🔗", "title": "Projek Web3\nAkses Dalam Rantaian" }
+  ],
+  "ctaUnified": "Kami mereka bentuk seni bina pemerolehan dan penyelesaian yang sepadan — apa jua industri anda.",
+  "contact": "Hubungi Pasukan Kami",
+  "contactEmail": "E-mel",
+  "contactEmailValue": "hello@unitypay.com",
+  "contactLocation": "Lokasi",
+  "contactLocationValue": "Hong Kong · Singapura · Shanghai",
+  "contactHours": "Waktu",
+  "contactHoursValue": "Isnin–Jumaat 09:00–18:00 HKT",
+
+  "footerBrand": "UnityPay",
+  "footerDesc": "Infrastruktur pembayaran, penyelesaian dan pematuhan global — menghubungkan pedagang, rangkaian pemerolehan dan institusi kewangan berlesen melalui seni bina telus dan boleh disahkan.",
+  "footerColProduct": "Produk",
+  "footerLinkSolutions": "Penyelesaian",
+  "footerLinkCompliance": "Pematuhan & Kepercayaan",
+  "footerLinkDevelopers": "Dokumentasi Pembangun",
+  "footerLinkPay": "Pemerolehan Fiat",
+  "footerLinkCapabilities": "Keupayaan",
+  "footerLinkStable": "Penyelesaian Stablecoin",
+  "footerLinkApi": "API & Integrasi",
+  "footerColCompany": "Syarikat",
+  "footerLinkAbout": "Tentang Kami",
+  "footerLinkContact": "Hubungi Kami",
+  "footerLinkTerms": "Terma Perkhidmatan",
+  "footerLinkPrivacy": "Dasar Privasi",
+  "footerCopyright": "© 2026 UNITYPAY. HAK CIPTA TERPELIHARA.",
+  "footerLink": "Lihat penafian penuh →",
+  "footerDisclaimer": "⚠️ Platform ini hanya menyediakan perkhidmatan penghalaan pembayaran dan teknologi perisian. Ia tidak menawarkan nasihat pelaburan, dan tidak menyimpan aset pelanggan. Semua perkhidmatan kewangan terkawal disediakan secara bebas oleh institusi rakan berlesen.",
+
+  "aboutEyebrow": "Tentang UnityPay",
+  "aboutTitle": "Rakan Pembayaran Rentas Sempadan",
+  "aboutTitleAccent": "Yang Boleh Dipercayai untuk Perniagaan Global",
+  "aboutDesc": "UnityPay ialah platform teknologi penyelesaian pembayaran dan perkhidmatan perisian global untuk perniagaan yang berkembang ke luar negara, menyediakan antara muka produk, orkestrasi proses, arahan penghalaan, paparan status dan sokongan penyesuaian. Kami menghubungkan pemerolehan, saringan pematuhan dan pelaksanaan institusi berlesen melalui seni bina terpisah, memastikan setiap aliran dana mempunyai laluan yang boleh dikesan. Perkhidmatan terkawal berkaitan pembayaran, kiriman wang, pertukaran dan aset maya disediakan secara bebas oleh rakan berkelayakan. Pasukan kami mempunyai kepakaran mendalam dalam pembayaran rentas sempadan, pematuhan dagangan dan fintech, komited untuk menghubungkan pedagang, rangkaian pemerolehan dan institusi kewangan berlesen secara telus dan boleh disahkan.",
+  "aboutMissionCards": [
+    {"title": "Misi", "subtitle": "Nilai Tanpa Sempadan", "desc": "Menghapuskan geseran dan halangan dalam pembayaran rentas sempadan, membolehkan perniagaan global memindahkan modal secara bebas."},
+    {"title": "Nilai", "subtitle": "Pematuhan Dahulu", "desc": "Pematuhan adalah sebahagian daripada reka bentuk produk, bukan difikirkan kemudian."},
+    {"title": "Komitmen", "subtitle": "Neutral Teknologi, Tiada Jagaan Aset", "desc": "Platform hanya menyediakan penghalaan pembayaran dan perkhidmatan teknologi perisian."}
+  ],
+
+  "complianceEyebrow": "Pematuhan & Kepercayaan",
+  "complianceTitle": "Pematuhan Dibina dalam",
+  "complianceTitleAccent": "Reka Bentuk Produk, Bukan Ditambah Kemudian",
+  "complianceDesc": "Kami menghubungkan institusi kewangan berlesen melalui rangka kerja pematuhan telus dan terbuka, memastikan setiap aliran dana memenuhi keperluan pengawalseliaan pelbagai bidang kuasa.",
+  "complianceStatementTitle": "Notis Penting",
+  "complianceStatementText": "Pendaftaran MSB adalah prasyarat pematuhan AML dan tidak mewakili pengesahan kerajaan atau lesen kewangan menyeluruh. Pendaftaran FINTRAC adalah syarat pematuhan AML yang perlu dan tidak membentuk kebenaran untuk menjalankan perniagaan perbankan, sekuriti atau pengambilan deposit.",
+  "complianceJuriEyebrow": "Kehadiran Global",
+  "complianceJuriTitle": "Bidang Kuasa Berlesen",
+  "complianceJuriHeader": ["Wilayah", "Rangka Kerja / Lesen", "Penerangan"],
+  "complianceJurisdictions": [
+    {"region": "Kanada", "framework": "MSB / FINTRAC", "desc": "Berdaftar di bawah rangka kerja AML/ATF persekutuan untuk perkhidmatan wang yang ditetapkan"},
+    {"region": "Hong Kong", "framework": "Lesen MSO", "desc": "Skop perkhidmatan fiat sahaja yang ketat tanpa penglibatan aset maya"},
+    {"region": "Singapura", "framework": "Rangka Kerja MAS", "desc": "Hab Asia dengan seni bina teknologi MPC"},
+    {"region": "Cayman / BVI", "framework": "Struktur Teknologi Bebas", "desc": "Pengasingan risiko, dipisahkan secara struktur daripada entiti lesen kewangan"}
+  ],
+  "complianceObliEyebrow": "Kewajipan Pematuhan",
+  "complianceObliTitle": "Rangka Kerja Kewajipan Berasaskan Senarai Semak",
+  "complianceObligations": [
+    {"type": "Pengenalpastian Pelanggan (KYC)", "desc": "Sahkan identiti individu atau entiti dan kenal pasti pemilik manfaat"},
+    {"type": "Usaha Wajar Perniagaan (KYB)", "desc": "Semak UBO pedagang, model perniagaan dan sejarah transaksi"},
+    {"type": "Saringan Sekatan", "desc": "Saring pelanggan, pemilik manfaat, ejen, entiti induk/anak syarikat, pembayar dan penerima"},
+    {"type": "Pemantauan Transaksi", "desc": "Isyarat berterusan dengan peraturan boleh konfigurasi untuk mengenal pasti aktiviti anomali"},
+    {"type": "Pelaporan Transaksi Mencurigakan (STR)", "desc": "Laporkan tanpa ambang kewangan apabila terdapat alasan munasabah untuk mengesyaki ML/TF"},
+    {"type": "Pelaporan Agregasi 24 Jam", "desc": "Pelaporan pemindahan tunai besar, mata wang maya dan dana elektronik"},
+    {"type": "Peraturan Perjalanan FATF", "desc": "Pemindahan EFT atau mata wang maya yang boleh dilaporkan disertai maklumat pemula dan penerima"},
+    {"type": "Penyimpanan Rekod", "desc": "Kebanyakan rekod berkanun disimpan sekurang-kurangnya 5 tahun"}
+  ],
+  "complianceBounEyebrow": "Penyata Sempadan",
+  "complianceBounTitle": "Apa yang Kami Tidak Lakukan",
+  "complianceBoundaries": [
+    {"label": "Tiada Nasihat Pelaburan", "desc": "Kandungan platform terhad kepada pendidikan teknikal dan pendedahan maklumat"},
+    {"label": "Tiada Janji Pulangan", "desc": "Tiada jaminan sebarang pulangan pelaburan atau kenaikan aset"},
+    {"label": "Tiada Jagaan Aset", "desc": "Platform tidak memegang kunci persendirian atau dana pelanggan"},
+    {"label": "Tiada Pengambilan Deposit", "desc": "Dana pelanggan tidak diterima sebagai liabiliti platform"},
+    {"label": "Tiada Penerbitan Token Sekuriti", "desc": "Tiada penerbitan atau jaminan sebarang bentuk token sekuriti"},
+    {"label": "Tiada Padanan Dagangan", "desc": "Platform tidak mengambil bahagian dalam padanan pembeli dan penjual"}
+  ],
+  "complianceRiskEyebrow": "Risiko & Mitigasi",
+  "complianceRiskTitle": "Empat Risiko Teras",
+  "complianceRisks": [
+    {"title": "Ketulenan Latar Belakang Dagangan", "desc": "Dagangan palsu mungkin mengeksploitasi saluran untuk pengubahan wang haram", "strategy": "Pengesahan dokumen dagangan tulen wajib · pemantauan transaksi berasaskan AI"},
+    {"title": "Sekatan Deposit Pihak Ketiga OTC", "desc": "OTC patuh melarang keras deposit pihak ketiga", "strategy": "Protokol gerbang pembayaran B2B · penyegerakan maklumat pematuhan peringkat API"},
+    {"title": "Geseran KYC Berulang", "desc": "Pengesahan berulang merentas platform menyebabkan keciciran pengguna", "strategy": "Protokol pengiktirafan bersama KYC · pendaftaran dibenarkan 1-klik"},
+    {"title": "Sempadan Pengawalseliaan SFC", "desc": "Nasihat pelaburan mencetuskan keperluan lesen Jenis 4", "strategy": "Neutraliti teknologi yang ketat · penafian yang jelas"}
+  ],
+  "complianceDisclaimerText": "Platform ini hanya menyediakan perkhidmatan penghalaan pembayaran dan teknologi perisian. Ia tidak memberikan nasihat pelaburan atau menjamin prestasi aset. Semua pertukaran aset maya dan perkhidmatan kewangan berkaitan disediakan secara bebas oleh institusi berlesen yang sewajarnya dan kekal tertakluk kepada perjanjian rasmi dan skop yang dibenarkan. Perkhidmatan dan ketersediaan berbeza mengikut bidang kuasa, kelayakan pelanggan dan liputan rakan.",
+
+  "devPageEyebrow": "Dokumentasi Pembangun",
+  "devPageTitle": "Satu API,",
+  "devPageTitleAccent": "Pelbagai Landasan",
+  "devPageDesc": "Antara muka yang jelas, boleh dipercayai dan boleh diaudit untuk pemerolehan, penghalaan dan penyelesaian — direka untuk pasukan integrasi yang menuntut kepastian.",
+  "devPageFeaturesEyebrow": "Ciri Teras",
+  "devPageFeaturesTitle": "Jelas, Boleh Diaudit, Boleh Dipercayai",
+  "devPageFeatures": [
+    {"icon": "{ }", "title": "API REST Berversi", "desc": "API REST bersih dan berversi dengan persekitaran sandbox dan sokongan integrasi"},
+    {"icon": "↻", "title": "Webhook Boleh Dipercayai", "desc": "Penghantaran idempoten memastikan acara tiba dengan pasti"},
+    {"icon": "⌁", "title": "Pemindahan Data Disulitkan", "desc": "Pemindahan disulitkan maklumat yang diperlukan pematuhan sejajar dengan keperluan perlindungan data"},
+    {"icon": "◎", "title": "Penyegerakan Maklumat Pedagang", "desc": "Pertanyaan status transaksi, penyesuaian baki dan pertukaran data pematuhan"}
+  ],
+  "devPageApiEyebrow": "Contoh Endpoint",
+  "devPageApiTitle": "Cipta Laluan Penyelesaian",
+  "devPageApiSubtitle": "Mulakan penyelesaian merentas mata wang melalui satu endpoint. Platform mengembalikan ID laluan dan anggaran masa penyelesaian.",
+  "devPageSandboxEyebrow": "Persekitaran Sandbox",
+  "devPageSandboxTitle": "Ujian Penuh Sebelum Pelancaran",
+  "devPageSandboxCardTitle": "Kurangkan Kos Penyesuaian Manual",
+  "devPageSandboxCardText": "Persekitaran sandbox mensimulasikan aliran transaksi sebenar dengan ujian panggilan API penuh. Semua acara webhook, pengesahan tandatangan dan kod ralat adalah sama dengan pengeluaran, membantu penyepadu menyelesaikan pengesahan hujung-ke-hujung sebelum pelancaran dan mengurangkan kos penyesuaian dan penyelesaian masalah selepas pelancaran dengan ketara.",
+  "devPageStepsEyebrow": "Aliran Integrasi",
+  "devPageStepsTitle": "Daripada Pendaftaran ke Pengeluaran",
+  "devPageSteps": [
+    {"num": "①", "title": "Daftar dan Dapatkan Kunci API", "desc": "Cipta akaun pedagang dalam konsol. Kunci API dikeluarkan secara automatik selepas pengesahan identiti."},
+    {"num": "②", "title": "Uji dalam Persekitaran Sandbox", "desc": "Gunakan kunci sandbox untuk menyelesaikan ujian integrasi hujung-ke-hujung dalam persekitaran terasing tanpa dana sebenar."},
+    {"num": "③", "title": "Hantar Bahan Pematuhan untuk Semakan", "desc": "Hantar bahan KYC/KYB dan penerangan senario perniagaan untuk semakan oleh pasukan pematuhan."},
+    {"num": "④", "title": "Tukar ke Pengeluaran", "desc": "Selepas lulus semakan, tukar ke kunci pengeluaran, lancarkan mengikut jadual yang dirancang dan dayakan pemantauan masa nyata."}
+  ],
+
+  "solutionsEyebrow": "Penyelesaian",
+  "solutionsTitle": "Pemerolehan Terpisah &",
+  "solutionsTitleAccent": "Seni Bina Pembayaran Patuh",
+  "solutionsDesc": "Dibina pada senario perkhidmatan dagangan sebenar, menghubungkan pemerolehan fiat dengan pembayaran patuh melalui seni bina terasing secara fizikal, memastikan sempadan lesen dan jejak audit yang jelas untuk setiap aliran dana.",
+  "solutionsArchEyebrow": "Ringkasan Seni Bina",
+  "solutionsArchTitle": "Aliran Terpisah Tiga Peringkat",
+  "solutionsArchSteps": [
+    {"num": "01", "label": "Pemerolehan Frontend", "items": ["Memanfaatkan kelayakan lesen MSB Kanada dan MSO Hong Kong", "Pemerolehan kad kredit atau fiat berdasarkan senario perkhidmatan dagangan sebenar", "Menggunakan kod MCC komersial standard (cth. 5999) untuk memastikan pematuhan saluran pemerolehan"]},
+    {"num": "02", "label": "Penempatan Dana", "items": ["Dana fiat dijelaskan ke akaun maya (VA) khusus", "Dana dicirikan sebagai \"hasil fiat yang dimiliki secara sah oleh pedagang/pelanggan\"", "Pengasingan fizikal dan penampan temporal antara aliran fiat dan kripto"]},
+    {"num": "03", "label": "Keputusan Pengguna & Penghalaan", "items": ["Laluan fiat: Pelanggan memilih fiat, MSO melaksanakan kiriman wang fiat standard", "Laluan kripto: Pelanggan memilih stablecoin, dialihkan ke OTC berlesen (OSL / MetaComp)", "MSO hanya memindahkan dana VA ke akaun amanah OTC mengikut arahan; OTC mengendalikan penukaran"]}
+  ],
+  "solutionsFlowEyebrow": "Proses Terperinci",
+  "solutionsFlowTitle": "Empat Peringkat Jelas",
+  "solutionsFlowSteps": [
+    {"num": "①", "name": "Pengesahan Perniagaan", "desc": "Usaha wajar perusahaan KYB, pengenalpastian UBO, pengesahan silang dokumen dagangan"},
+    {"num": "②", "name": "Pemerolehan Fiat", "desc": "Kad bank, pemindahan bank, pembayaran tempatan dengan padanan pesanan, penjelasan dan penyesuaian"},
+    {"num": "③", "name": "Penghalaan Patuh", "desc": "Saringan sekatan, pemantauan transaksi, agregasi 24 jam, penghalaan ke rakan berkelayakan"},
+    {"num": "④", "name": "Pelaksanaan Penyelesaian", "desc": "OTC berlesen melaksanakan penukaran secara bebas, mengembalikan status penyelesaian yang boleh diaudit"}
+  ],
+  "solutionsScenarioEyebrow": "Kes Penggunaan",
+  "solutionsScenarioTitle": "Untuk Siapa Ia Dibina",
+  "solutionsScenarios": [
+    {"icon": "▣", "title": "E-Dagang", "desc": "Pemerolehan pelbagai mata wang"},
+    {"icon": "◈", "title": "Penerbitan Permainan", "desc": "Pembayaran pemain global"},
+    {"icon": "⬢", "title": "Perkhidmatan Dagangan", "desc": "Penyelesaian rentas sempadan patuh"},
+    {"icon": "⌬", "title": "Projek Web3", "desc": "Akses pembayaran dalam rantaian"}
+  ],
+  "solutionsAdvantageTitle": "Pemisahan Fizikal Aliran Fiat & Kripto",
+  "solutionsAdvantageSubtitle": "Memastikan pematuhan saluran pemerolehan dan sempadan lesen yang jelas",
+  "solutionsAdvantages": [
+    "MSO mengendalikan aliran fiat sahaja sepanjang keseluruhan proses — tiada penglibatan aset maya",
+    "Kewajipan pematuhan dilaksanakan oleh institusi berlesen; platform hanya menyediakan penghalaan teknikal"
+  ]
+}

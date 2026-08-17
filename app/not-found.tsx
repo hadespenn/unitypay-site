@@ -22,12 +22,30 @@ const messages: Record<string, { title: string; heading: string; desc: string; b
     desc: "您訪問的頁面可能已被移動或不存在。",
     back: "← 返回首頁",
   },
+  es: {
+    title: "404 — Página no encontrada | UnityPay",
+    heading: "Página no encontrada",
+    desc: "La página que busca puede haber sido movida o ya no existe.",
+    back: "← Volver al inicio",
+  },
+  ms: {
+    title: "404 — Halaman Tidak Ditemui | UnityPay",
+    heading: "Halaman Tidak Ditemui",
+    desc: "Halaman yang anda cari mungkin telah dialihkan atau tidak lagi wujud.",
+    back: "← Kembali ke Halaman Utama",
+  },
+  ar: {
+    title: "404 — الصفحة غير موجودة | UnityPay",
+    heading: "الصفحة غير موجودة",
+    desc: "الصفحة التي تبحث عنها ربما تم نقلها أو لم تعد موجودة.",
+    back: "العودة إلى الصفحة الرئيسية ←",
+  },
 };
 
 function getLocale(): string {
   if (typeof window === "undefined") return "en";
   const seg = window.location.pathname.split("/")[1];
-  return seg && ["zh", "zh-TW"].includes(seg) ? seg : "en";
+  return seg && ["zh", "zh-TW", "es", "ms", "ar"].includes(seg) ? seg : "en";
 }
 
 export default function NotFound() {
@@ -41,7 +59,7 @@ export default function NotFound() {
   const homeHref = `/${locale}/`;
 
   return (
-    <html lang={locale === "zh" ? "zh-CN" : locale === "zh-TW" ? "zh-Hant" : "en"}>
+    <html lang={locale === "zh" ? "zh-CN" : locale === "zh-TW" ? "zh-Hant" : locale === "es" ? "es" : locale === "ms" ? "ms" : locale === "ar" ? "ar" : "en"} dir={locale === "ar" ? "rtl" : "ltr"}>
       <head>
         <title>{msg.title}</title>
         <meta name="description" content={msg.desc} />

@@ -155,7 +155,7 @@ function makeCSSNonBlocking(html) {
 
 // ─── Main ───────────────────────────────────────────────────────
 /** Root-domain-only cookie-aware redirect — must run before any rendering. */
-const ROOT_REDIRECT_SCRIPT = `<script>(function(){try{var m=document.cookie.match(/(?:^|;\\s*)unitypay-locale=([^;]*)/);var loc=m&&m[1];if(loc&&loc!=='en'&&(loc==='zh'||loc==='zh-TW')){window.location.replace('/'+loc+'/');}}catch(e){}})();</script>\n`;
+const ROOT_REDIRECT_SCRIPT = `<script>(function(){try{var m=document.cookie.match(/(?:^|;\\s*)unitypay-locale=([^;]*)/);var loc=m&&m[1];if(loc&&loc!=='en'&&/^(zh|zh-TW|es|ms|ar)$/.test(loc)){window.location.replace('/'+loc+'/');}}catch(e){}})();</script>\n`;
 
 async function main() {
   let htmlFiles = 0;
@@ -168,7 +168,7 @@ async function main() {
     //    This runs synchronously before any DOM rendering, so no FOUC.
     //    Only inject into the actual root-domain file: out/index.html (no /locale/ in path).
     const isRootIndex = file.endsWith("/index.html") &&
-      !/\/(en|zh|zh-TW)\/index\.html$/.test(file);
+      !/\/(en|zh|zh-TW|es|ms|ar)\/index\.html$/.test(file);
     if (isRootIndex) {
       html = html.replace(/<head>/, `<head>\n${ROOT_REDIRECT_SCRIPT}`);
     }

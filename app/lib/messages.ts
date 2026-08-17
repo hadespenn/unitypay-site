@@ -2,8 +2,11 @@ import type { LocaleContent } from "./locale";
 import en from "../../public/locales/en.json";
 import zh from "../../public/locales/zh.json";
 import zhTW from "../../public/locales/zh-TW.json";
+import es from "../../public/locales/es.json";
+import ms from "../../public/locales/ms.json";
+import ar from "../../public/locales/ar.json";
 
-export const locales = ["en", "zh", "zh-TW"] as const;
+export const locales = ["en", "zh", "zh-TW", "es", "ms", "ar"] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "en";
 
@@ -11,6 +14,9 @@ const messageMap: Record<string, LocaleContent> = {
   en: en as unknown as LocaleContent,
   zh: zh as unknown as LocaleContent,
   "zh-TW": zhTW as unknown as LocaleContent,
+  es: es as unknown as LocaleContent,
+  ms: ms as unknown as LocaleContent,
+  ar: ar as unknown as LocaleContent,
 };
 
 export async function getMessages(locale: string): Promise<LocaleContent> {

@@ -285,4 +285,13 @@ footer{background:#05111c;padding:72px max(4vw,24px) 0;color:#9baab5}
   .world-map .map-node b{font-size:8.5px!important;padding:2px 4px!important;text-align:center!important;max-width:64px!important;line-height:1.2!important;white-space:normal!important;word-break:break-word}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.map-node i{animation:none}*{transition:none!important}}
+/* ===== RTL support (Arabic) ===== */
+[dir="rtl"] body{font-family:var(--font-noto-sc),'Noto Sans SC Fallback',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif}
+[dir="rtl"] .arrow{margin-left:0;margin-right:8px}
+[dir="rtl"] .header-contact:hover .arrow,[dir="rtl"] .button:hover .arrow{transform:translate(-3px,-3px)}
+[dir="rtl"] .skip-link{left:auto;right:16px}
+[dir="rtl"] .brand{margin-left:0}
+[dir="rtl"] nav a,[dir="rtl"] .overline,[dir="rtl"] .hero-copy,[dir="rtl"] .section-header{text-align:right}
+[dir="rtl"] .overline i{margin-left:0;margin-right:0}
+[dir="rtl"] .hero-copy,[dir="rtl"] .section-sub,[dir="rtl"] .hero-desc{direction:rtl}
 

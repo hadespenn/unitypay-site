@@ -5,6 +5,9 @@
 /en           /en/          301
 /zh           /zh/          301
 /zh-TW        /zh-TW/       301
+/es           /es/          301
+/ms           /ms/          301
+/ar           /ar/          301
 
 # --- 2. Sub-page: missing trailing slash → add it (301) ---
 /en/about             /en/about/             301
@@ -19,6 +22,18 @@
 /zh-TW/compliance     /zh-TW/compliance/     301
 /zh-TW/developers     /zh-TW/developers/     301
 /zh-TW/solutions      /zh-TW/solutions/      301
+/es/about             /es/about/             301
+/es/compliance        /es/compliance/        301
+/es/developers        /es/developers/        301
+/es/solutions         /es/solutions/         301
+/ms/about             /ms/about/             301
+/ms/compliance        /ms/compliance/        301
+/ms/developers        /ms/developers/        301
+/ms/solutions         /ms/solutions/         301
+/ar/about             /ar/about/             301
+/ar/compliance        /ar/compliance/        301
+/ar/developers        /ar/developers/        301
+/ar/solutions         /ar/solutions/         301
 
 # --- 3. 404 fallback ---
 /*            /404.html     404

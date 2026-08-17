@@ -3,7 +3,7 @@ import { getMessages } from "./messages";
 import type { LocaleContent } from "./locale";
 
 const BASE_URL = "https://unity-pay.pages.dev";
-const HREFLANG_LOCALES = ["en", "zh", "zh-TW"] as const;
+const HREFLANG_LOCALES = ["en", "zh", "zh-TW", "es", "ms", "ar"] as const;
 
 /** Build hreflang alternates for the current page path — absolute URLs required by spec */
 export function hreflangAlternates(path: string): Record<string, string> {
@@ -32,7 +32,7 @@ export async function pageMetadata(
     title,
     description,
     icons: { icon: "/logo.webp" },
-    openGraph: { title, description, images: [img], type: "website", siteName: "UnityPay", locale: locale === "zh" ? "zh_CN" : locale === "zh-TW" ? "zh_TW" : "en_US" },
+    openGraph: { title, description, images: [img], type: "website", siteName: "UnityPay", locale: locale === "zh" ? "zh_CN" : locale === "zh-TW" ? "zh_TW" : locale === "es" ? "es_ES" : locale === "ms" ? "ms_MY" : locale === "ar" ? "ar_AR" : "en_US" },
     twitter: { card: "summary_large_image", title, description, images: [t.ogImage] },
     alternates: {
       canonical: `${BASE_URL}/${locale}/${pagePath ? `${pagePath}/` : ""}`,

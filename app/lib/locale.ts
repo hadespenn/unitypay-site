@@ -4,8 +4,11 @@ import { useEffect, useState } from "react";
 import enLocaleData from "../../public/locales/en.json";
 import zhLocaleData from "../../public/locales/zh.json";
 import zhTWLocaleData from "../../public/locales/zh-TW.json";
+import esLocaleData from "../../public/locales/es.json";
+import msLocaleData from "../../public/locales/ms.json";
+import arLocaleData from "../../public/locales/ar.json";
 
-export type Locale = "zh" | "en" | "zh-TW" | "ru" | "de" | "es" | "pt" | "ja" | "ko";
+export type Locale = "zh" | "en" | "zh-TW" | "es" | "ms" | "ar" | "ru" | "de" | "pt" | "ja" | "ko";
 export type Pair = readonly [string, string];
 
 export interface StepItem { num: string; label: string; title: string; desc: string; }
@@ -205,6 +208,9 @@ const eagerLocales: Record<string, LocaleContent> = {
   en: initialLocale,
   zh: zhLocaleData as unknown as LocaleContent,
   "zh-TW": zhTWLocaleData as unknown as LocaleContent,
+  es: esLocaleData as unknown as LocaleContent,
+  ms: msLocaleData as unknown as LocaleContent,
+  ar: arLocaleData as unknown as LocaleContent,
 };
 const localeCache = new Map<string, LocaleContent>(Object.entries(eagerLocales));
 
@@ -222,7 +228,7 @@ async function loadLocale(code: string): Promise<LocaleContent> {
 }
 
 export function useLocale(locale: Locale) {
-  // For non-eager locales (ru/de/es/…), track async-loaded content
+  // For non-eager locales (ru/de/pt/ja/ko…), track async-loaded content
   const [nonEagerContent, setNonEagerContent] = useState<LocaleContent | null>(null);
 
   // t is computed synchronously from locale — no useState async lag
@@ -246,7 +252,7 @@ export function useLocale(locale: Locale) {
 }
 
 const LOCALE_COOKIE_KEY = "unitypay-locale";
-const VALID_LOCALES = ["en", "zh", "zh-TW"] as const;
+const VALID_LOCALES = ["en", "zh", "zh-TW", "es", "ms", "ar"] as const;
 
 // Precompile regex once at module level — avoids per-render RegExp construction
 const COOKIE_REGEX = new RegExp(`(?:^|;\\s*)${LOCALE_COOKIE_KEY}=([^;]*)`);

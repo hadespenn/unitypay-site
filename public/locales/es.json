@@ -1,0 +1,281 @@
+{
+  "langName": "Español",
+  "langShort": "ES",
+  "seoTitle": "UnityPay | Adquisición y Pagos Transfronterizos con Licencia",
+  "seoDescription": "Pagos transfronterizos con licencia MSB canadiense y MSO de Hong Kong. Adquisición fiat global, liquidación con stablecoins y FX para empresas transfronterizas.",
+  "ogImage": "/logo.webp",
+  "aboutSeoTitle": "Acerca de UnityPay | Infraestructura de Pagos Transfronterizos",
+  "aboutSeoDescription": "UnityPay conecta adquisición, cumplimiento e instituciones con licencia mediante una arquitectura transparente para pagos empresariales globales.",
+  "complianceSeoTitle": "Cumplimiento y Confianza | UnityPay",
+  "complianceSeoDescription": "Marco de cumplimiento transparente que conecta instituciones financieras con licencia. Cada flujo de fondos cumple los requisitos regulatorios multijurisdiccionales.",
+  "developersSeoTitle": "Documentación API | Adquisición y Liquidación Transfronteriza | UnityPay",
+  "developersSeoDescription": "APIs claras, fiables y auditables para adquisición, enrutamiento y liquidación. Diseñadas para equipos de integración que exigen certeza.",
+  "solutionsSeoTitle": "Adquisición Transfronteriza y Liquidación Conforme | UnityPay",
+  "solutionsSeoDescription": "Arquitectura desacoplada de adquisición y pagos conformes que conecta la adquisición fiat con la liquidación de stablecoins mediante infraestructura físicamente aislada.",
+  "breadcrumbHome": "Inicio",
+  "breadcrumbAbout": "Sobre Nosotros",
+  "breadcrumbCompliance": "Cumplimiento y Confianza",
+  "breadcrumbDevelopers": "Documentación para Desarrolladores",
+  "breadcrumbSolutions": "Soluciones",
+
+  "nav": ["Arquitectura", "Capacidades", "Cumplimiento", "Seguridad", "Desarrolladores", "Red Global"],
+
+  "heroEyebrow": "INFRAESTRUCTURA GLOBAL DE PAGOS",
+  "eyebrow": "INFRAESTRUCTURA",
+  "heroTitle": "Flujo de Valor Transfronterizo",
+  "heroTitleAccent": "Conforme, Transparente, Confiable",
+  "heroText": "UnityPay conecta la adquisición, el control de cumplimiento y la ejecución de instituciones con licencia mediante una arquitectura desacoplada, permitiendo a los comercios transfronterizos mover valor con límites jurisdiccionales claros y rutas de liquidación verificables.",
+  "heroDemo": "Solicitar una Demo",
+  "heroApiDocs": "Ver Documentación API",
+  "heroStats": [["120+", "Mercados Cubiertos"], ["40+", "Monedas de Liquidación"], ["99.99%", "Disponibilidad de Infraestructura"], ["24/7", "Monitoreo de Riesgos"]],
+
+  "heroFlowLabel": "Adquisición Fiat → Búfer VA → Enrutamiento OTC Conforme → Liquidación USDC",
+  "heroFlowStages": ["Adquisición Fiat", "Búfer VA", "Enrutamiento OTC Conforme", "Liquidación USDC"],
+
+  "trustBarTitle": "Con Licencia en Jurisdicciones Financieras Clave",
+  "trustCards": [
+    ["Canadá", "Registro MSB de FINTRAC — requisito AML bajo PCMLTFA"],
+    ["Hong Kong", "Licencia MSO — servicios fiat regulados con alcance legal claro"],
+    ["Singapur", "Centro de operaciones en Asia con arquitectura de seguridad MPC"],
+    ["Caimán / BVI", "Entidad tecnológica independiente para aislar el riesgo legal"]
+  ],
+
+  "archOverline": "ARQUITECTURA DESACOPLADA",
+  "archTitle": "Flujo de Fondos Conforme en Cuatro Etapas",
+  "archSubtitle": "Cada etapa es ejecutada por una institución responsable por separado, con aislamiento físico entre flujos fiat y cripto — el principio central de diseño del cumplimiento.",
+  "archSteps": [
+    {"num": "01", "label": "Verificación Comercial", "title": "KYC / KYB y Antecedentes Comerciales", "desc": "Incorporación con evaluación de elegibilidad por escenarios, conciliación de órdenes y reconciliación. La documentación comercial genuina se verifica en el punto de entrada para establecer la base legal de la transacción."},
+    {"num": "02", "label": "Adquisición Fiat", "title": "Tarjeta y Pagos Alternativos", "desc": "Los pagos se recaudan a través de canales de adquisición con licencia usando códigos MCC estándar. Los fondos se liquidan en cuentas virtuales (VA) dedicadas, creando un búfer temporal y espacial."},
+    {"num": "03", "label": "Enrutamiento Conforme", "title": "MSO ↔ Socios OTC con Licencia", "desc": "La MSO solo gestiona la liquidación fiat. Las instituciones OTC con licencia ejecutan de forma independiente la conversión de stablecoins bajo sus propias obligaciones de cumplimiento — sin mezcla de fondos."},
+    {"num": "04", "label": "Ejecución del Socio", "title": "Liquidación y Ecosistema de Billeteras", "desc": "Las stablecoins se entregan directamente a billeteras de autocustodia del cliente. La plataforma nunca toma posesión — la liquidación es verificable criptográficamente en cadena."}
+  ],
+  "fiatFlowLabel": "Flujo fiat (alcance MSB / MSO)",
+  "cryptoFlowLabel": "Flujo cripto (alcance del socio OTC)",
+  "isolationLabel": "Separación física — sin mezcla de flujos ni instituciones",
+
+  "capOverline": "CAPACIDADES PRINCIPALES",
+  "capTitle": "Pila de Capacidades de Extremo a Extremo por Etapa de Flujo de Fondos",
+  "capSubtitle": "Seis módulos de capacidad que abarcan el ciclo de vida completo desde la incorporación del comercio hasta la liquidación, cada uno alineado con un límite de cumplimiento específico.",
+  "caps": [
+    {"icon": "◇", "title": "Adquisición de Comercios", "desc": "Incorporación por escenarios, conciliación de órdenes y reconciliación. Múltiples vías de adquisición con controles de cumplimiento a nivel MCC."},
+    {"icon": "⇄", "title": "Depósito y Cambio Conforme", "desc": "Ejecutado de forma independiente por instituciones socias con licencia. Conversión fiat-a-stablecoin bajo entidades legales separadas con trazabilidad de auditoría clara."},
+    {"icon": "⌁", "title": "Billetera MPC sin Custodia", "desc": "Construida sobre el modelo de firma umbral 2-de-3. La plataforma nunca puede mover unilateralmente los activos del cliente — la seguridad está garantizada arquitectónicamente, no prometida."},
+    {"icon": "◎", "title": "Acceso a Finanzas On-Chain", "desc": "Conexión con mercados de productos stablecoin y RWA. Las vías de liquidación se extienden desde los canales fiat hacia lugares de liquidez on-chain regulados."},
+    {"icon": "▹", "title": "Enrutamiento de Cuentas y Pagos", "desc": "Enrutamiento gobernado por socios con rutas transparentes y auditables. Opciones de pago multi-vía adaptadas a los requisitos de la jurisdicción de destino."},
+    {"icon": "⬡", "title": "Riesgo y Monitoreo Continuo", "desc": "Controles de riesgo a nivel de transacción integrados en todo el flujo comercial. Filtrado de sanciones, detección de anomalías y debida diligencia continua de contrapartes."}
+  ],
+
+  "compOverline": "MARCO DE CUMPLIMIENTO",
+  "compTitle": "Cumplimiento Integrado en el Diseño del Producto",
+  "compTitleAccent": "No Añadido Después",
+  "compSubtitle": "El cumplimiento no es un complemento — da forma a cada decisión desde el alcance de la licencia hasta la arquitectura y el manejo de los activos del cliente.",
+  "compStatementLabel": "Aviso Importante",
+  "compStatement": "El registro MSB es un requisito previo de cumplimiento AML — no una licencia financiera integral, ni un respaldo oficial, ni una autorización para realizar captación de depósitos, banca o valores.",
+  "compCards": [
+    {"icon": "▣", "title": "Registro MSB de Canadá", "desc": "Registrado ante FINTRAC bajo la Ley de Producto del Delito (Lavado de Dinero) y Financiamiento del Terrorismo. Este registro sirve como requisito AML para nuestros servicios de enrutamiento de pagos fiat y no constituye respaldo gubernamental."},
+    {"icon": "◈", "title": "Servicios de Pago Minorista", "desc": "Reconociendo los requisitos de registro PSP bajo la Ley de Actividades de Pago Minorista administrada por el Banco de Canadá, con monitoreo continuo de desarrollos regulatorios."},
+    {"icon": "◎", "title": "Marco de Control Basado en Riesgo", "desc": "Obligaciones de alcance completo incluyendo KYC, KYB, filtrado de sanciones, cumplimiento de la Regla de Viaje FATF, monitoreo de transacciones y reporte de transacciones sospechosas en 24 horas."},
+    {"icon": "⊘", "title": "Declaración Clara de Límites", "desc": "No brindamos asesoría de inversión, no prometemos rendimientos, no mantenemos activos del cliente en balance, no aceptamos depósitos, no emitimos tokens de seguridad, ni participamos en la conciliación de operaciones. Cada límite está declarado, es auditable y se aplica."}
+  ],
+  "compDisclaimer": "Esta plataforma solo proporciona servicios de enrutamiento de pagos y tecnología de software. No brinda asesoría de inversión ni garantiza el rendimiento de los activos. Todos los intercambios de activos virtuales y servicios financieros relacionados son proporcionados de forma independiente por instituciones debidamente licenciadas y permanecen sujetos a acuerdos formales y alcance permitido. Los servicios y la disponibilidad varían según la jurisdicción, la elegibilidad del cliente y la cobertura de socios.",
+
+  "mpcOverline": "SEGURIDAD MPC SIN CUSTODIA",
+  "mpcTitle": "Sin Custodia por Arquitectura, No por Promesa",
+  "mpcText": "El modelo de firma umbral 2-de-3 garantiza que ninguna parte — ni la plataforma ni ningún actor externo — puede mover unilateralmente los activos del cliente. Es una garantía estructural, no una declaración de políticas.",
+  "mpcShards": [
+    {"icon": "📱", "label": "Fragmento 1", "title": "Dispositivo del Usuario", "desc": "Un fragmento de clave reside en el dispositivo del usuario final. La plataforma no tiene visibilidad de este fragmento — se genera y almacena completamente bajo control del usuario."},
+    {"icon": "⚙", "label": "Fragmento 2", "title": "Servicio de Políticas", "desc": "Un segundo fragmento lo mantiene un motor de políticas de co-firma que aplica reglas de transacción — límites de velocidad, verificación de listas blancas, ventanas de tiempo — antes de que proceda cualquier firma."},
+    {"icon": "🔑", "label": "Fragmento 3", "title": "Recuperación Independiente", "desc": "Un tercer fragmento lo mantiene un proveedor de recuperación independiente. Nunca está activo en operaciones normales y solo se usa bajo un protocolo predefinido de recuperación ante desastres."}
+  ],
+  "mpcCommitment": "El umbral es 2-de-3. La plataforma mantiene como máximo un fragmento en cualquier momento. Los activos nunca pueden moverse sin el consentimiento explícito del usuario.",
+
+  "riskOverline": "RIESGO Y MITIGACIÓN",
+  "riskTitle": "Riesgos Operativos Clave — y Cómo los Abordamos",
+  "riskSubtitle": "Cada riesgo se identifica, evalúa y mitiga mediante medidas arquitectónicas, legales y operativas concretas — sin vaguedades.",
+  "risks": [
+    {"tag": "Riesgo", "title": "Autenticidad del Antecedente Comercial", "desc": "La documentación comercial ficticia o inflada debilita la base legal de los pagos transfronterizos.", "strategy": "Estrategia", "strategyText": "Presentación y verificación obligatoria de documentos comerciales genuinos en la incorporación. Conciliación a nivel de transacción con datos de órdenes y logística. Muestreo y auditoría continuos post-transacción."},
+    {"tag": "Riesgo", "title": "Restricciones de Depósito de Terceros OTC", "desc": "Las mesas OTC pueden restringir o rechazar depósitos de fuentes de terceros, creando fricción de liquidación para conversiones financiadas por VA.", "strategy": "Estrategia", "strategyText": "Socios OTC pre-validados con políticas explícitas de depósito de terceros. Arquitectura de cuentas virtuales dedicadas que garantiza una procedencia limpia de los fondos antes del enrutamiento de conversión."},
+    {"tag": "Riesgo", "title": "Fricción Repetida de KYC", "desc": "Los comercios enfrentan procesos KYC/KYB redundantes en múltiples capas de servicio, aumentando la deserción y el costo operativo.", "strategy": "Estrategia", "strategyText": "Arquitectura de identidad verificada una vez y de uso múltiple. Los datos de cumplimiento se estructuran para reutilizarse entre instituciones socias con consentimiento, reduciendo la duplicación mientras se mantiene la integridad de la auditoría."},
+    {"tag": "Riesgo", "title": "Límites Regulatorios SFC", "desc": "Los requisitos de licencia SFC de Hong Kong imponen líneas rojas claras sobre las actividades de activos virtuales que no deben cruzarse.", "strategy": "Estrategia", "strategyText": "Separación funcional estricta: la MSO solo maneja fiat. El intercambio de activos virtuales es ejecutado exclusivamente por socios con licencia SFC (o equivalente) bajo su propio perímetro regulatorio."}
+  ],
+
+  "devOverline": "DESARROLLADORES",
+  "devTitle": "Una API, Múltiples Vías",
+  "devText": "Interfaces claras, fiables y auditables para adquisición, enrutamiento y liquidación — diseñadas para equipos de integración que exigen certeza.",
+  "devs": [
+    ["API REST Versionada", "Endpoints REST versionados y estables con acceso sandbox, soporte de integración y documentación completa."],
+    ["Webhooks Confiables", "Entrega de webhooks idempotente con reintento automático. Los eventos de pago críticos llegan de forma confiable — sin fallos silenciosos."],
+    ["Transferencia de Datos Cifrada", "La información requerida por cumplimiento se cifra en tránsito y en reposo, alineada con los requisitos de protección de datos."],
+    ["Enrutamiento Multi-Vía", "Configure reglas de enrutamiento de pagos por jurisdicción, umbral de monto y par de monedas. Control programático sobre las rutas de liquidación."],
+    ["Auditoría y Conciliación", "Registros de transacciones estructurados con integridad criptográfica. Cada transición de estado es consultable y verificable."]
+  ],
+
+  "globalOverline": "COBERTURA GLOBAL",
+  "globalTitle": "Reglas Locales, Alcance Global",
+  "globalText": "Presencia de cumplimiento en 6 centros financieros clave, cada uno con alcance de licencia definido y cobertura de socios validada.",
+  "globalNote": "Los servicios y la disponibilidad varían según la jurisdicción, la elegibilidad del cliente y la cobertura de socios, y son realizados de forma independiente por instituciones con licencia local.",
+  "regions": [
+    ["Canadá", "MSB FINTRAC · vía de registro PSP"],
+    ["Reino Unido", "Alineación de filtrado global de sanciones"],
+    ["Hong Kong", "Licencia MSO · alcance claro solo fiat"],
+    ["Singapur", "Centro de Asia · arquitectura tecnológica MPC"],
+    ["Caimán / BVI", "Entidad tecnológica independiente · aislamiento de riesgo"],
+    ["Estados Unidos", "Vías transfronterizas · estándares FATF"]
+  ],
+
+  "ctaOverline": "HABLEMOS",
+  "ctaTitle": "Ejecute sus Flujos Transfronterizos con Cumplimiento Primero",
+  "ctaText": "Cuéntenos sobre sus mercados de adquisición, escenarios de transacción y necesidades de liquidación. Evaluaremos las vías disponibles, la cobertura de socios conformes y la ruta de incorporación adecuada — sin obligación, sin promesas vagas.",
+  "ctaScenarios": [
+    { "icon": "🛒", "title": "E-Commerce\nAdquisición Multi-Moneda" },
+    { "icon": "🎮", "title": "Publicación de Juegos\nPagos Globales" },
+    { "icon": "📦", "title": "Servicios Comerciales\nLiquidación Conforme" },
+    { "icon": "🔗", "title": "Proyectos Web3\nAcceso On-Chain" }
+  ],
+  "ctaUnified": "Diseñamos una arquitectura de adquisición y liquidación a su medida — cualquiera que sea su vertical.",
+  "contact": "Contacte a Nuestro Equipo",
+  "contactEmail": "Correo",
+  "contactEmailValue": "hello@unitypay.com",
+  "contactLocation": "Ubicaciones",
+  "contactLocationValue": "Hong Kong · Singapur · Shanghái",
+  "contactHours": "Horario",
+  "contactHoursValue": "Lun–Vie 09:00–18:00 HKT",
+
+  "footerBrand": "UnityPay",
+  "footerDesc": "Infraestructura global de pagos, liquidación y cumplimiento — conectando comercios, redes de adquisición e instituciones financieras con licencia mediante una arquitectura transparente y verificable.",
+  "footerColProduct": "Producto",
+  "footerLinkSolutions": "Soluciones",
+  "footerLinkCompliance": "Cumplimiento y Confianza",
+  "footerLinkDevelopers": "Documentación para Desarrolladores",
+  "footerLinkPay": "Adquisición Fiat",
+  "footerLinkCapabilities": "Capacidades",
+  "footerLinkStable": "Liquidación con Stablecoins",
+  "footerLinkApi": "API e Integraciones",
+  "footerColCompany": "Empresa",
+  "footerLinkAbout": "Sobre Nosotros",
+  "footerLinkContact": "Contáctenos",
+  "footerLinkTerms": "Términos del Servicio",
+  "footerLinkPrivacy": "Política de Privacidad",
+  "footerCopyright": "© 2026 UNITYPAY. TODOS LOS DERECHOS RESERVADOS.",
+  "footerLink": "Ver exención completa →",
+  "footerDisclaimer": "⚠️ Esta plataforma solo proporciona servicios de enrutamiento de pagos y tecnología de software. No ofrece asesoría de inversión ni custodia activos del cliente. Todos los servicios financieros regulados son proporcionados de forma independiente por instituciones socias con licencia.",
+
+  "aboutEyebrow": "Acerca de UnityPay",
+  "aboutTitle": "Un Socio de Pagos Transfronterizos",
+  "aboutTitleAccent": "Confiable para Negocios Globales",
+  "aboutDesc": "UnityPay es una plataforma global de tecnología y servicios de software de liquidación de pagos para negocios que se internacionalizan, que proporciona interfaz de producto, orquestación de procesos, instrucciones de enrutamiento, visualización de estado y soporte de conciliación. Conectamos la adquisición, el control de cumplimiento y la ejecución de instituciones con licencia mediante una arquitectura desacoplada, asegurando que cada flujo de fondos tenga una ruta rastreable. Los servicios regulados relacionados con pagos, remesas, cambio y activos virtuales son proporcionados de forma independiente por socios calificados. Nuestro equipo tiene profunda experiencia en pagos transfronterizos, cumplimiento comercial y fintech, comprometido a conectar comercios, redes de adquisición e instituciones financieras con licencia de manera transparente y verificable.",
+  "aboutMissionCards": [
+    {"title": "Misión", "subtitle": "Valor Sin Fronteras", "desc": "Eliminar la fricción y las barreras en los pagos transfronterizos, permitiendo que los negocios globales muevan capital libremente."},
+    {"title": "Valores", "subtitle": "Cumplimiento Primero", "desc": "El cumplimiento es parte del diseño del producto, no una ocurrencia tardía."},
+    {"title": "Compromiso", "subtitle": "Tecnológicamente Neutral, Sin Custodia de Activos", "desc": "La plataforma solo proporciona enrutamiento de pagos y servicios de tecnología de software."}
+  ],
+
+  "complianceEyebrow": "Cumplimiento y Confianza",
+  "complianceTitle": "Cumplimiento Integrado en el",
+  "complianceTitleAccent": "Diseño del Producto, No Añadido Después",
+  "complianceDesc": "Conectamos instituciones financieras con licencia mediante un marco de cumplimiento transparente y abierto, asegurando que cada flujo de fondos cumpla los requisitos regulatorios multijurisdiccionales.",
+  "complianceStatementTitle": "Aviso Importante",
+  "complianceStatementText": "El registro MSB es un requisito previo de cumplimiento AML y no representa un respaldo gubernamental ni una licencia financiera integral. El registro FINTRAC es una condición necesaria de cumplimiento AML y no constituye autorización para realizar negocios bancarios, de valores o de captación de depósitos.",
+  "complianceJuriEyebrow": "Presencia Global",
+  "complianceJuriTitle": "Jurisdicciones con Licencia",
+  "complianceJuriHeader": ["Región", "Marco / Licencia", "Descripción"],
+  "complianceJurisdictions": [
+    {"region": "Canadá", "framework": "MSB / FINTRAC", "desc": "Registrado bajo el marco federal AML/ATF para servicios monetarios prescritos"},
+    {"region": "Hong Kong", "framework": "Licencia MSO", "desc": "Alcance de servicio estricto solo fiat sin participación en activos virtuales"},
+    {"region": "Singapur", "framework": "Marco MAS", "desc": "Centro de Asia con arquitectura tecnológica MPC"},
+    {"region": "Caimán / BVI", "framework": "Estructura Tecnológica Independiente", "desc": "Aislamiento de riesgo, estructuralmente separado de las entidades con licencia financiera"}
+  ],
+  "complianceObliEyebrow": "Obligaciones de Cumplimiento",
+  "complianceObliTitle": "Marco de Obligaciones Basado en Lista de Verificación",
+  "complianceObligations": [
+    {"type": "Identificación del Cliente (KYC)", "desc": "Verificar la identidad de la persona o entidad e identificar a los beneficiarios finales"},
+    {"type": "Debida Diligencia Comercial (KYB)", "desc": "Revisar los UBO del comercio, los modelos de negocio y el historial de transacciones"},
+    {"type": "Filtrado de Sanciones", "desc": "Filtrar clientes, beneficiarios finales, agentes, entidades matrices/filiales, pagadores y beneficiarios"},
+    {"type": "Monitoreo de Transacciones", "desc": "Señales continuas con reglas configurables para identificar actividad anómala"},
+    {"type": "Reporte de Transacciones Sospechosas (STR)", "desc": "Reportar sin umbral monetario cuando existan motivos razonables para sospechar ML/TF"},
+    {"type": "Reporte de Agregación de 24 Horas", "desc": "Reporte de grandes transferencias de efectivo, moneda virtual y fondos electrónicos"},
+    {"type": "Regla de Viaje FATF", "desc": "Transferencias EFT o de moneda virtual reportables acompañadas de información del originador y beneficiario"},
+    {"type": "Conservación de Registros", "desc": "La mayoría de los registros legales se conservan al menos 5 años"}
+  ],
+  "complianceBounEyebrow": "Declaración de Límites",
+  "complianceBounTitle": "Lo Que No Hacemos",
+  "complianceBoundaries": [
+    {"label": "Sin Asesoría de Inversión", "desc": "El contenido de la plataforma se limita a educación técnica y divulgación de información"},
+    {"label": "Sin Promesas de Rendimiento", "desc": "Sin garantía de ningún rendimiento de inversión o apreciación de activos"},
+    {"label": "Sin Custodia de Activos", "desc": "La plataforma no mantiene claves privadas ni fondos del cliente"},
+    {"label": "Sin Captación de Depósitos", "desc": "Los fondos del cliente no se aceptan como pasivos de la plataforma"},
+    {"label": "Sin Emisión de Tokens de Seguridad", "desc": "Sin emisión ni suscripción de ningún tipo de tokens de seguridad"},
+    {"label": "Sin Conciliación de Operaciones", "desc": "La plataforma no participa en la conciliación de compradores y vendedores"}
+  ],
+  "complianceRiskEyebrow": "Riesgo y Mitigación",
+  "complianceRiskTitle": "Cuatro Riesgos Principales",
+  "complianceRisks": [
+    {"title": "Autenticidad del Antecedente Comercial", "desc": "El comercio ficticio puede explotar los canales para el lavado de dinero", "strategy": "Verificación obligatoria de documentos comerciales genuinos · monitoreo de transacciones impulsado por IA"},
+    {"title": "Restricciones de Depósito de Terceros OTC", "desc": "El OTC conforme prohíbe estrictamente los depósitos de terceros", "strategy": "Protocolo de pasarela de pago B2B · sincronización de información de cumplimiento a nivel API"},
+    {"title": "Fricción Repetida de KYC", "desc": "La verificación repetida entre plataformas genera abandono de usuarios", "strategy": "Protocolo de reconocimiento mutuo de KYC · incorporación autorizada con 1 clic"},
+    {"title": "Límites Regulatorios SFC", "desc": "La asesoría de inversión activa los requisitos de licencia Tipo 4", "strategy": "Neutralidad tecnológica estricta · exenciones de responsabilidad claras"}
+  ],
+  "complianceDisclaimerText": "Esta plataforma solo proporciona servicios de enrutamiento de pagos y tecnología de software. No brinda asesoría de inversión ni garantiza el rendimiento de los activos. Todos los intercambios de activos virtuales y servicios financieros relacionados son proporcionados de forma independiente por instituciones debidamente licenciadas y permanecen sujetos a acuerdos formales y alcance permitido. Los servicios y la disponibilidad varían según la jurisdicción, la elegibilidad del cliente y la cobertura de socios.",
+
+  "devPageEyebrow": "Documentación para Desarrolladores",
+  "devPageTitle": "Una API,",
+  "devPageTitleAccent": "Múltiples Vías",
+  "devPageDesc": "Interfaces claras, fiables y auditables para adquisición, enrutamiento y liquidación — diseñadas para equipos de integración que exigen certeza.",
+  "devPageFeaturesEyebrow": "Características Principales",
+  "devPageFeaturesTitle": "Claras, Auditables, Confiables",
+  "devPageFeatures": [
+    {"icon": "{ }", "title": "API REST Versionada", "desc": "API REST limpia y versionada con entorno sandbox y soporte de integración"},
+    {"icon": "↻", "title": "Webhooks Confiables", "desc": "Entrega idempotente que garantiza que los eventos lleguen de forma confiable"},
+    {"icon": "⌁", "title": "Transferencia de Datos Cifrada", "desc": "Transferencia cifrada de información requerida por cumplimiento alineada con los requisitos de protección de datos"},
+    {"icon": "◎", "title": "Sincronización de Información del Comercio", "desc": "Consultas de estado de transacciones, conciliación de saldos e intercambio de datos de cumplimiento"}
+  ],
+  "devPageApiEyebrow": "Ejemplo de Endpoint",
+  "devPageApiTitle": "Crear Ruta de Liquidación",
+  "devPageApiSubtitle": "Inicie una liquidación entre divisas mediante un único endpoint. La plataforma devuelve un ID de ruta y un tiempo estimado de liquidación.",
+  "devPageSandboxEyebrow": "Entorno Sandbox",
+  "devPageSandboxTitle": "Pruebas Completas Antes del Lanzamiento",
+  "devPageSandboxCardTitle": "Reducir los Costos de Conciliación Manual",
+  "devPageSandboxCardText": "El entorno sandbox simula flujos de transacciones reales con pruebas completas de llamadas API. Todos los eventos de webhook, la verificación de firmas y los códigos de error son idénticos a producción, ayudando a los integradores a completar la validación de extremo a extremo antes del lanzamiento y reducir significativamente los costos de conciliación y resolución de problemas posteriores al lanzamiento.",
+  "devPageStepsEyebrow": "Flujo de Integración",
+  "devPageStepsTitle": "Del Registro a Producción",
+  "devPageSteps": [
+    {"num": "①", "title": "Regístrese y Obtenga la Clave API", "desc": "Cree una cuenta de comercio en la consola. La clave API se emite automáticamente después de la verificación de identidad."},
+    {"num": "②", "title": "Pruebe en el Entorno Sandbox", "desc": "Use claves sandbox para completar las pruebas de integración de extremo a extremo en un entorno aislado sin fondos reales."},
+    {"num": "③", "title": "Envíe Materiales de Cumplimiento para Revisión", "desc": "Envíe materiales KYC/KYB y descripciones de escenarios de negocio para la revisión del equipo de cumplimiento."},
+    {"num": "④", "title": "Cambie a Producción", "desc": "Tras aprobar la revisión, cambie a claves de producción, publique según el calendario planificado y habilite el monitoreo en tiempo real."}
+  ],
+
+  "solutionsEyebrow": "Soluciones",
+  "solutionsTitle": "Adquisición Desacoplada y",
+  "solutionsTitleAccent": "Arquitectura de Pagos Conforme",
+  "solutionsDesc": "Construida sobre escenarios reales de servicios comerciales, conectando la adquisición fiat con pagos conformes mediante una arquitectura físicamente aislada, garantizando límites de licencia y trazabilidad de auditoría claros para cada flujo de fondos.",
+  "solutionsArchEyebrow": "Resumen de la Arquitectura",
+  "solutionsArchTitle": "Flujo Desacoplado en Tres Etapas",
+  "solutionsArchSteps": [
+    {"num": "01", "label": "Adquisición Frontend", "items": ["Aprovechando las calificaciones de licencia MSB de Canadá y MSO de Hong Kong", "Adquisición con tarjeta de crédito o fiat basada en escenarios reales de servicios comerciales", "Uso de códigos MCC comerciales estándar (p. ej. 5999) para asegurar el cumplimiento del canal de adquisición"]},
+    {"num": "02", "label": "Estacionamiento de Fondos", "items": ["Los fondos fiat se liquidan en cuentas virtuales (VA) dedicadas", "Los fondos se caracterizan como \"ingresos fiat propiedad legal del comercio/cliente\"", "Aislamiento físico y búfer temporal entre flujos fiat y cripto"]},
+    {"num": "03", "label": "Decisión del Usuario y Enrutamiento", "items": ["Ruta fiat: el cliente elige fiat, la MSO ejecuta la remesa fiat estándar", "Ruta cripto: el cliente elige stablecoin, redirigido a OTC con licencia (OSL / MetaComp)", "La MSO solo transfiere fondos VA a la cuenta fiduciaria OTC según instrucción; el OTC maneja la conversión"]}
+  ],
+  "solutionsFlowEyebrow": "Proceso Detallado",
+  "solutionsFlowTitle": "Cuatro Etapas Claras",
+  "solutionsFlowSteps": [
+    {"num": "①", "name": "Verificación Comercial", "desc": "Debida diligencia empresarial KYB, identificación de UBO, verificación cruzada de documentos comerciales"},
+    {"num": "②", "name": "Adquisición Fiat", "desc": "Tarjetas bancarias, transferencias bancarias, pagos locales con conciliación de órdenes, compensación y reconciliación"},
+    {"num": "③", "name": "Enrutamiento Conforme", "desc": "Filtrado de sanciones, monitoreo de transacciones, agregación de 24 horas, enrutamiento a socios calificados"},
+    {"num": "④", "name": "Ejecución de la Liquidación", "desc": "El OTC con licencia ejecuta de forma independiente la conversión, devolviendo un estado de liquidación auditable"}
+  ],
+  "solutionsScenarioEyebrow": "Casos de Uso",
+  "solutionsScenarioTitle": "Para Quién Está Construido",
+  "solutionsScenarios": [
+    {"icon": "▣", "title": "E-Commerce", "desc": "Adquisición multi-moneda"},
+    {"icon": "◈", "title": "Publicación de Juegos", "desc": "Pagos globales a jugadores"},
+    {"icon": "⬢", "title": "Servicios Comerciales", "desc": "Liquidación transfronteriza conforme"},
+    {"icon": "⌬", "title": "Proyectos Web3", "desc": "Acceso a pagos on-chain"}
+  ],
+  "solutionsAdvantageTitle": "Separación Física de Flujos Fiat y Cripto",
+  "solutionsAdvantageSubtitle": "Garantizando el cumplimiento del canal de adquisición y los límites de licencia claros",
+  "solutionsAdvantages": [
+    "La MSO maneja solo flujos fiat durante todo el proceso — sin participación en activos virtuales",
+    "Las obligaciones de cumplimiento las ejecutan instituciones con licencia; la plataforma solo proporciona enrutamiento técnico"
+  ]
+}

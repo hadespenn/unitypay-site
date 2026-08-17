@@ -14,7 +14,7 @@ module.exports = {
     policies: [{ userAgent: "*", allow: "/" }],
   },
   transform: async (config, path) => {
-    if (path === "/" || path.match(/^\/(en|zh|zh-TW)(\/)?$/)) {
+    if (path === "/" || path.match(/^\/(en|zh|zh-TW|es|ms|ar)(\/)?$/)) {
       return { loc: path, changefreq: "weekly", priority: 1.0, lastmod: new Date().toISOString() };
     }
     return { loc: path, changefreq: "monthly", priority: 0.7, lastmod: new Date().toISOString() };

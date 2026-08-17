@@ -9,6 +9,9 @@ const localeInfo: { code: Locale; name: string; short: string }[] = [
   { code: "en", name: "English", short: "EN" },
   { code: "zh", name: "简体中文", short: "中文" },
   { code: "zh-TW", name: "繁體中文", short: "繁中" },
+  { code: "es", name: "Español", short: "ES" },
+  { code: "ms", name: "Bahasa Melayu", short: "MS" },
+  { code: "ar", name: "العربية", short: "AR" },
 ];
 
 const navAnchors = ["#architecture", "#capabilities", "#compliance", "#security", "#developers", "#network"];

@@ -6,7 +6,14 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-const langMap: Record<string, string> = { en: "en", zh: "zh-CN", "zh-TW": "zh-Hant" };
+const langMap: Record<string, string> = {
+  en: "en",
+  zh: "zh-CN",
+  "zh-TW": "zh-Hant",
+  es: "es",
+  ms: "ms",
+  ar: "ar",
+};
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
